@@ -6,7 +6,7 @@ const MAX_SPEED = 64
 const FRICTION = 10
 const AIR_RESISTANCE = 1
 const GRAVITY = 4
-const JUMP_FORCE = 140
+const JUMP_FORCE = 200
 
 var motion = Vector2.ZERO
 
@@ -24,9 +24,7 @@ func _physics_process(delta):
 	else:
 		animationPlayer.play("Stand")
 	
-	motion.y += GRAVITY * delta * TARGET_FPS
 	
-	motion = move_and_slide(motion, Vector2.UP)
 	
 	if is_on_floor():
 		if x_input == 0:
@@ -35,6 +33,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JUMP_FORCE
 	else:
+		motion.y += GRAVITY * delta * TARGET_FPS
+	
 		animationPlayer.play("Jump")
 		
 		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
@@ -43,3 +43,4 @@ func _physics_process(delta):
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
 	
+	motion = move_and_slide(motion, Vector2.UP)
