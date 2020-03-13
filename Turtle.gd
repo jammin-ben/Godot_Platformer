@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const TARGET_FPS = 60
 const ACCELERATION = 8
-const MAX_SPEED = 64
+const MAX_SPEED = 100
 const FRICTION = 10
 const AIR_RESISTANCE = 1
 const GRAVITY = 4
