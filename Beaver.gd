@@ -17,8 +17,9 @@ func stand():
 	dir=0
 
 func run():
-	dir = floor(randf()*2)
+	dir = floor(randf()*2) 
 	if(dir == 0):
+		dir = -1
 		if(!lray.is_colliding()):
 			dir = 1
 	elif(dir ==1):
