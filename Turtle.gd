@@ -22,18 +22,25 @@ func _physics_process(delta):
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
 		sprite.flip_h = x_input < 0
 	else:
-		animationPlayer.play("Stand")
-	
+		if(animationPlayer.current_animation=="Move"):
+			animationPlayer.play("Stand")
 	
 	if is_on_floor():
+		#print("floor")
 		if x_input == 0:
-			motion.x = lerp(motion.x, 0, FRICTION * delta)
+			if(Input.is_action_just_pressed("ui_down")):
+				motion.x=0
+				animationPlayer.play("Hide")
+			elif(Input.is_action_just_released("ui_down")):
+				
+				animationPlayer.play("Emerge")
+			else:
+				motion.x = lerp(motion.x, 0, FRICTION * delta)
 			
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JUMP_FORCE
 	else:
 		motion.y += GRAVITY * delta * TARGET_FPS
-	
 		animationPlayer.play("Jump")
 		
 		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
