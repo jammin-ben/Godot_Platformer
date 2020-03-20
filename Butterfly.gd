@@ -22,7 +22,7 @@ func _ready():
 	else:
 		$ButterflyAnimator.play("White")
 	#random direction
-	var speed = 100
+	var speed = 50
 	xspeed=randf()*2*speed-speed
 	yspeed=randf()*2*speed-speed
 

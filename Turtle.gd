@@ -2,11 +2,11 @@ extends KinematicBody2D
 
 const TARGET_FPS = 60
 const ACCELERATION = 8
-const MAX_SPEED = 100
+const MAX_SPEED = 30
 const FRICTION = 10
 const AIR_RESISTANCE = 1
-const GRAVITY = 4
-const JUMP_FORCE = 200
+const GRAVITY = 6
+const JUMP_FORCE = 220
 
 var motion = Vector2.ZERO
 
@@ -23,7 +23,6 @@ func _physics_process(delta):
 		sprite.flip_h = x_input < 0
 	else:
 		animationPlayer.play("Stand")
-	
 	
 	
 	if is_on_floor():
