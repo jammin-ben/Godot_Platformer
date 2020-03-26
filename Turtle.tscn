@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Turtle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Turt.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Landscape.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 11 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Emerge"
 length = 0.5
 tracks/0/type = "value"
@@ -22,8 +23,7 @@ tracks/0/keys = {
 "values": [ 10, 9, 8 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Hide"
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Turtle_Spr:frame")
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Turtle_Spr:frame")
 tracks/0/interp = 1
@@ -52,7 +52,7 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -68,7 +68,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 4 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Turtle_Spr:frame")
 tracks/0/interp = 1
@@ -82,10 +82,11 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 loop = true
 
 [node name="Turt_Kinem" type="KinematicBody2D"]
+position = Vector2( -1, 0 )
 collision/safe_margin = 2.0
 script = ExtResource( 1 )
 
@@ -102,10 +103,58 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Hide"
-anims/Emerge = SubResource( 7 )
-anims/Hide = SubResource( 2 )
-anims/Jump = SubResource( 3 )
-anims/Move = SubResource( 4 )
-anims/Stand = SubResource( 5 )
-anims/Tortoise_Anim = SubResource( 6 )
+anims/Emerge = SubResource( 2 )
+anims/Hide = SubResource( 3 )
+anims/Jump = SubResource( 4 )
+anims/Move = SubResource( 5 )
+anims/Stand = SubResource( 6 )
+anims/Tortoise_Anim = SubResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2( 0, -112 )
+transform = Transform2D( 1, 0, 0, 1, 0, -112 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1, 0 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Landscape" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 3 )
+centered = false
+vframes = 4
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Landscape" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 3 )
+centered = false
+vframes = 4
+frame = 1
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Landscape" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 3 )
+centered = false
+vframes = 4
+frame = 2
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Landscape" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource( 3 )
+centered = false
+vframes = 4
+frame = 3
 
