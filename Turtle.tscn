@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Turtle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Turt.png" type="Texture" id=2]
-[ext_resource path="res://sprites/Landscape.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Sky.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Landscape.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 11 )
@@ -119,41 +120,40 @@ drag_margin_v_enabled = false
 offset = Vector2( 0, -112 )
 transform = Transform2D( 1, 0, 0, 1, 0, -112 )
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 1, 0 )
-motion_mirroring = Vector2( 400, 0 )
+[node name="Sky_Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 400, 675 )
 
-[node name="Landscape" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sky" type="Sprite" parent="ParallaxBackground/Sky_Layer"]
 texture = ExtResource( 3 )
 centered = false
-vframes = 4
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Cloud_Layer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.1, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
-[node name="Landscape" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-texture = ExtResource( 3 )
+[node name="Landscape" type="Sprite" parent="ParallaxBackground/Cloud_Layer"]
+texture = ExtResource( 4 )
 centered = false
 vframes = 4
 frame = 1
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Mountain_Layer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.2, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
-[node name="Landscape" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-texture = ExtResource( 3 )
+[node name="Landscape" type="Sprite" parent="ParallaxBackground/Mountain_Layer"]
+texture = ExtResource( 4 )
 centered = false
 vframes = 4
 frame = 2
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.3, 0 )
+[node name="Forest_Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
-[node name="Landscape" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
-texture = ExtResource( 3 )
+[node name="Landscape" type="Sprite" parent="ParallaxBackground/Forest_Layer"]
+texture = ExtResource( 4 )
 centered = false
 vframes = 4
 frame = 3

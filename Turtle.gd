@@ -12,7 +12,11 @@ var motion = Vector2.ZERO
 
 onready var sprite = $Turtle_Spr
 onready var animationPlayer = $AnimationPlayer
-
+onready var clouds = $ParallaxBackground/Cloud_Layer
+onready var sky = $ParallaxBackground/Sky_Layer
+func _process(delta):
+	clouds.motion_offset.x += 2*delta
+	sky.motion_offset.y -= 8*delta
 func _physics_process(delta):
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
