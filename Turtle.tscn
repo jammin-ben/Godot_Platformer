@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Turtle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Turt.png" type="Texture" id=2]
-[ext_resource path="res://sprites/Sky.png" type="Texture" id=3]
-[ext_resource path="res://sprites/Landscape.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Sunrise.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Sky.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Landscape.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 11 )
@@ -86,6 +87,34 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 loop = true
 
+[sub_resource type="Animation" id=8]
+resource_name = "Sunrise_Anim"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 99 ), Vector2( 0, 67 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="Turt_Kinem" type="KinematicBody2D"]
 position = Vector2( -1, 0 )
 collision/safe_margin = 2.0
@@ -116,6 +145,15 @@ current = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
+[node name="Sunrise" type="Sprite" parent="."]
+z_index = 1000
+z_as_relative = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, -95 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sunrise"]
+anims/Sunrise_Anim = SubResource( 8 )
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2( 0, -112 )
 transform = Transform2D( 1, 0, 0, 1, 0, -112 )
@@ -125,7 +163,7 @@ motion_scale = Vector2( 0, 0 )
 motion_mirroring = Vector2( 400, 675 )
 
 [node name="Sky" type="Sprite" parent="ParallaxBackground/Sky_Layer"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 
 [node name="Cloud_Layer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -133,7 +171,7 @@ motion_scale = Vector2( 0.1, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Landscape" type="Sprite" parent="ParallaxBackground/Cloud_Layer"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 vframes = 4
 frame = 1
@@ -143,7 +181,7 @@ motion_scale = Vector2( 0.2, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Landscape" type="Sprite" parent="ParallaxBackground/Mountain_Layer"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 vframes = 4
 frame = 2
@@ -153,7 +191,7 @@ motion_scale = Vector2( 0.5, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Landscape" type="Sprite" parent="ParallaxBackground/Forest_Layer"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 vframes = 4
 frame = 3
