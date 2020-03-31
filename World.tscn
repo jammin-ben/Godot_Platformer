@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Turtle.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://sprites/Tree.png" type="Texture" id=4]
 [ext_resource path="res://Sable.wav" type="AudioStream" id=5]
 [ext_resource path="res://Beaver.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/Strawberry.png" type="Texture" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -224,6 +225,36 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
+[sub_resource type="Animation" id=23]
+resource_name = "Hop"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.12, 0.9 ), Vector2( 0.9, 1.12 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.25, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0.5 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
+}
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -253,4 +284,14 @@ autoplay = true
 
 [node name="Beaver" parent="." instance=ExtResource( 6 )]
 position = Vector2( 157, 129 )
+
+[node name="Strawberry" type="Sprite" parent="."]
+position = Vector2( 180, 204 )
+scale = Vector2( 0.965594, 1.04129 )
+texture = ExtResource( 7 )
+offset = Vector2( 0, 0.110767 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Strawberry"]
+autoplay = "Hop"
+anims/Hop = SubResource( 23 )
 

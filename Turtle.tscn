@@ -149,7 +149,7 @@ drag_margin_v_enabled = false
 z_index = 1000
 z_as_relative = false
 texture = ExtResource( 3 )
-offset = Vector2( 0, -95 )
+offset = Vector2( 1000, -95 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sunrise"]
 anims/Sunrise_Anim = SubResource( 8 )
