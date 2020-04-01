@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/Flowrs.png" type="Texture" id=1]
+[ext_resource path="res://Flower.gd" type="Script" id=2]
+
+[node name="Flowrs" type="Sprite"]
+position = Vector2( 211, 204 )
+scale = Vector2( 1, 0.999019 )
+texture = ExtResource( 1 )
+hframes = 6
+script = ExtResource( 2 )
+
