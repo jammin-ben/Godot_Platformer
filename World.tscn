@@ -298,14 +298,17 @@ autoplay = "Hop"
 anims/Hop = SubResource( 23 )
 
 [node name="Flowrs" parent="." instance=ExtResource( 8 )]
+editor/display_folded = true
 
 [node name="Flowrs" parent="Flowrs" instance=ExtResource( 8 )]
+editor/display_folded = true
 position = Vector2( -90, 0 )
 
 [node name="Flowrs" parent="Flowrs/Flowrs" instance=ExtResource( 8 )]
 position = Vector2( 185, -16 )
 
 [node name="Flowrs" parent="Flowrs/Flowrs/Flowrs" instance=ExtResource( 8 )]
+editor/display_folded = true
 position = Vector2( -62, -64 )
 
 [node name="Flowrs" parent="Flowrs/Flowrs/Flowrs/Flowrs" instance=ExtResource( 8 )]
