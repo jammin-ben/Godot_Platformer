@@ -54,8 +54,12 @@ func _physics_process(delta):
 			else:
 				motion.x = lerp(motion.x, 0, FRICTION * delta)
 			
+		if Input.is_action_pressed("eat"):
+			animationPlayer.play('Eat')
+		
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JUMP_FORCE
+		
 	else:
 		motion.y += GRAVITY * delta * TARGET_FPS
 		animationPlayer.play("Jump")
