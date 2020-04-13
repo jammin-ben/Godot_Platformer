@@ -4,12 +4,10 @@ var Health = 10
 var being_eaten = false
 
 onready var particle = $Particles2D
+onready var TurtleSpr = get_tree().get_root().get_node("Node2D/Turt_Kinem/Turtle_Spr")
 
 func _process(delta):
-	#if(Input.is_action_pressed("eat")):
-#		being_eaten=true 
-#	else: being_eaten = false
-	
+
 	if(being_eaten):
 		Health -= delta
 		particle.emitting = true 
@@ -17,6 +15,8 @@ func _process(delta):
 		particle.emitting = false
 	self.frame = 4 - Health / 2.5
 	if(Health<=0):
+		print(TurtleSpr.texture)
+		TurtleSpr.texture = load("res://sprites/Turt_Alt.png")
 		queue_free()
 
 func _on_Area2D_area_entered(area):
