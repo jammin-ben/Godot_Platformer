@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Beaver.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Beaver.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 3 )
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Run"
 length = 0.2
 loop = true
@@ -23,7 +20,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Stand"
 loop = true
 tracks/0/type = "value"
@@ -49,13 +46,9 @@ texture = ExtResource( 2 )
 hframes = 4
 frame = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -5 )
-shape = SubResource( 1 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Run = SubResource( 2 )
-anims/Stand = SubResource( 3 )
+anims/Run = SubResource( 1 )
+anims/Stand = SubResource( 2 )
 
 [node name="rray" type="RayCast2D" parent="."]
 modulate = Color( 0.470588, 0.658824, 0.054902, 1 )

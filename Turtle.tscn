@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Turtle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Turt.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Sky.png" type="Texture" id=3]
 [ext_resource path="res://sprites/Landscape.png" type="Texture" id=4]
+[ext_resource path="res://Hitbox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11, 8 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=2]
 resource_name = "Eat"
 loop = true
 tracks/0/type = "value"
@@ -24,8 +25,7 @@ tracks/0/keys = {
 "values": [ 12, 4 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Emerge"
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Turtle_Spr:frame")
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "values": [ 10, 9, 8 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Turtle_Spr:frame")
@@ -55,7 +55,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Turtle_Spr:frame")
 tracks/0/interp = 1
@@ -69,7 +69,7 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -85,7 +85,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 4 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Turtle_Spr:frame")
 tracks/0/interp = 1
@@ -99,8 +99,11 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 loop = true
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 6, 5 )
 
 [node name="Turt_Kinem" type="KinematicBody2D"]
 position = Vector2( -1, 0 )
@@ -121,13 +124,13 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Hide"
-anims/Eat = SubResource( 8 )
-anims/Emerge = SubResource( 2 )
-anims/Hide = SubResource( 3 )
-anims/Jump = SubResource( 4 )
-anims/Move = SubResource( 5 )
-anims/Stand = SubResource( 6 )
-anims/Tortoise_Anim = SubResource( 7 )
+anims/Eat = SubResource( 2 )
+anims/Emerge = SubResource( 3 )
+anims/Hide = SubResource( 4 )
+anims/Jump = SubResource( 5 )
+anims/Move = SubResource( 6 )
+anims/Stand = SubResource( 7 )
+anims/Tortoise_Anim = SubResource( 8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -201,3 +204,15 @@ position = Vector2( -11, -1 )
 enabled = true
 cast_to = Vector2( 0, 2 )
 
+[node name="HitboxPivot" type="Position2D" parent="."]
+position = Vector2( 12, -5 )
+
+[node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 5 )]
+position = Vector2( -15, 0 )
+
+[node name="CollisionShape2D" parent="HitboxPivot/Hitbox" index="0"]
+position = Vector2( 15, 0 )
+shape = SubResource( 9 )
+
+
+[editable path="HitboxPivot/Hitbox"]

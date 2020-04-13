@@ -18,6 +18,8 @@ onready var sky = $ParallaxBackground/Sky_Layer
 onready var sunset = $ParallaxBackground/Sky_Layer/Sunrise
 onready var rray = $RayCastRight
 onready var lray = $RayCastLeft
+onready var hitbox = $HitboxPivot/Hitbox/CollisionShape2D
+onready var hitboxpivot = $HitboxPivot
 
 func _process(delta):
 	clouds.motion_offset.x += 2*delta
@@ -43,6 +45,13 @@ func _physics_process(delta):
 		if(animationPlayer.current_animation=="Move"):
 			animationPlayer.play("Stand")
 	
+	if sprite.flip_h:
+		#jank city
+		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(-12,-5))
+	else:
+		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(12,-5))
+	
+	
 	if is_on_ground():
 		if x_input == 0:
 			if(Input.is_action_just_pressed("ui_down")):
@@ -56,6 +65,10 @@ func _physics_process(delta):
 			
 		if Input.is_action_pressed("eat"):
 			animationPlayer.play('Eat')
+			hitbox.disabled=false
+		else:
+			hitbox.disabled=true
+			
 		
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JUMP_FORCE

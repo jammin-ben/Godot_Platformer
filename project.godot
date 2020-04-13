@@ -19,6 +19,10 @@ config/name="Flock_2"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+shapes/navigation/geometry_color=Color( 0.101961, 1, 0.701961, 0.4 )
+
 [display]
 
 window/size/width=400
