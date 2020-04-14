@@ -34,11 +34,11 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0.5 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=23]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
+[sub_resource type="CurveTexture" id=24]
+curve = SubResource( 23 )
 
 [sub_resource type="ParticlesMaterial" id=4]
 flag_disable_z = true
@@ -48,14 +48,13 @@ angular_velocity = 8.38861e+006
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 3.0
-scale_curve = SubResource( 3 )
-color = Color( 0.67451, 0.192157, 0.192157, 1 )
+scale_curve = SubResource( 24 )
+color = Color( 0.721569, 0.188235, 0.188235, 1 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 5.55508, 5.35759 )
 
 [node name="Strawberry" type="Sprite"]
-position = Vector2( 180, 204 )
 scale = Vector2( 0.900078, 1.11991 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -0.340444 )

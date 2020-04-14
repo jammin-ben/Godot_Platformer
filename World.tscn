@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Turtle.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Beaver.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Strawberry.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Flower.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sprites/Blueberry.png" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -227,6 +228,23 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
+[sub_resource type="Curve" id=23]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=24]
+curve = SubResource( 23 )
+
+[sub_resource type="ParticlesMaterial" id=25]
+flag_disable_z = true
+gravity = Vector3( -200, 0, 0 )
+initial_velocity = 61.22
+angular_velocity = 8.38861e+006
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 3.0
+scale_curve = SubResource( 24 )
+color = Color( 0.188235, 0.423529, 0.721569, 1 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -258,6 +276,7 @@ autoplay = true
 position = Vector2( 157, 129 )
 
 [node name="Strawberry" parent="." instance=ExtResource( 7 )]
+position = Vector2( 175, 204 )
 
 [node name="Flowrs" parent="." instance=ExtResource( 8 )]
 editor/display_folded = true
@@ -282,3 +301,13 @@ position = Vector2( 12, 0 )
 [node name="Flowrs2" parent="Flowrs" instance=ExtResource( 8 )]
 position = Vector2( -7, -80 )
 
+[node name="Strawberry2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 134, 124 )
+texture = ExtResource( 9 )
+replacement_spr_string = "res://sprites/Turt_Blu.png"
+
+[node name="Particles2D" parent="Strawberry2" index="1"]
+process_material = SubResource( 25 )
+
+
+[editable path="Strawberry2"]
