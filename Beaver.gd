@@ -12,6 +12,12 @@ onready var lray = $lray
 
 onready var raycast = rray
 
+
+var being_eaten = false
+
+
+onready var particle = $Particles2D
+
 func stand():
 	animationPlayer.play("Stand")
 	dir=0
@@ -35,6 +41,11 @@ func _ready():
 	run()
 
 func _physics_process(delta):
+	
+	if(being_eaten):
+		particle.emitting = true 
+	else:
+		particle.emitting = false
 	if(abs(dir)>0):
 		motion.x = SPEED * dir
 		sprite.flip_h = (dir <0)
@@ -45,5 +56,15 @@ func _physics_process(delta):
 		#standing
 		if(randf()<.01):
 			run()
-			
+
+
+
+
+
+
+func _on_Area2D_area_entered(area):
+	being_eaten=true
+
+func _on_Area2D_area_exited(area):
+	being_eaten=false
 	

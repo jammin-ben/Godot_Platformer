@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Beaver.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Beaver.png" type="Texture" id=2]
+[ext_resource path="res://bloodspatter.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Run"
@@ -36,6 +37,9 @@ tracks/0/keys = {
 "values": [ 2, 3 ]
 }
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 3.38692, 6.3612 )
+
 [node name="Beaver" type="KinematicBody2D"]
 position = Vector2( 0, 1 )
 script = ExtResource( 1 )
@@ -61,3 +65,13 @@ position = Vector2( -7, -2 )
 enabled = true
 cast_to = Vector2( 0, 10 )
 
+[node name="Particles2D" parent="." instance=ExtResource( 3 )]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.894966, -7.45802 )
+shape = SubResource( 3 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

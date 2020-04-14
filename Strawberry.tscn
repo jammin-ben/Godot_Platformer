@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprites/Strawberry.png" type="Texture" id=1]
 [ext_resource path="res://Strawberry.gd" type="Script" id=2]
-[ext_resource path="res://Hurtbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://bloodspatter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Hurtbox.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hop"
@@ -34,24 +35,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0.5 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Curve" id=23]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=24]
-curve = SubResource( 23 )
-
-[sub_resource type="ParticlesMaterial" id=4]
-flag_disable_z = true
-gravity = Vector3( -200, 0, 0 )
-initial_velocity = 61.22
-angular_velocity = 8.38861e+006
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 3.0
-scale_curve = SubResource( 24 )
-color = Color( 0.721569, 0.188235, 0.188235, 1 )
-
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5.55508, 5.35759 )
 
 [node name="Strawberry" type="Sprite"]
@@ -65,17 +49,12 @@ script = ExtResource( 2 )
 autoplay = "Hop"
 anims/Hop = SubResource( 1 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
-rotation = 4.71239
-amount = 2
-lifetime = 0.75
-randomness = 1.0
-process_material = SubResource( 4 )
+[node name="Particles2D" parent="." instance=ExtResource( 3 )]
 
-[node name="Area2D" parent="." instance=ExtResource( 3 )]
+[node name="Area2D" parent="." instance=ExtResource( 4 )]
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
