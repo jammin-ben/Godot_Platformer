@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Turt_Alt.png-8278bbdd67288eef74783e90b384b144.stex"
+path="res://.import/Turt_Grn.png-cc09d8718905a46911e2bcc0e8d4b4db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Turt_Alt.png"
-dest_files=[ "res://.import/Turt_Alt.png-8278bbdd67288eef74783e90b384b144.stex" ]
+source_file="res://sprites/Turt/Turt_Grn.png"
+dest_files=[ "res://.import/Turt_Grn.png-cc09d8718905a46911e2bcc0e8d4b4db.stex" ]
 
 [params]
 

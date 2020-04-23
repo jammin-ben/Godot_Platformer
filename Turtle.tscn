@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Turtle.gd" type="Script" id=1]
-[ext_resource path="res://sprites/Turt_New.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Turt/Turt_Default.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Sky.png" type="Texture" id=3]
 [ext_resource path="res://sprites/Landscape.png" type="Texture" id=4]
 [ext_resource path="res://Hitbox.tscn" type="PackedScene" id=5]
@@ -138,7 +138,6 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 offset = Vector2( 0, -112 )
 transform = Transform2D( 1, 0, 0, 1, 0, -112 )
 
@@ -162,7 +161,7 @@ frame = 1
 
 [node name="Cloud_Layer" type="ParallaxLayer" parent="ParallaxBackground"]
 z_as_relative = false
-motion_scale = Vector2( 0.1, 0 )
+motion_scale = Vector2( 0, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Landscape" type="Sprite" parent="ParallaxBackground/Cloud_Layer"]
@@ -174,7 +173,7 @@ frame = 1
 
 [node name="Mountain_Layer" type="ParallaxLayer" parent="ParallaxBackground"]
 z_as_relative = false
-motion_scale = Vector2( 0.2, 0 )
+motion_scale = Vector2( 0.1, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Landscape" type="Sprite" parent="ParallaxBackground/Mountain_Layer"]

@@ -34,13 +34,13 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0.5 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Curve" id=23]
+[sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=24]
-curve = SubResource( 23 )
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=6]
 flag_disable_z = true
 gravity = Vector3( -200, 0, 0 )
 initial_velocity = 61.22
@@ -48,7 +48,7 @@ angular_velocity = 8.38861e+006
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 3.0
-scale_curve = SubResource( 24 )
+scale_curve = SubResource( 3 )
 color = Color( 0.721569, 0.188235, 0.188235, 1 )
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -70,7 +70,7 @@ rotation = 4.71239
 amount = 2
 lifetime = 0.75
 randomness = 1.0
-process_material = SubResource( 4 )
+process_material = SubResource( 6 )
 
 [node name="Area2D" parent="." instance=ExtResource( 3 )]
 

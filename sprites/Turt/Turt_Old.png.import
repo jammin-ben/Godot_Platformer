@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Turt_Blu.png-323cf10f8fa2cd14fce6e15bb2e9d339.stex"
+path="res://.import/Turt_Old.png-0c93d80584fb241b59d60b1103d52f73.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Turt_Blu.png"
-dest_files=[ "res://.import/Turt_Blu.png-323cf10f8fa2cd14fce6e15bb2e9d339.stex" ]
+source_file="res://sprites/Turt/Turt_Old.png"
+dest_files=[ "res://.import/Turt_Old.png-0c93d80584fb241b59d60b1103d52f73.stex" ]
 
 [params]
 
