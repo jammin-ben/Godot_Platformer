@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://sprites/Tiles.png" type="Texture" id=1]
 [ext_resource path="res://Sable.wav" type="AudioStream" id=2]
@@ -7,9 +7,8 @@
 [ext_resource path="res://Strawberry.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/Lime.png" type="Texture" id=6]
 [ext_resource path="res://sprites/Blueberry.png" type="Texture" id=7]
-[ext_resource path="res://Node2D.gd" type="Script" id=8]
-[ext_resource path="res://Turtle.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Butterfly.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Turtle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Butterfly.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -282,35 +281,27 @@ texture = ExtResource( 7 )
 replacement_spr_string = "res://sprites/Turt/Turt_Blu.png"
 particle_color = Color( 0.152941, 0.65098, 0.870588, 1 )
 
-[node name="Node2D" type="Node2D" parent="."]
-script = ExtResource( 8 )
-
-[node name="RayCast2D" type="RayCast2D" parent="Node2D"]
-modulate = Color( 1, 0.113725, 0.113725, 1 )
-self_modulate = Color( 0.894118, 0.113725, 0.113725, 1 )
-position = Vector2( -33, 199 )
-
-[node name="Turt_Kinem" parent="." instance=ExtResource( 9 )]
+[node name="Turt_Kinem" parent="." instance=ExtResource( 8 )]
 position = Vector2( -96, 231 )
 
-[node name="ButterflySprite" parent="." instance=ExtResource( 10 )]
+[node name="ButterflySprite" parent="." instance=ExtResource( 9 )]
 position = Vector2( -54, 194 )
 
-[node name="ButterflySprite2" parent="." instance=ExtResource( 10 )]
+[node name="ButterflySprite2" parent="." instance=ExtResource( 9 )]
 position = Vector2( -89, 175 )
 
-[node name="ButterflySprite3" parent="." instance=ExtResource( 10 )]
+[node name="ButterflySprite3" parent="." instance=ExtResource( 9 )]
 position = Vector2( -31, 209 )
 
-[node name="ButterflySprite4" parent="." instance=ExtResource( 10 )]
+[node name="ButterflySprite4" parent="." instance=ExtResource( 9 )]
 position = Vector2( -89, 220 )
 
-[node name="ButterflySprite5" parent="." instance=ExtResource( 10 )]
+[node name="ButterflySprite5" parent="." instance=ExtResource( 9 )]
 position = Vector2( -103, 249 )
 
-[node name="ButterflySprite6" parent="." instance=ExtResource( 10 )]
+[node name="ButterflySprite6" parent="." instance=ExtResource( 9 )]
 position = Vector2( -61, 232 )
 
-[node name="ButterflySprite7" parent="." instance=ExtResource( 10 )]
+[node name="ButterflySprite7" parent="." instance=ExtResource( 9 )]
 position = Vector2( -111, 198 )
 

@@ -9,7 +9,10 @@ const GRAVITY = 6
 const JUMP_FORCE = 220
 const SKY_SPEED = 35
 
+
 var motion = Vector2.ZERO
+
+
 
 onready var sprite = $Turtle_Spr
 onready var animationPlayer = $AnimationPlayer

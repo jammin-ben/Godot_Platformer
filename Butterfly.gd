@@ -9,6 +9,11 @@ const MAX_SPEED = 25
 var height = 0
 var t = 0
 var bigheight = 0
+var mag = 1
+var dist = 0
+var off = 2*PI/6
+		
+var angle = -1
 #var speed = 0
 # Called when the node enters the scene tree for the first time.
 var yoffset = 0
@@ -57,36 +62,38 @@ func normalize(vector):
 func avoid_obstacles():
 	var walls =  w_area.get_overlapping_bodies()
 	if(len(walls)>0):
-		
-		var angle = 0
-		if(vel.x != 0):
-			if(vel.x>0):
-				angle = atan(vel.y/vel.x)
+		if(angle==-1):
+			#set angle
+			if(vel.x != 0):
+				if(vel.x>0):
+					angle = atan(vel.y/vel.x)
+				else:
+					angle = PI + atan(vel.y/vel.x)
 			else:
-				angle = PI + atan(vel.y/vel.x)
-		else:
-			
-			angle = PI/2 * sign(vel.y)
-		print(angle/2/PI*360)
+				angle = PI/2 * sign(vel.y)
+		#print(angle/2/PI*360)
 		
-		var dist = 0
-		var mag = 1
-		var off = 2*PI/10
-		var num_tries = 0
-		print("_______________")
-		while(ray.is_colliding()):
-			print(angle/2/PI*360)
+		#var dist = 0
+		#var mag = 1
+		#var num_tries = 0
+		#print("_______________")
+		if(ray.is_colliding()):
+			#print(angle/2/PI*360)
 			dist += off 
 			mag *= -1
 			angle += mag * dist
-			print('\t'+str(angle))
+			#print('\t'+str(angle))
 			ray.cast_to = vision_width * Vector2(cos(angle),sin(angle))
-			ray.force_raycast_update()
-			num_tries +=1
-			if(num_tries > 5):
-				print("i give up")
-				break
-		acc = ray.cast_to*10
+			#ray.force_raycast_update()
+			#num_tries +=1
+			#if(num_tries > 3):
+			#	print("i give up")
+			#	break
+		else:
+			dist=0
+			
+			angle = -1
+			acc = ray.cast_to*10
 func magnitude(vector):
 	return sqrt(vector.x * vector.x + vector.y * vector.y)
 	
