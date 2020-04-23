@@ -104,4 +104,5 @@ shape = SubResource( 6 )
 modulate = Color( 0.921569, 0.109804, 0.0470588, 1 )
 enabled = true
 cast_to = Vector2( 0, 0 )
+collision_mask = 2
 
