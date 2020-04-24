@@ -1,10 +1,14 @@
-extends Sprite
+extends KinematicBody2D
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 const MIN_SPEED = 20
 const MAX_SPEED = 25
+const A_WEIGHT = 1
+const B_WEIGHT = 1
+const C_WEIGHT = 1
+
 
 var height = 0
 var t = 0
@@ -33,17 +37,16 @@ func _ready():
 	
 	var r = randf()
 	if(r<.1):
-		$ButterflyAnimator.play("Red")
+		$ButterflySprite/ButterflyAnimator.play("Red")
 	elif(r<.5):
-		$ButterflyAnimator.play("Yellow")
+		$ButterflySprite/ButterflyAnimator.play("Yellow")
 	elif(r<.75):
-		$ButterflyAnimator.play("Blue")
+		$ButterflySprite/ButterflyAnimator.play("Blue")
 	else:
-		$ButterflyAnimator.play("White")
+		$ButterflySprite/ButterflyAnimator.play("White")
 
 	#random init
-	var speed = 10
-	vel = Vector2(speed,0)
+	vel = Vector2(randf()*2*MAX_SPEED-MAX_SPEED,randf()*2*MAX_SPEED-MAX_SPEED)
 	ray.cast_to = normalize(vel) * vision_width
 	
 func flutter(delta):
@@ -60,6 +63,7 @@ func normalize(vector):
 	return Vector2(vector.x/mag,vector.y/mag)
 
 func avoid_obstacles():
+	#TODO make them avoid each other
 	var walls =  w_area.get_overlapping_bodies()
 	if(len(walls)>0):
 		if(angle==-1):
@@ -71,29 +75,37 @@ func avoid_obstacles():
 					angle = PI + atan(vel.y/vel.x)
 			else:
 				angle = PI/2 * sign(vel.y)
-		#print(angle/2/PI*360)
 		
-		#var dist = 0
-		#var mag = 1
-		#var num_tries = 0
-		#print("_______________")
 		if(ray.is_colliding()):
-			#print(angle/2/PI*360)
 			dist += off 
 			mag *= -1
 			angle += mag * dist
-			#print('\t'+str(angle))
 			ray.cast_to = vision_width * Vector2(cos(angle),sin(angle))
-			#ray.force_raycast_update()
-			#num_tries +=1
-			#if(num_tries > 3):
-			#	print("i give up")
-			#	break
 		else:
 			dist=0
 			
 			angle = -1
-			acc = ray.cast_to*10
+			return(ray.cast_to*10)
+	return Vector2(0,0)
+
+func follow_frens():
+	var frens = b_area.get_overlapping_bodies()
+	if(len(frens)>0):
+		var avg = Vector2(0,0)
+		var center = Vector2(0,0)
+		for fren in frens:
+			#print(fren)
+			avg += fren.vel
+			center += fren.position
+		avg /= len(frens)
+		center /= len(frens)
+	
+		var difference = position - center
+		return [avg,difference]
+	return [Vector2(0,0),Vector2(0,0)]
+
+	
+
 func magnitude(vector):
 	return sqrt(vector.x * vector.x + vector.y * vector.y)
 	
@@ -102,7 +114,6 @@ func apply_acceleration(delta):
 	var s = magnitude(vel)
 	var dir = vel / s 
 	s = clamp(s,MIN_SPEED,MAX_SPEED) * sign(s)
-	#print(s)
 	vel = dir * s
 
 
@@ -113,7 +124,13 @@ func _draw():
 
 func _physics_process(delta):
 	self.acc = Vector2(0,0)
-	avoid_obstacles()
+	var a = avoid_obstacles()
+	var dummy_val = follow_frens()
+	var b = dummy_val[0]
+	var c = dummy_val[1]
+	
+	acc = A_WEIGHT*a+B_WEIGHT*b+C_WEIGHT*c
+	
 	apply_acceleration(delta)
 	self.position += self.vel * delta
 	#self.position=get_global_mouse_position()

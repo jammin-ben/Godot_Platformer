@@ -1,12 +1,22 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Butterfly_all.png" type="Texture" id=1]
-[ext_resource path="res://Butterfly.gd" type="Script" id=2]
+[ext_resource path="res://Butterfly.gd" type="Script" id=1]
+[ext_resource path="res://Butterfly_all.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 3.03989, 3.95804 )
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 57.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 21.0657
+
+[sub_resource type="Animation" id=8]
 resource_name = "Blue"
 length = 0.4
 loop = true
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -20,7 +30,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=9]
 resource_name = "Red"
 length = 0.4
 loop = true
@@ -37,7 +47,8 @@ tracks/0/keys = {
 "values": [ 6, 7 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=10]
+resource_name = "White"
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -53,7 +64,8 @@ tracks/0/keys = {
 "values": [ 4, 5 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=11]
+resource_name = "Yellow"
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -69,40 +81,46 @@ tracks/0/keys = {
 "values": [ 2, 3 ]
 }
 
-[sub_resource type="CircleShape2D" id=5]
-radius = 21.0657
+[node name="KinematicBody2D" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
 
-[sub_resource type="CircleShape2D" id=6]
-radius = 21.4246
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 7 )
 
-[node name="ButterflySprite" type="Sprite"]
+[node name="ButterflyArea" type="Area2D" parent="."]
 position = Vector2( -0.0398862, -0.0419635 )
-texture = ExtResource( 1 )
-vframes = 4
-hframes = 2
-frame = 6
-script = ExtResource( 2 )
+collision_layer = 2
+collision_mask = 2
 
-[node name="ButterflyAnimator" type="AnimationPlayer" parent="."]
-anims/Blue = SubResource( 1 )
-anims/Red = SubResource( 2 )
-anims/White = SubResource( 3 )
-anims/Yellow = SubResource( 4 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButterflyArea"]
+position = Vector2( 0.0398862, 0.0419635 )
+shape = SubResource( 6 )
 
 [node name="WallArea" type="Area2D" parent="."]
+position = Vector2( -0.0398862, -0.0419635 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallArea"]
 shape = SubResource( 5 )
 
-[node name="ButterflyArea" type="Area2D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ButterflyArea"]
-shape = SubResource( 6 )
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 modulate = Color( 0.921569, 0.109804, 0.0470588, 1 )
+position = Vector2( -0.0398862, -0.0419635 )
 enabled = true
 cast_to = Vector2( 0, 0 )
 collision_mask = 2
+
+[node name="ButterflySprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 2
+frame = 7
+
+[node name="ButterflyAnimator" type="AnimationPlayer" parent="ButterflySprite"]
+autoplay = "Blue"
+anims/Blue = SubResource( 8 )
+anims/Red = SubResource( 9 )
+anims/White = SubResource( 10 )
+anims/Yellow = SubResource( 11 )
 
