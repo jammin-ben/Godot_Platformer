@@ -3,11 +3,11 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-const MIN_SPEED = 20
-const MAX_SPEED = 25
-const A_WEIGHT = 1
-const B_WEIGHT = 1
-const C_WEIGHT = 1
+const MIN_SPEED = 35
+const MAX_SPEED = 50
+const OBSTACLE_WEIGHT = 20
+const PEER_WEIGHT = 20
+const CONVERGE_WEIGHT = 20
 
 
 var height = 0
@@ -29,11 +29,11 @@ var acc = Vector2(0,0)
 onready var w_area = $WallArea
 onready var b_area = $ButterflyArea
 onready var ray = $RayCast2D
-onready var vision_width = $ButterflyArea/CollisionShape2D.shape.radius
+onready var vision_width = $WallArea/CollisionShape2D.shape.radius
 
 
 func _ready():
-	
+	print(vision_width)
 	
 	var r = randf()
 	if(r<.1):
@@ -129,7 +129,7 @@ func _physics_process(delta):
 	var b = dummy_val[0]
 	var c = dummy_val[1]
 	
-	acc = A_WEIGHT*a+B_WEIGHT*b+C_WEIGHT*c
+	acc = OBSTACLE_WEIGHT*a+PEER_WEIGHT*b+CONVERGE_WEIGHT*c
 	
 	apply_acceleration(delta)
 	self.position += self.vel * delta
