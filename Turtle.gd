@@ -16,16 +16,14 @@ var motion = Vector2.ZERO
 
 onready var sprite = $Turtle_Spr
 onready var animationPlayer = $AnimationPlayer
-onready var clouds = $ParallaxBackground/Cloud_Layer
-onready var sky = $ParallaxBackground/Sky_Layer
-onready var sunset = $ParallaxBackground/Sky_Layer/Sunrise
+
 onready var rray = $RayCastRight
 onready var lray = $RayCastLeft
 onready var hitbox = $HitboxPivot/Hitbox/CollisionShape2D
 onready var hitboxpivot = $HitboxPivot
 
-func _process(delta):
-	clouds.motion_offset.x += 2*delta
+#func _process(delta):
+#	pass
 	#sky.motion_offset.y -= SKY_SPEED*delta
 	#if(sky.motion_offset.y < -600):
 	#	pass

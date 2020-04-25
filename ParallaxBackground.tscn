@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/Landscape.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Sky.png" type="Texture" id=2]
+[ext_resource path="res://ParallaxBackground.gd" type="Script" id=3]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+offset = Vector2( 0, -112 )
+transform = Transform2D( 1, 0, 0, 1, 0, -112 )
+script = ExtResource( 3 )
+
+[node name="Sky_Layer" type="ParallaxLayer" parent="."]
+z_as_relative = false
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 400, 675 )
+
+[node name="Sky" type="Sprite" parent="Sky_Layer"]
+z_as_relative = false
+texture = ExtResource( 2 )
+centered = false
+vframes = 2
+
+[node name="Sunrise" type="Sprite" parent="Sky_Layer"]
+visible = false
+texture = ExtResource( 2 )
+centered = false
+vframes = 2
+frame = 1
+
+[node name="Cloud_Layer" type="ParallaxLayer" parent="."]
+z_as_relative = false
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Landscape" type="Sprite" parent="Cloud_Layer"]
+z_as_relative = false
+texture = ExtResource( 1 )
+centered = false
+vframes = 4
+frame = 1
+
+[node name="Mountain_Layer" type="ParallaxLayer" parent="."]
+z_as_relative = false
+motion_scale = Vector2( 0.1, 0 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Landscape" type="Sprite" parent="Mountain_Layer"]
+z_as_relative = false
+texture = ExtResource( 1 )
+centered = false
+vframes = 4
+frame = 2
+
+[node name="Forest_Layer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 0 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Landscape" type="Sprite" parent="Forest_Layer"]
+texture = ExtResource( 1 )
+centered = false
+vframes = 4
+frame = 3
