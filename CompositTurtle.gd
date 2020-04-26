@@ -13,8 +13,14 @@ onready var turt_ball = $TurtleBall
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	turt_default.connect("Hidden", self, "on_turtle_hidden")
-	turt_default.connect("Emerged", self, "on_turtle_emerged")
+	#turt_default.connect("Emerged", self, "on_turtle_emerged")
 	pass # Replace with function body.
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("turtle_hide"):
+		if ball_mode:
+			set_ball_mode(false)
 
 func on_turtle_hidden():
 	set_ball_mode(true)
@@ -32,7 +38,7 @@ func set_ball_mode(value: bool):
 
 
 func _disable_turt_ball():
-	#turt_ball.visible = false
+	turt_ball.visible = false
 	$TurtleBall/Camera2D.current = false
 	
 	$TurtleBall/CollisionPolygon2D.disabled = true
@@ -40,7 +46,7 @@ func _disable_turt_ball():
 	turt_ball.sleeping = true
 
 func _enable_turt_ball():
-	#turt_ball.visible = true
+	turt_ball.visible = true
 	$TurtleBall/Camera2D.current = true
 	
 	$TurtleBall/CollisionPolygon2D.disabled = false
@@ -48,13 +54,13 @@ func _enable_turt_ball():
 	turt_ball.sleeping = false
 
 func _disable_turt_default():
-	#turt_default.visible = false
+	turt_default.visible = false
 	$TurtleDefault/Camera2D.current = false
 	$TurtleDefault/CollisionShape2D.disabled = true
 	turt_default.set_physics_process(false)
 	
 func _enable_turt_default():
-	#turt_default.visible = true
+	turt_default.visible = true
 	$TurtleDefault/Camera2D.current = true
 	$TurtleDefault/CollisionShape2D.disabled = false
 	turt_default.set_physics_process(true)
@@ -62,6 +68,7 @@ func _enable_turt_default():
 func _set_default_mode():
 	_disable_turt_ball()
 	_enable_turt_default()
+	turt_default.position = turt_ball.position
 
 func _set_ball_mode():
 	_disable_turt_default()
