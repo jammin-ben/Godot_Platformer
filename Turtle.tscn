@@ -114,14 +114,13 @@ position = Vector2( 2, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 12
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -8 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Hide"
 anims/Eat = SubResource( 2 )
 anims/Emerge = SubResource( 3 )
 anims/Hide = SubResource( 4 )
@@ -131,6 +130,7 @@ anims/Stand = SubResource( 7 )
 anims/Tortoise_Anim = SubResource( 8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2( 11, -1 )
