@@ -12,7 +12,8 @@ const SKY_SPEED = 35
 
 var motion = Vector2.ZERO
 
-
+signal Hidden()
+signal Emerged()
 
 onready var sprite = $Turtle_Spr
 onready var animationPlayer = $AnimationPlayer
@@ -51,18 +52,24 @@ func _physics_process(delta):
 		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(-12,-5))
 	else:
 		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(12,-5))
-	
+
+	if(Input.is_action_just_pressed("ui_down")):
+		motion.x=0
+		animationPlayer.play("Hide")
+	elif(Input.is_action_just_released("ui_down")):
+		animationPlayer.play("Emerge")
 	
 	if is_on_ground():
-		if x_input == 0:
-			if(Input.is_action_just_pressed("ui_down")):
-				motion.x=0
-				animationPlayer.play("Hide")
-			elif(Input.is_action_just_released("ui_down")):
-				
-				animationPlayer.play("Emerge")
-			else:
-				motion.x = lerp(motion.x, 0, FRICTION * delta)
+		motion.x = lerp(motion.x, 0, FRICTION * delta)
+#		if x_input == 0:
+#			if(Input.is_action_just_pressed("ui_down")):
+#				motion.x=0
+#				animationPlayer.play("Hide")
+#			elif(Input.is_action_just_released("ui_down")):
+#
+#				animationPlayer.play("Emerge")
+#			else:
+
 			
 		if Input.is_action_pressed("eat"):
 			animationPlayer.play('Eat')
@@ -76,7 +83,7 @@ func _physics_process(delta):
 		
 	else:
 		motion.y += GRAVITY * delta * TARGET_FPS
-		animationPlayer.play("Jump")
+#		animationPlayer.play("Jump")
 		
 		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
 			motion.y = -JUMP_FORCE/2
@@ -85,3 +92,10 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
 	
 	motion = move_and_slide(motion, Vector2.UP)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	if (anim_name == 'Hide'):
+		emit_signal("Hidden")
+	if (anim_name == 'Emerge'):
+		emit_signal("Emerged")

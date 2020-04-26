@@ -1,0 +1,10 @@
+Friday 4/24/2020:
+    #mentalcapture
+        Trying to implement a game mechanic where the turtle becomes a ball with
+        physics reactions whenever the player is holding down. Trying to naviagate
+        reworking animations given this mechanic because I want you to be able to
+        go into 'ball mode' even while in the air. The idea I have for making this
+        work is to have a seperate 'ball mode' turtle and then dynamically switch
+        which turtle is active based on signals from animation completions
+        (i.e. hide, emerge)
+        

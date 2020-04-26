@@ -14,3 +14,6 @@ polygon = PoolVector2Array( 2.7755, 10.494, 8.3789, 7.33309, 9.67199, 4.60323, 9
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 66, 72, 28, 28 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
