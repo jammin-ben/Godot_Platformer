@@ -75,6 +75,7 @@ func _set_ball_mode():
 	_enable_turt_ball()
 	turt_ball.position = turt_default.position
 	turt_ball.position.y -= 2
+	turt_ball.rotation_degrees = 0
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
