@@ -11,4 +11,4 @@ script = ExtResource( 3 )
 
 [node name="TurtleBall" parent="." instance=ExtResource( 2 )]
 visible = false
-position = Vector2( -2.99007, -11.9858 )
+position = Vector2( -2.13581, -1.42612 )

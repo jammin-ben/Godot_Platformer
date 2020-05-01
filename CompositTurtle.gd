@@ -76,6 +76,7 @@ func _set_ball_mode():
 	turt_ball.position = turt_default.position
 	turt_ball.position.y -= 2
 	turt_ball.rotation_degrees = 0
+	$TurtleBall/Sprite.flip_h = $TurtleDefault/Turtle_Spr.flip_h
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
