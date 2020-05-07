@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name CompositeTurtle
 
 # Declare member variables here. Examples:
 # var a: int = 2
@@ -9,6 +10,7 @@ export var ball_mode = false setget set_ball_mode
 
 onready var turt_default = $TurtleDefault
 onready var turt_ball = $TurtleBall
+onready var active_turtle = turt_default
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -52,6 +54,7 @@ func _enable_turt_ball():
 	$TurtleBall/CollisionPolygon2D.disabled = false
 	turt_ball.mode = RigidBody2D.MODE_RIGID
 	turt_ball.sleeping = false
+	active_turtle = turt_ball
 
 func _disable_turt_default():
 	turt_default.visible = false
@@ -64,6 +67,7 @@ func _enable_turt_default():
 	$TurtleDefault/Camera2D.current = true
 	$TurtleDefault/CollisionShape2D.disabled = false
 	turt_default.set_physics_process(true)
+	active_turtle = turt_default
 
 func _set_default_mode():
 	_disable_turt_ball()
@@ -93,5 +97,4 @@ func _set_ball_mode():
 	
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
-#	print(turt_default.rotation_degrees)
-#	pass
+#	position = active_turtle.position

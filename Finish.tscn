@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Flag.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Finish.gd" type="Script" id=2]
+[ext_resource path="res://FadeToBlack.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/win-text.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 13.8145, 16.6902 )
+
+[node name="Flag" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( 11.573, 20.7237 )
+shape = SubResource( 1 )
+
+[node name="FadeToBlack" parent="." index="3" instance=ExtResource( 3 )]
+
+[node name="win-text" type="Sprite" parent="." index="4"]
+visible = false
+modulate = Color( 0.933333, 0.0470588, 0.0470588, 1 )
+position = Vector2( 2.68083, 19.2543 )
+texture = ExtResource( 4 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="fade_finished" from="FadeToBlack" to="." method="_on_FadeToBlack_fade_finished"]

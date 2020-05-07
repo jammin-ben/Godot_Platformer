@@ -8,15 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "CompositeTurtle",
+"language": "GDScript",
+"path": "res://CompositTurtle.gd"
+} ]
 _global_script_class_icons={
-
+"CompositeTurtle": ""
 }
 
 [application]
 
 config/name="Flock_2"
-run/main_scene="res://TurtleBallPlayArea.tscn"
+run/main_scene="res://World_3.tscn"
 config/icon="res://icon.png"
 
 [autoload]
