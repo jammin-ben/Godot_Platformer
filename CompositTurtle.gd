@@ -69,6 +69,14 @@ func _set_default_mode():
 	_disable_turt_ball()
 	_enable_turt_default()
 	turt_default.position = turt_ball.position
+	turt_default.rotation = turt_ball.rotation
+	_correct_turt_default()
+
+func _correct_turt_default():
+	var tween = $Tween
+	tween.interpolate_property(turt_default, "rotation_degrees",
+	turt_default.rotation_degrees, 0, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
 
 func _set_ball_mode():
 	_disable_turt_default()
@@ -77,7 +85,13 @@ func _set_ball_mode():
 	turt_ball.position.y -= 2
 	turt_ball.rotation_degrees = 0
 	$TurtleBall/Sprite.flip_h = $TurtleDefault/Turtle_Spr.flip_h
+	if $TurtleBall/Sprite.flip_h:
+		$TurtleBall/CollisionPolygon2D.scale.x = -1
+	else:
+		$TurtleBall/CollisionPolygon2D.scale.x = 1
+		
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _process(delta: float) -> void:
+	print(turt_default.rotation_degrees)
+	pass
