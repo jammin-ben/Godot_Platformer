@@ -91,7 +91,7 @@ func _set_ball_mode():
 		$TurtleBall/CollisionPolygon2D.scale.x = 1
 		
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	print(turt_default.rotation_degrees)
-	pass
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+#	print(turt_default.rotation_degrees)
+#	pass
