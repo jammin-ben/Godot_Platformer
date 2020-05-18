@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Sable.wav-3848364227708bb70fd9550fad73e42f.sample"
+path="res://.import/Sable.wav-a9a317b001fe1fc24eb759017d33913b.sample"
 
 [deps]
 
-source_file="res://Sable.wav"
-dest_files=[ "res://.import/Sable.wav-3848364227708bb70fd9550fad73e42f.sample" ]
+source_file="res://sounds/Sable.wav"
+dest_files=[ "res://.import/Sable.wav-a9a317b001fe1fc24eb759017d33913b.sample" ]
 
 [params]
 

@@ -1,0 +1,30 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://sprites/flag/flag01.png" type="Texture" id=1]
+[ext_resource path="res://sprites/flag/flag02.png" type="Texture" id=2]
+[ext_resource path="res://sprites/flag/flag03.png" type="Texture" id=3]
+[ext_resource path="res://sprites/flag/flag04.png" type="Texture" id=4]
+[ext_resource path="res://sprites/flag/flag05.png" type="Texture" id=5]
+[ext_resource path="res://sprites/flag/flag06.png" type="Texture" id=6]
+[ext_resource path="res://sprites/flag/flag07.png" type="Texture" id=7]
+[ext_resource path="res://sprites/flag/flag08.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="Flag" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+centered = false
+

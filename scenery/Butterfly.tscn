@@ -1,7 +1,9 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Butterfly.gd" type="Script" id=1]
-[ext_resource path="res://Butterfly_all.png" type="Texture" id=2]
+[ext_resource path="res://scenery/Butterfly.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Butterfly_all.png" type="Texture" id=2]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.03989, 3.95804 )

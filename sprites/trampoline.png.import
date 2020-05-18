@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/trampoline.png-6d23656cb6208ca169846752748f834d.stex"
+path="res://.import/trampoline.png-25f2a86ce4ef0b8b7aed6777bd4aa0f0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://trampoline.png"
-dest_files=[ "res://.import/trampoline.png-6d23656cb6208ca169846752748f834d.stex" ]
+source_file="res://sprites/trampoline.png"
+dest_files=[ "res://.import/trampoline.png-25f2a86ce4ef0b8b7aed6777bd4aa0f0.stex" ]
 
 [params]
 

@@ -1,16 +1,21 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://TileMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sable.wav" type="AudioStream" id=2]
+[ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sounds/Sable.wav" type="AudioStream" id=2]
 [ext_resource path="res://sprites/Tree.png" type="Texture" id=3]
-[ext_resource path="res://Beaver.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Strawberry.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenery/Beaver.tscn" type="PackedScene" id=4]
+[ext_resource path="res://level_objects/Strawberry.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/Lime.png" type="Texture" id=6]
 [ext_resource path="res://sprites/Blueberry.png" type="Texture" id=7]
-[ext_resource path="res://Turtle.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Butterfly.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Player/Turtle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenery/Butterfly.tscn" type="PackedScene" id=9]
 
-[sub_resource type="Animation" id=22]
+
+
+
+
+
+[sub_resource type="Animation" id=1]
 resource_name = "Wind"
 length = 1.6
 loop = true
@@ -47,7 +52,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Misc_Scenery/Tree"]
 autoplay = "Wind"
-anims/Wind = SubResource( 22 )
+anims/Wind = SubResource( 1 )
 
 [node name="Animals" type="Node" parent="Misc_Scenery"]
 
