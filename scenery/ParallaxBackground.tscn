@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenery/ParallaxBackground.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Sky.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Landscape.png" type="Texture" id=3]
-[ext_resource path="res://sprites/Landscape_new.png" type="Texture" id=4]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 offset = Vector2( 0, -112 )
@@ -16,11 +15,9 @@ motion_scale = Vector2( 0, 0 )
 motion_mirroring = Vector2( 400, 675 )
 
 [node name="Sky" type="Sprite" parent="Sky_Layer"]
-visible = false
 z_as_relative = false
 texture = ExtResource( 2 )
 centered = false
-vframes = 2
 
 [node name="Sunrise" type="Sprite" parent="Sky_Layer"]
 visible = false
@@ -35,31 +32,43 @@ motion_scale = Vector2( 0, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Landscape" type="Sprite" parent="Cloud_Layer"]
-visible = false
 z_as_relative = false
 texture = ExtResource( 3 )
 centered = false
-vframes = 4
+vframes = 5
 frame = 1
 
-[node name="Mountain_Layer" type="ParallaxLayer" parent="."]
+[node name="Mountain_Layer_Far" type="ParallaxLayer" parent="."]
 z_as_relative = false
 motion_scale = Vector2( 0.1, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
-[node name="Landscape" type="Sprite" parent="Mountain_Layer"]
+[node name="Landscape" type="Sprite" parent="Mountain_Layer_Far"]
 z_as_relative = false
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 centered = false
+vframes = 5
+frame = 2
+
+[node name="Mountain_Layer2" type="ParallaxLayer" parent="."]
+z_as_relative = false
+motion_scale = Vector2( 0.15, 0 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Landscape" type="Sprite" parent="Mountain_Layer2"]
+z_as_relative = false
+texture = ExtResource( 3 )
+centered = false
+vframes = 5
+frame = 3
 
 [node name="Forest_Layer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.5, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Landscape" type="Sprite" parent="Forest_Layer"]
-visible = false
 texture = ExtResource( 3 )
 centered = false
-vframes = 4
-frame = 3
+vframes = 5
+frame = 4
 
