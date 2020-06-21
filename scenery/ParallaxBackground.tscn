@@ -12,9 +12,11 @@ script = ExtResource( 1 )
 [node name="Sky_Layer" type="ParallaxLayer" parent="."]
 z_as_relative = false
 motion_scale = Vector2( 0, 0 )
+motion_offset = Vector2( 0, -100 )
 motion_mirroring = Vector2( 400, 675 )
 
 [node name="Sky" type="Sprite" parent="Sky_Layer"]
+visible = false
 z_as_relative = false
 texture = ExtResource( 2 )
 centered = false
@@ -25,6 +27,11 @@ texture = ExtResource( 2 )
 centered = false
 vframes = 2
 frame = 1
+
+[node name="Sprite" type="Sprite" parent="Sky_Layer"]
+texture = ExtResource( 3 )
+centered = false
+vframes = 5
 
 [node name="Cloud_Layer" type="ParallaxLayer" parent="."]
 z_as_relative = false
@@ -63,7 +70,7 @@ vframes = 5
 frame = 3
 
 [node name="Forest_Layer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.5, 0 )
+motion_scale = Vector2( 0.3, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Landscape" type="Sprite" parent="Forest_Layer"]
