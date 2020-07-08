@@ -2,9 +2,7 @@
 
 [ext_resource path="res://Player/Turtle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Turt/Turt_Default.png" type="Texture" id=2]
-[ext_resource path="res://collisions/Hitbox.tscn" type="PackedScene" id=5]
-
-
+[ext_resource path="res://collisions/Hitbox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11, 8 )
@@ -147,7 +145,7 @@ cast_to = Vector2( 0, 2 )
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 12, -5 )
 
-[node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 5 )]
+[node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
 position = Vector2( -15, 0 )
 collision_layer = 4
 collision_mask = 4
@@ -155,6 +153,7 @@ collision_mask = 4
 [node name="CollisionShape2D" parent="HitboxPivot/Hitbox" index="0"]
 position = Vector2( 15, 0 )
 shape = SubResource( 9 )
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="HitboxPivot/Hitbox"]
