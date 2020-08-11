@@ -273,4 +273,3 @@ hframes = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Tree"]
 autoplay = "Wind"
 anims/Wind = SubResource( 22 )
-
