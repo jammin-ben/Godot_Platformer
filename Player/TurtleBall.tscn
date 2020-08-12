@@ -23,4 +23,3 @@ frame = 10
 region_rect = Rect2( 66, 72, 28, 28 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
