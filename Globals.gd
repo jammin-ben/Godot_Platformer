@@ -11,7 +11,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("quite_game"):
+	if event.is_action_pressed("quit_game"):
 		get_tree().quit()
 
 
