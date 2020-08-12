@@ -33,7 +33,7 @@ onready var vision_width = $WallArea/CollisionShape2D.shape.radius
 
 
 func _ready():
-	print(vision_width)
+#	print(vision_width)
 	
 	var r = randf()
 	if(r<.1):

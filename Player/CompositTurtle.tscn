@@ -4,8 +4,6 @@
 [ext_resource path="res://Player/Turtle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/TurtleBall.tscn" type="PackedScene" id=3]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.7222, 11.5594 )
 
@@ -33,4 +31,3 @@ position = Vector2( -0.434212, -11.5065 )
 shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
-

@@ -12,6 +12,10 @@ onready var turt_default = $TurtleDefault
 onready var turt_ball = $TurtleBall
 onready var active_turtle = turt_default
 
+
+func _physics_process(delta):
+	print(turt_ball.linear_velocity)
+	print(turt_default.motion)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	turt_default.connect("Hidden", self, "on_turtle_hidden")
@@ -74,6 +78,7 @@ func _set_default_mode():
 	_enable_turt_default()
 	turt_default.position = turt_ball.position
 	turt_default.rotation = turt_ball.rotation
+	turt_default.motion = turt_ball.linear_velocity
 	_correct_turt_default()
 
 func _correct_turt_default():
@@ -88,6 +93,7 @@ func _set_ball_mode():
 	turt_ball.position = turt_default.position
 	turt_ball.position.y -= 2
 	turt_ball.rotation_degrees = 0
+	turt_ball.linear_velocity = turt_default.motion;
 	$TurtleBall/Sprite.flip_h = $TurtleDefault/Turtle_Spr.flip_h
 	if $TurtleBall/Sprite.flip_h:
 		$TurtleBall/CollisionPolygon2D.scale.x = -1
