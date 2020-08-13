@@ -23,49 +23,52 @@ onready var lray = $RayCastLeft
 onready var hitbox = $HitboxPivot/Hitbox/CollisionShape2D
 onready var hitboxpivot = $HitboxPivot
 
-#func _process(delta):
-#	pass
-	#sky.motion_offset.y -= SKY_SPEED*delta
-	#if(sky.motion_offset.y < -600):
-	#	pass
-#		sunset.offset.y+=SKY_SPEED*delta
-	#if(sky.motion_offset.y < -675):
-	#	sky.motion_offset.y=0
-#		sunset.offset.y=0
+var hidden = false;
+
 func is_on_ground():
 	return lray.is_colliding() or rray.is_colliding()
 	
 func _physics_process(delta):
-	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	var x_input = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
+
+	if Input.is_action_pressed("player_down") :
+		# motion.x=0
+		if !hidden:
+			animationPlayer.play("Hide")
+	elif(Input.is_action_just_released("player_down")):
+		animationPlayer.play("Emerge")
 	
-	if x_input != 0:
+	# if x_input is not 0, then that means that there IS some input, therefor we'll do this stuff
+	# what I want though, if all of this is true, but also down isn't being pressed
+	elif x_input != 0 and !hidden: #and !Input.is_action_pressed('player_down'):
+
+		# vvvvvvvvv
 		animationPlayer.play("Move")
+		# ^^^^^^^
+
+
+
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
 		sprite.flip_h = x_input < 0
-	else:
-		if(animationPlayer.current_animation=="Move"):
+	elif x_input == 0 and !hidden and is_on_ground():
+		if animationPlayer.current_animation == "Move":
 			animationPlayer.play("Stand")
 	
 	if sprite.flip_h:
-		#jank city
+		# jank city
 		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(-12,-5))
 	else:
 		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(12,-5))
 
-	if(Input.is_action_just_pressed("ui_down")):
-		motion.x=0
-		animationPlayer.play("Hide")
-	elif(Input.is_action_just_released("ui_down")):
-		animationPlayer.play("Emerge")
 	
 	if is_on_ground():
 		motion.x = lerp(motion.x, 0, FRICTION * delta)
 #		if x_input == 0:
-#			if(Input.is_action_just_pressed("ui_down")):
+#			if(Input.is_action_just_pressed("player_down")):
 #				motion.x=0
 #				animationPlayer.play("Hide")
-#			elif(Input.is_action_just_released("ui_down")):
+#			elif(Input.is_action_just_released("player_down")):
 #
 #				animationPlayer.play("Emerge")
 #			else:
@@ -73,20 +76,20 @@ func _physics_process(delta):
 			
 		if Input.is_action_pressed("eat"):
 			animationPlayer.play('Eat')
-			hitbox.disabled=false
+			hitbox.disabled = false
 		else:
-			hitbox.disabled=true
+			hitbox.disabled = true
 			
 		
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("player_up"):
 			motion.y = -JUMP_FORCE
 		
 	else:
 		motion.y += GRAVITY * delta * TARGET_FPS
 #		animationPlayer.play("Jump")
 		
-		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
-			motion.y = -JUMP_FORCE/2
+		if Input.is_action_just_released("player_up") and motion.y < -JUMP_FORCE / 2.0:
+			motion.y = -JUMP_FORCE / 2.0
 		
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
@@ -97,5 +100,7 @@ func _physics_process(delta):
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if (anim_name == 'Hide'):
 		emit_signal("Hidden")
+		hidden = true;
 	if (anim_name == 'Emerge'):
 		emit_signal("Emerged")
+		hidden = false;

@@ -13,15 +13,8 @@ onready var turt_ball = $TurtleBall
 onready var active_turtle = turt_default
 
 
-func _physics_process(delta):
-	print(turt_ball.linear_velocity)
-	print(turt_default.motion)
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	turt_default.connect("Hidden", self, "on_turtle_hidden")
-	#turt_default.connect("Emerged", self, "on_turtle_emerged")
-	pass # Replace with function body.
-
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("turtle_hide"):
