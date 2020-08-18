@@ -8,7 +8,14 @@ const AIR_RESISTANCE = 1
 const GRAVITY = 6
 const JUMP_FORCE = 220
 const SKY_SPEED = 35
+const MAX_FLUTTER_GAS = 1.2 #seconds of flutter
+const FLUTTER_POWER = -1.5 #like the opposite of gravity
+const FLUTTER_DESCENT_THRESHOLD = 60 #how fast you have to be falling to start flutter
 
+#flutter conditions
+var secondJump:bool = false
+var descending:bool = false
+var flutterGas = MAX_FLUTTER_GAS
 
 var motion = Vector2.ZERO
 
@@ -26,8 +33,14 @@ onready var hitboxpivot = $HitboxPivot
 var hidden = false;
 
 func is_on_ground():
-	return lray.is_colliding() or rray.is_colliding()
-	
+	var onground = lray.is_colliding() or rray.is_colliding()
+	if onground:
+		secondJump = false
+		descending = false
+		flutterGas = MAX_FLUTTER_GAS
+	return onground
+
+
 func _physics_process(delta):
 	var x_input = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 
@@ -45,12 +58,11 @@ func _physics_process(delta):
 		# vvvvvvvvv
 		animationPlayer.play("Move")
 		# ^^^^^^^
-
-
-
+		
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
 		sprite.flip_h = x_input < 0
+		
 	elif x_input == 0 and !hidden and is_on_ground():
 		if animationPlayer.current_animation == "Move":
 			animationPlayer.play("Stand")
@@ -60,7 +72,6 @@ func _physics_process(delta):
 		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(-12,-5))
 	else:
 		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(12,-5))
-
 	
 	if is_on_ground():
 		motion.x = lerp(motion.x, 0, FRICTION * delta)
@@ -80,16 +91,27 @@ func _physics_process(delta):
 		else:
 			hitbox.disabled = true
 			
-		
 		if Input.is_action_just_pressed("player_up"):
 			motion.y = -JUMP_FORCE
 		
-	else:
-		motion.y += GRAVITY * delta * TARGET_FPS
+	else:  #IN AIR
+		if motion.y > FLUTTER_DESCENT_THRESHOLD:
+			descending = true
+			
+		if descending and secondJump and  Input.is_action_pressed("player_up") and flutterGas > 0:
+			motion.y += FLUTTER_POWER * delta * TARGET_FPS
+			flutterGas -= delta 
+			
+		else:
+			motion.y += GRAVITY * delta * TARGET_FPS
 #		animationPlayer.play("Jump")
 		
-		if Input.is_action_just_released("player_up") and motion.y < -JUMP_FORCE / 2.0:
-			motion.y = -JUMP_FORCE / 2.0
+		if Input.is_action_just_released("player_up"): 
+			secondJump = true
+			#cut speed in half when let go of jump
+			if motion.y < -JUMP_FORCE / 2.0:
+				motion.y = -JUMP_FORCE / 2.0
+		
 		
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
