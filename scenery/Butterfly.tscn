@@ -119,7 +119,6 @@ cast_to = Vector2( 0, 0 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 2
-frame = 1
 
 [node name="ButterflyAnimator" type="AnimationPlayer" parent="ButterflySprite"]
 autoplay = "Blue"

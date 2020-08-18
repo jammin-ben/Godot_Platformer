@@ -12,7 +12,8 @@ func modulus(vec:Vector2):
 	return sqrt(vec.x*vec.x + vec.y*vec.y)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	for child in $Butterflies.get_children():
+	for bf in $Butterflies.get_children():
+		var child = bf.get_children()[0]
 		child.position=child.position.clamped(curr_max_distance)
 	if Input.is_action_pressed("player_up"):
 		curr_max_distance = lerp(curr_max_distance,0,CONVERGE_SPEED * delta)

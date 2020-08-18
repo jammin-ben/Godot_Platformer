@@ -21,7 +21,6 @@ var motion = Vector2.ZERO
 
 signal Hidden()
 signal Emerged()
-
 onready var sprite = $Turtle_Spr
 onready var animationPlayer = $AnimationPlayer
 
@@ -103,7 +102,6 @@ func _physics_process(delta):
 			motion.y += FLUTTER_POWER * delta * TARGET_FPS
 			flutterGas -= delta 
 			motion.x 
-			
 		#get pulled down by gravity
 		else:
 			motion.y += GRAVITY * delta * TARGET_FPS

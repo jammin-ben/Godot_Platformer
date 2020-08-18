@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Flock_2"
-run/main_scene="res://levels/World_2.tscn"
+run/main_scene="res://levels/World_3.tscn"
 config/icon="res://icon.png"
 
 [autoload]
