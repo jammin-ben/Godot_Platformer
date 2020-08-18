@@ -8,15 +8,15 @@ const MAX_SPEED = 50
 const OBSTACLE_WEIGHT = 20
 const PEER_WEIGHT = 20
 const CONVERGE_WEIGHT = 20
+enum {FREE,FRIEND}
 
-
+export var movementMode = FREE
 var height = 0
 var t = 0
 var bigheight = 0
 var mag = 1
 var dist = 0
 var off = 2*PI/6
-		
 var angle = -1
 #var speed = 0
 # Called when the node enters the scene tree for the first time.
@@ -123,14 +123,15 @@ func _draw():
 
 
 func _physics_process(delta):
-	self.acc = Vector2(0,0)
-	var a = avoid_obstacles()
-	var dummy_val = follow_frens()
-	var b = dummy_val[0]
-	var c = dummy_val[1]
-	
-	acc = OBSTACLE_WEIGHT*a+PEER_WEIGHT*b+CONVERGE_WEIGHT*c
-	
-	apply_acceleration(delta)
-	self.position += self.vel * delta
+	if movementMode == FREE:
+		self.acc = Vector2(0,0)
+		var a = avoid_obstacles()
+		var dummy_val = follow_frens()
+		var b = dummy_val[0]
+		var c = dummy_val[1]
+		
+		acc = OBSTACLE_WEIGHT*a+PEER_WEIGHT*b+CONVERGE_WEIGHT*c
+		
+		apply_acceleration(delta)
+		self.position += self.vel * delta
 	#self.position=get_global_mouse_position()

@@ -97,11 +97,14 @@ func _physics_process(delta):
 	else:  #IN AIR
 		if motion.y > FLUTTER_DESCENT_THRESHOLD:
 			descending = true
-			
+		
+		#flutter
 		if descending and secondJump and  Input.is_action_pressed("player_up") and flutterGas > 0:
 			motion.y += FLUTTER_POWER * delta * TARGET_FPS
 			flutterGas -= delta 
+			motion.x 
 			
+		#get pulled down by gravity
 		else:
 			motion.y += GRAVITY * delta * TARGET_FPS
 #		animationPlayer.play("Jump")
