@@ -24,6 +24,7 @@ var motion = Vector2.ZERO
 
 signal Hidden()
 signal Emerged()
+signal signal_debug_st_changed(state)
 onready var sprite = $Turtle_Spr
 onready var animationPlayer = $AnimationPlayer
 
@@ -35,6 +36,7 @@ onready var hitboxpivot = $HitboxPivot
 var hidden = false;
 
 func set_state(value):
+	emit_signal("signal_debug_st_changed",value)
 	if value == ST_ONGROUND:
 		secondJump = false
 		descending = false
@@ -130,3 +132,7 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if (anim_name == 'Emerge'):
 		emit_signal("Emerged")
 		hidden = false;
+
+
+func _on_Turt_Kinem_signal_debug_st_changed(state):
+	pass # Replace with function body.
