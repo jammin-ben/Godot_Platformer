@@ -10,7 +10,10 @@ const JUMP_FORCE = 220
 const SKY_SPEED = 35
 const MAX_FLUTTER_GAS = 1.2 #seconds of flutter
 const FLUTTER_POWER = -1.5 #like the opposite of gravity
-const FLUTTER_DESCENT_THRESHOLD = 60 #how fast you have to be falling to start flutter
+const FALLING_THRESHOLD = 60 #how fast you have to be falling to start flutter
+enum {ST_ONGROUND, ST_FLUTTER, ST_FALLING, ST_AIRBORN}
+var state = ST_FALLING setget set_state
+
 
 #flutter conditions
 var secondJump:bool = false
@@ -31,14 +34,16 @@ onready var hitboxpivot = $HitboxPivot
 
 var hidden = false;
 
-func is_on_ground():
-	var onground = lray.is_colliding() or rray.is_colliding()
-	if onground:
+func set_state(value):
+	if value == ST_ONGROUND:
 		secondJump = false
 		descending = false
 		flutterGas = MAX_FLUTTER_GAS
-	return onground
+	state = value
 
+func check_for_ground():
+	if lray.is_colliding() or rray.is_colliding():
+		set_state(ST_ONGROUND)
 
 func _physics_process(delta):
 	var x_input = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
@@ -62,7 +67,7 @@ func _physics_process(delta):
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
 		sprite.flip_h = x_input < 0
 		
-	elif x_input == 0 and !hidden and is_on_ground():
+	elif x_input == 0 and !hidden and state==ST_ONGROUND:
 		if animationPlayer.current_animation == "Move":
 			animationPlayer.play("Stand")
 	
@@ -72,51 +77,49 @@ func _physics_process(delta):
 	else:
 		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(12,-5))
 	
-	if is_on_ground():
+	check_for_ground()
+	if state == ST_ONGROUND:
 		motion.x = lerp(motion.x, 0, FRICTION * delta)
-#		if x_input == 0:
-#			if(Input.is_action_just_pressed("player_down")):
-#				motion.x=0
-#				animationPlayer.play("Hide")
-#			elif(Input.is_action_just_released("player_down")):
-#
-#				animationPlayer.play("Emerge")
-#			else:
-
-			
+		
 		if Input.is_action_pressed("eat"):
 			animationPlayer.play('Eat')
 			hitbox.disabled = false
 		else:
 			hitbox.disabled = true
-			
+		
 		if Input.is_action_just_pressed("player_up"):
 			motion.y = -JUMP_FORCE
-		
-	else:  #IN AIR
-		if motion.y > FLUTTER_DESCENT_THRESHOLD:
-			descending = true
-		
-		#flutter
-		if descending and secondJump and  Input.is_action_pressed("player_up") and flutterGas > 0:
-			motion.y += FLUTTER_POWER * delta * TARGET_FPS
-			flutterGas -= delta 
-			motion.x 
-		#get pulled down by gravity
-		else:
-			motion.y += GRAVITY * delta * TARGET_FPS
-#		animationPlayer.play("Jump")
-		
+			set_state(ST_AIRBORN)
+	
+	#not sure if this is poor practice for a FSM
+	elif state == ST_FALLING or state == ST_AIRBORN:
+		motion.y += GRAVITY * delta * TARGET_FPS
 		if Input.is_action_just_released("player_up"): 
 			secondJump = true
 			#cut speed in half when let go of jump
 			if motion.y < -JUMP_FORCE / 2.0:
 				motion.y = -JUMP_FORCE / 2.0
-		
-		
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
-	
+		
+	if state==ST_AIRBORN:
+		if motion.y > FALLING_THRESHOLD:
+			set_state(ST_FALLING)
+
+	elif state==ST_FALLING:
+		if secondJump and  Input.is_action_pressed("player_up") and flutterGas > 0:
+			set_state(ST_FLUTTER)
+
+	elif state==ST_FLUTTER:
+		motion.y += FLUTTER_POWER * delta * TARGET_FPS
+		flutterGas -= delta 
+		if x_input == 0:
+			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
+		if flutterGas < 0 or Input.is_action_just_released("player_up"):
+			if motion.y > FALLING_THRESHOLD:
+				set_state(ST_FALLING)
+			else:
+				set_state(ST_AIRBORN)
 	motion = move_and_slide(motion, Vector2.UP)
 
 

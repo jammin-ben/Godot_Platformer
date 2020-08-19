@@ -11,6 +11,9 @@ extents = Vector2( 13.8145, 16.6902 )
 [node name="Flag" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="AnimatedSprite" parent="." index="1"]
+frame = 5
+
 [node name="Area2D" type="Area2D" parent="." index="2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
@@ -24,6 +27,5 @@ visible = false
 modulate = Color( 0.933333, 0.0470588, 0.0470588, 1 )
 position = Vector2( 2.68083, 19.2543 )
 texture = ExtResource( 4 )
-
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="fade_finished" from="FadeToBlack" to="." method="_on_FadeToBlack_fade_finished"]
