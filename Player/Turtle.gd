@@ -2,7 +2,8 @@ extends KinematicBody2D
 
 const TARGET_FPS = 60
 const ACCELERATION = 8
-const MAX_SPEED = 30
+const MAX_SPEED_DEFAULT = 30
+const MAX_SPEED_BOOSTED = 90
 const FRICTION = 10
 const AIR_RESISTANCE = 1
 const GRAVITY = 6
@@ -14,10 +15,9 @@ const FALLING_THRESHOLD = 60 #how fast you have to be falling to start flutter
 enum {ST_ONGROUND, ST_FLUTTER, ST_FALLING, ST_AIRBORN}
 var state = ST_FALLING setget set_state
 
+var max_speed = MAX_SPEED_DEFAULT
 
 #flutter conditions
-#var secondJump:bool = false
-var descending:bool = false
 var flutterGas = MAX_FLUTTER_GAS
 
 var motion = Vector2.ZERO
@@ -40,9 +40,10 @@ var hidden = false;
 func set_state(value):
 	emit_signal("signal_debug_st_changed",value)
 	if value == ST_ONGROUND:
-		#secondJump = false
-		descending = false
 		flutterGas = MAX_FLUTTER_GAS
+		max_speed = MAX_SPEED_DEFAULT
+	#elif value == ST_FLUTTER:
+	#	max_speed = MAX_SPEED_BOOSTED
 	state = value
 
 func check_for_ground():
@@ -70,7 +71,7 @@ func _physics_process(delta):
 		# ^^^^^^^
 		
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
-		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
+		motion.x = clamp(motion.x, -max_speed, max_speed)
 		sprite.flip_h = x_input < 0
 		
 	elif x_input == 0 and !hidden and state==ST_ONGROUND:
@@ -119,6 +120,8 @@ func _physics_process(delta):
 			set_state(ST_AIRBORN)
 			
 	elif state==ST_FLUTTER:
+		max_speed = MAX_SPEED_DEFAULT + ease(1 - flutterGas/MAX_FLUTTER_GAS , 2.0)*MAX_SPEED_BOOSTED
+		
 		motion.y += FLUTTER_POWER * delta * TARGET_FPS
 		flutterGas -= delta 
 		if x_input == 0:
