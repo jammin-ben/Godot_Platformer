@@ -16,7 +16,7 @@ var state = ST_FALLING setget set_state
 
 
 #flutter conditions
-var secondJump:bool = false
+#var secondJump:bool = false
 var descending:bool = false
 var flutterGas = MAX_FLUTTER_GAS
 
@@ -40,7 +40,7 @@ var hidden = false;
 func set_state(value):
 	emit_signal("signal_debug_st_changed",value)
 	if value == ST_ONGROUND:
-		secondJump = false
+		#secondJump = false
 		descending = false
 		flutterGas = MAX_FLUTTER_GAS
 	state = value
@@ -80,10 +80,8 @@ func _physics_process(delta):
 	if sprite.flip_h:
 		# jank city
 		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(-12,-5))
-		#$FlutterGroup.scale.x=-1
 	else:
 		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(12,-5))
-		#$FlutterGroup.scale.x=1
 	check_for_ground()
 	if state == ST_ONGROUND:
 		motion.x = lerp(motion.x, 0, FRICTION * delta)
@@ -103,7 +101,7 @@ func _physics_process(delta):
 	elif state == ST_FALLING or state == ST_AIRBORN:
 		motion.y += GRAVITY * delta * TARGET_FPS
 		if Input.is_action_just_released("player_up"): 
-			secondJump = true
+			#secondJump = true
 			#cut speed in half when let go of jump
 			if motion.y < -JUMP_FORCE / 2.0:
 				motion.y = -JUMP_FORCE / 2.0
@@ -115,7 +113,7 @@ func _physics_process(delta):
 			set_state(ST_FALLING)
 
 	elif state==ST_FALLING:
-		if secondJump and  Input.is_action_pressed("player_up") and flutterGas > 0:
+		if Input.is_action_pressed("player_up") and flutterGas > 0:
 			set_state(ST_FLUTTER)
 		if motion.y < FALLING_THRESHOLD:
 			set_state(ST_AIRBORN)
