@@ -46,6 +46,8 @@ func set_state(value):
 func check_for_ground():
 	if lray.is_colliding() or rray.is_colliding():
 		set_state(ST_ONGROUND)
+	elif state==ST_ONGROUND:
+		set_state(ST_AIRBORN)
 
 func _physics_process(delta):
 	var x_input = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
@@ -82,6 +84,7 @@ func _physics_process(delta):
 	check_for_ground()
 	if state == ST_ONGROUND:
 		motion.x = lerp(motion.x, 0, FRICTION * delta)
+		motion.y = 0
 		
 		if Input.is_action_pressed("eat"):
 			animationPlayer.play('Eat')
@@ -111,7 +114,8 @@ func _physics_process(delta):
 	elif state==ST_FALLING:
 		if secondJump and  Input.is_action_pressed("player_up") and flutterGas > 0:
 			set_state(ST_FLUTTER)
-
+		if motion.y < FALLING_THRESHOLD:
+			set_state(ST_AIRBORN)
 	elif state==ST_FLUTTER:
 		motion.y += FLUTTER_POWER * delta * TARGET_FPS
 		flutterGas -= delta 
