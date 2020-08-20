@@ -34,3 +34,4 @@ position = Vector2( -0.434212, -11.5065 )
 shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
+[connection signal="signal_debug_st_changed" from="TurtleDefault" to="TurtleDefault/FlutterGroup" method="_on_TurtleDefault_signal_debug_st_changed"]

@@ -25,6 +25,8 @@ var motion = Vector2.ZERO
 signal Hidden()
 signal Emerged()
 signal signal_debug_st_changed(state)
+
+
 onready var sprite = $Turtle_Spr
 onready var animationPlayer = $AnimationPlayer
 
@@ -116,6 +118,7 @@ func _physics_process(delta):
 			set_state(ST_FLUTTER)
 		if motion.y < FALLING_THRESHOLD:
 			set_state(ST_AIRBORN)
+			
 	elif state==ST_FLUTTER:
 		motion.y += FLUTTER_POWER * delta * TARGET_FPS
 		flutterGas -= delta 
