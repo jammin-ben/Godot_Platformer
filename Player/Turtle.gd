@@ -80,9 +80,10 @@ func _physics_process(delta):
 	if sprite.flip_h:
 		# jank city
 		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(-12,-5))
+		#$FlutterGroup.scale.x=-1
 	else:
 		hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(12,-5))
-	
+		#$FlutterGroup.scale.x=1
 	check_for_ground()
 	if state == ST_ONGROUND:
 		motion.x = lerp(motion.x, 0, FRICTION * delta)
