@@ -19,6 +19,7 @@ var max_speed = MAX_SPEED_DEFAULT
 
 #flutter conditions
 var flutterGas = MAX_FLUTTER_GAS
+var flutterAccel = 0 #value between 0 and 1 for speed boost interpolation
 
 var motion = Vector2.ZERO
 
@@ -41,6 +42,7 @@ func set_state(value):
 	emit_signal("signal_debug_st_changed",value)
 	if value == ST_ONGROUND:
 		flutterGas = MAX_FLUTTER_GAS
+		flutterAccel = 0 
 		max_speed = MAX_SPEED_DEFAULT
 	#elif value == ST_FLUTTER:
 	#	max_speed = MAX_SPEED_BOOSTED
@@ -120,7 +122,9 @@ func _physics_process(delta):
 			set_state(ST_AIRBORN)
 			
 	elif state==ST_FLUTTER:
-		max_speed = MAX_SPEED_DEFAULT + ease(1 - flutterGas/MAX_FLUTTER_GAS , 2.0)*MAX_SPEED_BOOSTED
+		if x_input !=0:
+			flutterAccel += delta / MAX_FLUTTER_GAS
+		max_speed = MAX_SPEED_DEFAULT + ease(flutterAccel, 2.0)*MAX_SPEED_BOOSTED
 		
 		motion.y += FLUTTER_POWER * delta * TARGET_FPS
 		flutterGas -= delta 

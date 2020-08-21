@@ -105,7 +105,6 @@ loop = true
 extents = Vector2( 6, 5 )
 
 [node name="Turt_Kinem" type="KinematicBody2D"]
-position = Vector2( -1, 0 )
 z_as_relative = false
 collision/safe_margin = 2.0
 script = ExtResource( 1 )
