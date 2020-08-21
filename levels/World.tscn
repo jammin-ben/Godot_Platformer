@@ -39,7 +39,6 @@ autoplay = true
 [node name="Misc_Scenery" type="Node" parent="."]
 
 [node name="Tree" type="Sprite" parent="Misc_Scenery"]
-editor/display_folded = true
 position = Vector2( 184, 32 )
 texture = ExtResource( 3 )
 vframes = 2
@@ -101,4 +100,3 @@ position = Vector2( 197, 169 )
 position = Vector2( 77, 162 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
-

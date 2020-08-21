@@ -102,7 +102,7 @@ tracks/0/keys = {
 loop = true
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 6, 5 )
+extents = Vector2( 4.11383, 3.90738 )
 
 [node name="Turt_Kinem" type="KinematicBody2D"]
 z_as_relative = false
@@ -160,18 +160,15 @@ position = Vector2( -11, -1 )
 enabled = true
 cast_to = Vector2( 0, 2 )
 
-[node name="HitboxPivot" type="Position2D" parent="."]
-position = Vector2( 12, -5 )
-
-[node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
-position = Vector2( -15, 0 )
+[node name="Hitbox" parent="." instance=ExtResource( 3 )]
+position = Vector2( 13, -5 )
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" parent="HitboxPivot/Hitbox" index="0"]
-position = Vector2( 15, 0 )
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( -0.0883942, 0 )
 shape = SubResource( 9 )
 [connection signal="signal_debug_st_changed" from="." to="Camera2D/CanvasLayer/MarginContainer/HBoxContainer/Label" method="_on_Turt_Kinem_signal_debug_st_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
-[editable path="HitboxPivot/Hitbox"]
+[editable path="Hitbox"]
