@@ -11,7 +11,7 @@ const JUMP_FORCE = 220
 const SKY_SPEED = 35
 const MAX_FLUTTER_GAS = 1.2 #seconds of flutter
 const FLUTTER_POWER = -1.5 #like the opposite of gravity
-const FALLING_THRESHOLD = 60 #how fast you have to be falling to start flutter
+const FALLING_THRESHOLD = 30 #how fast you have to be falling to start flutter
 enum {ST_ONGROUND, ST_FLUTTER, ST_FALLING, ST_AIRBORN}
 var state = ST_FALLING setget set_state
 
