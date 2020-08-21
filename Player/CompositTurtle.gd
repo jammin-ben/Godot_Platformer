@@ -12,6 +12,7 @@ onready var turt_default = $TurtleDefault
 onready var turt_ball = $TurtleBall
 onready var active_turtle = turt_default
 
+#var texture = false setget set_texture
 
 func _ready() -> void:
 	turt_default.connect("Hidden", self, "on_turtle_hidden")
@@ -28,6 +29,9 @@ func on_turtle_emerged():
 	set_ball_mode(false)
 
 
+func set_texture(value):
+	$TurtleDefault/Turtle_Spr.texture = load(value)
+	$TurtleBall/Sprite.texture = load(value)
 func set_ball_mode(value: bool):
 	ball_mode = value
 	if (ball_mode):

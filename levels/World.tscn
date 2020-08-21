@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sounds/Sable.wav" type="AudioStream" id=2]
@@ -7,8 +7,7 @@
 [ext_resource path="res://level_objects/Strawberry.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/Lime.png" type="Texture" id=6]
 [ext_resource path="res://sprites/Blueberry.png" type="Texture" id=7]
-[ext_resource path="res://Player/Turtle.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenery/Butterfly.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Player/CompositTurtle.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenery/ParallaxBackground.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
@@ -75,28 +74,7 @@ texture = ExtResource( 7 )
 replacement_spr_string = "res://sprites/Turt/Turt_Blu.png"
 particle_color = Color( 0.152941, 0.65098, 0.870588, 1 )
 
-[node name="Turt_Kinem" parent="." instance=ExtResource( 8 )]
-position = Vector2( 203, 123 )
-
-[node name="ButterflySprite" parent="." instance=ExtResource( 9 )]
-position = Vector2( 130, 169 )
-
-[node name="ButterflySprite2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 128, 98 )
-
-[node name="ButterflySprite3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 72, 102 )
-
-[node name="ButterflySprite4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 303, 153 )
-
-[node name="ButterflySprite5" parent="." instance=ExtResource( 9 )]
-position = Vector2( 168, 172 )
-
-[node name="ButterflySprite6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 197, 169 )
-
-[node name="ButterflySprite7" parent="." instance=ExtResource( 9 )]
-position = Vector2( 77, 162 )
-
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
+
+[node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
+position = Vector2( 114.653, 114.653 )
