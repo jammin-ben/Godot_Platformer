@@ -6,7 +6,7 @@
 [ext_resource path="res://Player/debug_label.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 11, 8 )
+extents = Vector2( 8.63446, 8 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Eat"
@@ -110,7 +110,7 @@ collision/safe_margin = 2.0
 script = ExtResource( 1 )
 
 [node name="Turtle_Spr" type="Sprite" parent="."]
-position = Vector2( 2, -16 )
+position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
