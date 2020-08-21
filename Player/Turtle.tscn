@@ -151,12 +151,12 @@ margin_bottom = 27.0
 script = ExtResource( 4 )
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2( 11, -1 )
+position = Vector2( 7, -1 )
 enabled = true
 cast_to = Vector2( 0, 2 )
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2( -11, -1 )
+position = Vector2( -7, -1 )
 enabled = true
 cast_to = Vector2( 0, 2 )
 
