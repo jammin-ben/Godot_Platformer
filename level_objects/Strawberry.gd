@@ -32,7 +32,7 @@ func _process(delta):
 
 func _on_Area2D_area_entered(area):
 	eater = area.get_parent().get_parent()#composite_turtle
-	print(eater.name)
+	#print(eater.name)
 	being_eaten=true
 
 func _on_Area2D_area_exited(_area):

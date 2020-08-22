@@ -37,7 +37,6 @@ func _ready():
 func _physics_process(delta):
 	if(abs(dir)>0):
 		motion.x = SPEED * dir * delta * 60
-		print(motion.x)
 		sprite.flip_h = (dir < 0)
 		motion = move_and_slide(motion, Vector2.UP)
 		if(!raycast.is_colliding() or randf() < .02):

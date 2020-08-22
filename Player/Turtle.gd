@@ -43,9 +43,7 @@ func set_state(value):
 	if value == ST_ONGROUND:
 		flutterGas = MAX_FLUTTER_GAS
 		flutterAccel = 0 
-		max_speed = MAX_SPEED_DEFAULT
-	#elif value == ST_FLUTTER:
-	#	max_speed = MAX_SPEED_BOOSTED
+		#max_speed = MAX_SPEED_DEFAULT
 	state = value
 
 func check_for_ground():
@@ -89,6 +87,7 @@ func _physics_process(delta):
 	if state == ST_ONGROUND:
 		motion.x = lerp(motion.x, 0, FRICTION * delta)
 		motion.y = 0
+		max_speed = lerp(max_speed,MAX_SPEED_DEFAULT,.1)
 		
 		if Input.is_action_pressed("eat"):
 			animationPlayer.play('Eat')
