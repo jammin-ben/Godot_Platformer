@@ -34,7 +34,7 @@ onready var animationPlayer = $AnimationPlayer
 onready var rray = $RayCastRight
 onready var lray = $RayCastLeft
 onready var hitbox = $Hitbox/CollisionShape2D
-onready var hitboxpivot = $HitboxPivot
+#onready var hitboxpivot = $HitboxPivot
 
 var hidden = false;
 
@@ -84,10 +84,7 @@ func _physics_process(delta):
 		$Hitbox.position.x = -12
 	else:
 		$Hitbox.position.x = 12
-		# jank city
-		#hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(-12,-5))
-	#else:
-	#	hitboxpivot.transform=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(12,-5))
+		
 	check_for_ground()
 	if state == ST_ONGROUND:
 		motion.x = lerp(motion.x, 0, FRICTION * delta)
@@ -149,6 +146,3 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 		emit_signal("Emerged")
 		hidden = false;
 
-
-func _on_Turt_Kinem_signal_debug_st_changed(state):
-	pass # Replace with function body.

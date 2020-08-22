@@ -8,7 +8,7 @@ export var replacement_spr_string="res://sprites/Turt_Alt.png"
 export var particle_color = Color(1,0,0,1)
 
 onready var particle = $Particles2D
-onready var TurtleSpr = get_tree().get_root().get_node("Node2D/Turt_Kinem/Turtle_Spr")
+#onready var TurtleSpr = get_tree().get_root().get_node("Node2D/Turt_Kinem/Turtle_Spr")
 
 
 
@@ -35,5 +35,5 @@ func _on_Area2D_area_entered(area):
 	print(eater.name)
 	being_eaten=true
 
-func _on_Area2D_area_exited(area):
+func _on_Area2D_area_exited(_area):
 	being_eaten=false

@@ -59,8 +59,8 @@ func get_all_butterflies():
 	return b_area.get_overlapping_bodies()
 	
 func normalize(vector):
-	var mag = sqrt(vector.x*vector.x + vector.y*vector.y)
-	return Vector2(vector.x/mag,vector.y/mag)
+	var magnitude = sqrt(vector.x*vector.x + vector.y*vector.y)
+	return Vector2(vector.x/magnitude,vector.y/magnitude)
 
 func avoid_obstacles():
 	#TODO make them avoid each other
