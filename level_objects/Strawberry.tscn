@@ -4,8 +4,6 @@
 [ext_resource path="res://level_objects/Strawberry.gd" type="Script" id=2]
 [ext_resource path="res://collisions/Hurtbox.tscn" type="PackedScene" id=3]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "Hop"
 length = 0.8
@@ -46,7 +44,7 @@ curve = SubResource( 2 )
 flag_disable_z = true
 gravity = Vector3( -200, 0, 0 )
 initial_velocity = 61.22
-angular_velocity = 8.38861e+006
+angular_velocity = 8.38861e+06
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 3.0
@@ -80,7 +78,6 @@ collision_mask = 4
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource( 5 )
-
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 
