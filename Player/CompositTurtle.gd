@@ -30,7 +30,7 @@ func on_turtle_emerged():
 
 
 func set_texture(value):
-	$TurtleDefault/Turtle_Spr.texture = load(value)
+	$TurtleDefault/Sprite.texture = load(value)
 	$TurtleBall/Sprite.texture = load(value)
 	
 func set_ball_mode(value: bool):
