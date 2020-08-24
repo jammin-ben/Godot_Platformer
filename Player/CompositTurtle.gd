@@ -92,7 +92,7 @@ func _set_ball_mode():
 	turt_ball.position.y -= 2
 	turt_ball.rotation_degrees = 0
 	turt_ball.linear_velocity = turt_default.motion;
-	$TurtleBall/Sprite.flip_h = $TurtleDefault/Turtle_Spr.flip_h
+	$TurtleBall/Sprite.flip_h = $TurtleDefault/Sprite.flip_h
 	if $TurtleBall/Sprite.flip_h:
 		$TurtleBall/CollisionPolygon2D.scale.x = -1
 	else:

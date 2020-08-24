@@ -28,7 +28,8 @@ signal Emerged()
 signal signal_debug_st_changed(state)
 
 
-onready var sprite = $Turtle_Spr
+onready var sprite = $Sprite
+
 onready var animationPlayer = $AnimationPlayer
 
 onready var rray = $RayCastRight
