@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "CompositeTurtle",
 "language": "GDScript",
 "path": "res://Player/CompositTurtle.gd"
+}, {
+"base": "Node2D",
+"class": "Powerup",
+"language": "GDScript",
+"path": "res://level_objects/Powerup.gd"
 } ]
 _global_script_class_icons={
-"CompositeTurtle": ""
+"CompositeTurtle": "",
+"Powerup": ""
 }
 
 [application]
