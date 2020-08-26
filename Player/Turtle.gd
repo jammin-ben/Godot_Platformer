@@ -12,7 +12,7 @@ const SKY_SPEED = 35
 const MAX_FLUTTER_GAS = 1.2 #seconds of flutter
 const FLUTTER_POWER = -1.5 #like the opposite of gravity
 const FALLING_THRESHOLD = 30 #how fast you have to be falling to start flutter
-enum {ST_ONGROUND, ST_FLUTTER, ST_FALLING, ST_AIRBORN}
+enum {ST_ONGROUND, ST_FLUTTER, ST_FALLING, ST_AIRBORN, ST_ONLEFTWALL, ST_ONRIGHTWALL}
 var state = ST_FALLING setget set_state
 
 var max_speed = MAX_SPEED_DEFAULT
@@ -32,8 +32,8 @@ onready var sprite = $Sprite
 
 onready var animationPlayer = $AnimationPlayer
 
-onready var rray = $RayCastRight
-onready var lray = $RayCastLeft
+#onready var rray = $RayCastRight
+#onready var lray = $RayCastLeft
 onready var hitbox = $Hitbox/CollisionShape2D
 #onready var hitboxpivot = $HitboxPivot
 
@@ -41,6 +41,8 @@ var hidden = false;
 
 func set_state(value):
 	emit_signal("signal_debug_st_changed",value)
+	if value == ST_AIRBORN or value == ST_FALLING or value == ST_FLUTTER:
+		$Sprite.rotation_degrees = 0
 	if value == ST_ONGROUND:
 		flutterGas = MAX_FLUTTER_GAS
 		flutterAccel = 0 
@@ -48,9 +50,16 @@ func set_state(value):
 	state = value
 
 func check_for_ground():
-	if lray.is_colliding() or rray.is_colliding():
+	if $DownLeft.is_colliding() or $DownRight.is_colliding():
 		set_state(ST_ONGROUND)
-	elif state==ST_ONGROUND:
+	
+	elif $LeftDown.is_colliding() or $LeftUp.is_colliding():
+		set_state(ST_ONLEFTWALL)
+	
+	elif $RightDown.is_colliding() or $RightUp.is_colliding():
+		set_state(ST_ONRIGHTWALL)
+	
+	elif state==ST_ONGROUND or state==ST_ONLEFTWALL or state==ST_ONRIGHTWALL:
 		set_state(ST_AIRBORN)
 
 func _physics_process(delta):
@@ -135,9 +144,15 @@ func _physics_process(delta):
 				set_state(ST_FALLING)
 			else:
 				set_state(ST_AIRBORN)
+	elif state==ST_ONLEFTWALL:
+		$Sprite.rotation_degrees = 90
+	elif state==ST_ONRIGHTWALL:
+		$Sprite.rotation_degrees = 270
+		#$Sprite.scale.x = -1
+	
 	motion = move_and_slide(motion, Vector2.UP)
-
-
+	
+	
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if (anim_name == 'Hide'):
 		emit_signal("Hidden")

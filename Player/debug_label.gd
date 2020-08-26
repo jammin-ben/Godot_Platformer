@@ -24,3 +24,7 @@ func _on_Turt_Kinem_signal_debug_st_changed(state):
 		self.text = "FALLING"
 	elif(state==3):
 		self.text = "AIRBORN"
+	elif(state==4):
+		self.text = "ONLEFTWALL"
+	elif(state==5):
+		self.text = "ONRIGHTWALL"

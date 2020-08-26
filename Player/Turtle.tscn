@@ -149,12 +149,12 @@ margin_top = 13.0
 margin_bottom = 27.0
 script = ExtResource( 4 )
 
-[node name="RayCastRight" type="RayCast2D" parent="."]
+[node name="DownRight" type="RayCast2D" parent="."]
 position = Vector2( 7, -1 )
 enabled = true
 cast_to = Vector2( 0, 2 )
 
-[node name="RayCastLeft" type="RayCast2D" parent="."]
+[node name="DownLeft" type="RayCast2D" parent="."]
 position = Vector2( -7, -1 )
 enabled = true
 cast_to = Vector2( 0, 2 )
@@ -167,6 +167,26 @@ collision_mask = 4
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( -0.0883942, 0 )
 shape = SubResource( 9 )
+
+[node name="RightDown" type="RayCast2D" parent="."]
+position = Vector2( 7, -3 )
+enabled = true
+cast_to = Vector2( 2, 0 )
+
+[node name="RightUp" type="RayCast2D" parent="."]
+position = Vector2( 7, -15 )
+enabled = true
+cast_to = Vector2( 2, 0 )
+
+[node name="LeftDown" type="RayCast2D" parent="."]
+position = Vector2( -7, -3 )
+enabled = true
+cast_to = Vector2( -2, 0 )
+
+[node name="LeftUp" type="RayCast2D" parent="."]
+position = Vector2( -7, -15 )
+enabled = true
+cast_to = Vector2( -2, 0 )
 [connection signal="signal_debug_st_changed" from="." to="Camera2D/CanvasLayer/MarginContainer/HBoxContainer/Label" method="_on_Turt_Kinem_signal_debug_st_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
