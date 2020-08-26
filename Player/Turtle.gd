@@ -43,6 +43,15 @@ func set_state(value):
 	emit_signal("signal_debug_st_changed",value)
 	if value == ST_AIRBORN or value == ST_FALLING or value == ST_FLUTTER:
 		$Sprite.rotation_degrees = 0
+		$Sprite.offset.y=0
+	if value == ST_ONLEFTWALL:
+		$Sprite.rotation_degrees = 90 
+		$Sprite.offset.y=-5
+		
+	if value == ST_ONRIGHTWALL:
+		$Sprite.rotation_degrees = 270 
+		$Sprite.offset.y=-5
+
 	if value == ST_ONGROUND:
 		flutterGas = MAX_FLUTTER_GAS
 		flutterAccel = 0 
