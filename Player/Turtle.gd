@@ -2,10 +2,10 @@ extends KinematicBody2D
 
 const TARGET_FPS = 60
 const ACCELERATION = 8
-const MAX_SPEED_DEFAULT = 30
+const MAX_SPEED_DEFAULT = 90
 const MAX_SPEED_BOOSTED = 90
 const FRICTION = 10
-const AIR_RESISTANCE = 1
+const AIR_RESISTANCE = .1
 const GRAVITY = 6
 const JUMP_FORCE = 220
 const SKY_SPEED = 35
@@ -19,7 +19,7 @@ var max_speed = MAX_SPEED_DEFAULT
 
 #flutter conditions
 var flutterGas = MAX_FLUTTER_GAS
-var flutterAccel = 0 #value between 0 and 1 for speed boost interpolation
+var flutterAccel = 0 # value between 0 and 1 for speed boost interpolation
 
 var motion = Vector2.ZERO
 
@@ -44,6 +44,7 @@ func set_state(value):
 	if value == ST_AIRBORN or value == ST_FALLING or value == ST_FLUTTER:
 		$Sprite.rotation_degrees = 0
 		$Sprite.offset.y=0
+		
 	if value == ST_ONLEFTWALL:
 		$Sprite.rotation_degrees = 90 
 		$Sprite.offset.y=-5
@@ -153,15 +154,14 @@ func _physics_process(delta):
 				set_state(ST_FALLING)
 			else:
 				set_state(ST_AIRBORN)
-	elif state==ST_ONLEFTWALL:
-		$Sprite.rotation_degrees = 90
-	elif state==ST_ONRIGHTWALL:
-		$Sprite.rotation_degrees = 270
-		#$Sprite.scale.x = -1
-	
+	elif state==ST_ONLEFTWALL or state == ST_ONRIGHTWALL:
+		if(Input.is_action_just_pressed("player_up")):
+			motion.x=-JUMP_FORCE/sqrt(2)
+			motion.y=-JUMP_FORCE/sqrt(2)
+			if state==ST_ONLEFTWALL:
+				motion.x*=-1
 	motion = move_and_slide(motion, Vector2.UP)
-	
-	
+
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if (anim_name == 'Hide'):
 		emit_signal("Hidden")
@@ -169,4 +169,3 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if (anim_name == 'Emerge'):
 		emit_signal("Emerged")
 		hidden = false;
-
