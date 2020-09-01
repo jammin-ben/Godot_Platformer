@@ -86,6 +86,7 @@ collision_mask = 4
 shape = SubResource( 5 )
 
 [node name="UIImage" type="Sprite" parent="."]
+visible = false
 [connection signal="eaten" from="AnimatedTexture" to="." method="_conn_on_powerup_eaten"]
 [connection signal="area_entered" from="AnimatedTexture/Area2D" to="AnimatedTexture" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="AnimatedTexture/Area2D" to="AnimatedTexture" method="_on_Area2D_area_exited"]

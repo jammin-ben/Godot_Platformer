@@ -18,7 +18,7 @@ __meta__ = {
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 margin_right = 32.0
 margin_bottom = 8.0
-columns = 3
+columns = 9
 
 [node name="ball_mode" type="TextureRect" parent="MarginContainer/GridContainer"]
 margin_right = 8.0

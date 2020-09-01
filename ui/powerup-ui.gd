@@ -19,6 +19,10 @@ func _conn_on_powerup_consumed(powerup_name: String, powerup: Powerup):
 			var container = get_node("MarginContainer/GridContainer/" + powerup_name)
 			if container:
 				container.texture = powerup.ui_image
+		_:
+			var new_texture_rect = TextureRect.new()
+			new_texture_rect.texture = powerup.ui_image
+			$MarginContainer/GridContainer.add_child(new_texture_rect)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
