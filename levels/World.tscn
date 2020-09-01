@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sounds/Sable.wav" type="AudioStream" id=2]
@@ -6,10 +6,12 @@
 [ext_resource path="res://scenery/Beaver.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level_objects/Strawberry.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/Lime.png" type="Texture" id=6]
-[ext_resource path="res://sprites/Blueberry.png" type="Texture" id=7]
+[ext_resource path="res://level_objects/powerups/PowerupBallMode.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Player/CompositTurtle.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/powerup-ui.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenery/ParallaxBackground.tscn" type="PackedScene" id=10]
+[ext_resource path="res://level_objects/powerups/PowerupTemplate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://icon.png" type="Texture" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Wind"
@@ -59,24 +61,28 @@ position = Vector2( -8, -15 )
 [node name="Fruit" type="Node" parent="Misc_Scenery"]
 
 [node name="Strawberry" parent="Misc_Scenery/Fruit" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 27, -21 )
-replacement_spr_string = "res://sprites/Turt/Turt_Red.png"
 
 [node name="Strawberry3" parent="Misc_Scenery/Fruit" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 449, 28 )
 texture = ExtResource( 6 )
-replacement_spr_string = "res://sprites/Turt/Turt_Grn.png"
-particle_color = Color( 0.0980392, 0.756863, 0.52549, 1 )
 
 [node name="Strawberry2" parent="Misc_Scenery/Fruit" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 134, 124 )
-texture = ExtResource( 7 )
-replacement_spr_string = "res://sprites/Turt/Turt_Blu.png"
-particle_color = Color( 0.152941, 0.65098, 0.870588, 1 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
-position = Vector2( 114.653, 114.653 )
+position = Vector2( 110.415, 119.421 )
 
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
+
+[node name="PowerupBallMode" parent="." instance=ExtResource( 7 )]
+position = Vector2( 187.099, 121.51 )
+
+[node name="PowerupFake" parent="." instance=ExtResource( 11 )]
+position = Vector2( 146.736, 122.35 )
+ui_image = ExtResource( 12 )

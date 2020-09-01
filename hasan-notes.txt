@@ -8,3 +8,10 @@ Friday 4/24/2020:
         which turtle is active based on signals from animation completions
         (i.e. hide, emerge)
         
+
+Monday
+8/31/2020
+  #mentalcapture
+    Trying to setup the Powerup.tscn node to be a 'tool'. The latest thing I'm
+    trying to figure out is how to get the CollisionShape2D in the Hurtbox
+    child to work. Maybe make the properties setget all the way down?
