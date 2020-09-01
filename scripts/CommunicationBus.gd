@@ -1,4 +1,4 @@
-extends Powerup
+extends Node
 
 
 # Declare member variables here. Examples:
@@ -8,7 +8,6 @@ extends Powerup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	emit_signal("powerup", Globals.POWERUP_BALL_MODE)
 	pass # Replace with function body.
 
 

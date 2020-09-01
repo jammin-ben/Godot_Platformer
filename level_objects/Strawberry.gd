@@ -1,4 +1,7 @@
+tool
 extends Sprite
+
+class_name PowerupAnimatedImage
 
 var Health = 10
 var being_eaten = false
@@ -20,9 +23,11 @@ func _process(delta):
 
 	if(being_eaten):
 		Health -= delta
-		particle.emitting = true 
+		if not Engine.editor_hint:
+			particle.emitting = true 
 	else:
-		particle.emitting = false
+		if not Engine.editor_hint:
+			particle.emitting = false
 	self.frame = 4 - Health / 2.5
 	if(Health<=0):
 		#print(TurtleSpr.texture)
