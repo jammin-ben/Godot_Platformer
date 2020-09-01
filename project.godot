@@ -20,14 +20,14 @@ _global_script_classes=[ {
 "path": "res://level_objects/powerups/Powerup.gd"
 }, {
 "base": "Sprite",
-"class": "PowerupAnimatedImage",
+"class": "PowerupAnimatedTexture",
 "language": "GDScript",
-"path": "res://level_objects/Strawberry.gd"
+"path": "res://level_objects/powerups/AnimatedTexture.gd"
 } ]
 _global_script_class_icons={
 "CompositeTurtle": "",
 "Powerup": "",
-"PowerupAnimatedImage": ""
+"PowerupAnimatedTexture": ""
 }
 
 [application]

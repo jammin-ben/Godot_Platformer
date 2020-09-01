@@ -1,10 +1,14 @@
+tool
 extends Sprite
+
+class_name PowerupAnimatedTexture
 
 var Health = 10
 var being_eaten = false
 var eater = null
 
-export var replacement_spr_string="res://sprites/Turt_Alt.png"
+signal eaten()
+
 export var particle_color = Color(1,0,0,1)
 
 onready var particle = $Particles2D
@@ -27,9 +31,7 @@ func _process(delta):
 			particle.emitting = false
 	self.frame = 4 - Health / 2.5
 	if(Health<=0):
-		#print(TurtleSpr.texture)
-		#TurtleSpr.texture = load(replacement_spr_string)
-		eater.set_texture(replacement_spr_string)
+		emit_signal("eaten")
 		queue_free()
 
 func _on_Area2D_area_entered(area):

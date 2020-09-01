@@ -1,11 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://level_objects/powerups/Powerup.gd" type="Script" id=1]
-[ext_resource path="res://level_objects/Strawberry.gd" type="Script" id=2]
-[ext_resource path="res://collisions/Hurtbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level_objects/powerups/AnimatedTexture.gd" type="Script" id=2]
 [ext_resource path="res://sprites/Blueberry.png" type="Texture" id=5]
-
-[sub_resource type="RectangleShape2D" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hop"
@@ -54,18 +51,21 @@ scale = 3.0
 scale_curve = SubResource( 3 )
 color = Color( 1, 0, 0, 1 )
 
-[node name="Powerup" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 4.61814, 4.368 )
+
+[node name="PowerupTemplate" type="Node2D" groups=[
+"g_powerup",
+]]
 script = ExtResource( 1 )
 animated_texture = ExtResource( 5 )
-collision_shape = SubResource( 5 )
-
-[node name="UIImage" type="Sprite" parent="."]
 
 [node name="AnimatedTexture" type="Sprite" parent="."]
 texture = ExtResource( 5 )
 offset = Vector2( 0, 0.4 )
 hframes = 4
 script = ExtResource( 2 )
+particle_color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedTexture"]
 autoplay = "Hop"
@@ -78,8 +78,14 @@ lifetime = 0.75
 randomness = 1.0
 process_material = SubResource( 4 )
 
-[node name="Hurtbox" parent="AnimatedTexture" instance=ExtResource( 3 )]
+[node name="Area2D" type="Area2D" parent="AnimatedTexture"]
 collision_layer = 4
 collision_mask = 4
-[connection signal="area_entered" from="AnimatedTexture/Hurtbox" to="AnimatedTexture" method="_on_Area2D_area_entered"]
-[connection signal="area_exited" from="AnimatedTexture/Hurtbox" to="AnimatedTexture" method="_on_Area2D_area_exited"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedTexture/Area2D"]
+shape = SubResource( 5 )
+
+[node name="UIImage" type="Sprite" parent="."]
+[connection signal="eaten" from="AnimatedTexture" to="." method="_conn_on_powerup_eaten"]
+[connection signal="area_entered" from="AnimatedTexture/Area2D" to="AnimatedTexture" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="AnimatedTexture/Area2D" to="AnimatedTexture" method="_on_Area2D_area_exited"]
