@@ -2,13 +2,15 @@ extends Node2D
 
 class_name CompositeTurtle
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
+
 
 export var ball_mode = false setget set_ball_mode
 
-var has_powerup_ball_mode = false
+var has_powerup = {
+	ball_mode = false,
+	flutter_jump = false,
+	wall_jump = false
+}
 
 onready var turt_default = $TurtleDefault
 onready var turt_ball = $TurtleBall
@@ -30,7 +32,7 @@ func _input(event: InputEvent) -> void:
 			set_ball_mode(false)
 
 func on_turtle_hidden():
-	if has_powerup_ball_mode:
+	if has_powerup.ball_mode:
 		set_ball_mode(true)
 
 func on_turtle_emerged():
@@ -109,15 +111,11 @@ func _set_ball_mode():
 
 
 
-func _conn_on_powerup_consumed(powerup_name: String, powerup: Powerup):
+func _conn_on_powerup_consumed(powerup_name: String, _powerup: Powerup):
 	match(powerup_name):
 		Globals.POWERUP_BALL_MODE:
-			has_powerup_ball_mode = true
-			pass
+			has_powerup.ball_mode = true
 		Globals.POWERUP_FLUTTER_JUMP:
-			pass
+			has_powerup.flutter_jump = true
 		Globals.POWERUP_WALL_JUMP:
-			pass
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	position = active_turtle.position
+			has_powerup.wall_jump = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sounds/Sable.wav" type="AudioStream" id=2]
@@ -10,8 +10,7 @@
 [ext_resource path="res://Player/CompositTurtle.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/powerup-ui.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenery/ParallaxBackground.tscn" type="PackedScene" id=10]
-[ext_resource path="res://level_objects/powerups/PowerupTemplate.tscn" type="PackedScene" id=11]
-[ext_resource path="res://icon.png" type="Texture" id=12]
+[ext_resource path="res://level_objects/powerups/PowerupFlutterJump.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Wind"
@@ -84,8 +83,5 @@ position = Vector2( 110.415, 119.421 )
 [node name="PowerupBallMode" parent="." instance=ExtResource( 7 )]
 position = Vector2( 187.099, 121.51 )
 
-[node name="PowerupFake" parent="." instance=ExtResource( 11 )]
-position = Vector2( 146.736, 122.35 )
-powerup_name = ""
-ui_image = ExtResource( 12 )
-particle_color = Color( 0, 0, 0, 1 )
+[node name="PowerupTemplate" parent="." instance=ExtResource( 11 )]
+position = Vector2( 171.036, 122.232 )
