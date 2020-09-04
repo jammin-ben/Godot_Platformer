@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Turtle
+
 const TARGET_FPS = 60
 const ACCELERATION = 8
 const MAX_SPEED_DEFAULT = 30
@@ -38,6 +40,22 @@ onready var hitbox = $Hitbox/CollisionShape2D
 #onready var hitboxpivot = $HitboxPivot
 
 var hidden = false;
+
+
+
+
+var has_powerup = {
+	ball_mode = false,
+	flutter_jump = false,
+	wall_jump = false
+}
+
+var level_powerups = []
+
+func _ready() -> void:
+	level_powerups = get_tree().get_nodes_in_group(Globals.POWERUP_GROUP)
+	for powerup in level_powerups:
+		powerup.connect("powerup", self, "_conn_on_powerup_consumed")
 
 func set_state(value):
 	emit_signal("signal_debug_st_changed",value)
@@ -134,7 +152,7 @@ func _physics_process(delta):
 			set_state(ST_FALLING)
 
 	elif state==ST_FALLING:
-		if Input.is_action_pressed("player_up") and flutterGas > 0:
+		if Input.is_action_pressed("player_up") and flutterGas > 0 and has_powerup.flutter_jump:
 			set_state(ST_FLUTTER)
 		if motion.y < FALLING_THRESHOLD:
 			set_state(ST_AIRBORN)
@@ -170,3 +188,12 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 		emit_signal("Emerged")
 		hidden = false;
 
+
+func _conn_on_powerup_consumed(powerup_name: String, _powerup: Powerup):
+	match(powerup_name):
+		Globals.POWERUP_BALL_MODE:
+			has_powerup.ball_mode = true
+		Globals.POWERUP_FLUTTER_JUMP:
+			has_powerup.flutter_jump = true
+		Globals.POWERUP_WALL_JUMP:
+			has_powerup.wall_jump = true
