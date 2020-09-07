@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sounds/Sable.wav" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://ui/powerup-ui.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenery/ParallaxBackground.tscn" type="PackedScene" id=10]
 [ext_resource path="res://level_objects/powerups/PowerupFlutterJump.tscn" type="PackedScene" id=11]
+[ext_resource path="res://level_objects/powerups/PowerupWallJump.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Wind"
@@ -35,7 +36,6 @@ tracks/0/keys = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-autoplay = true
 
 [node name="Misc_Scenery" type="Node" parent="."]
 
@@ -81,7 +81,10 @@ position = Vector2( 110.415, 119.421 )
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 
 [node name="PowerupBallMode" parent="." instance=ExtResource( 7 )]
-position = Vector2( 187.099, 121.51 )
+position = Vector2( 188.573, 123.352 )
 
 [node name="PowerupTemplate" parent="." instance=ExtResource( 11 )]
-position = Vector2( 171.036, 122.232 )
+position = Vector2( 171.036, 123.705 )
+
+[node name="PowerupTemplate2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 206.154, 123.621 )

@@ -80,10 +80,10 @@ func check_for_ground():
 	if $DownLeft.is_colliding() or $DownRight.is_colliding():
 		set_state(ST_ONGROUND)
 	
-	elif $LeftDown.is_colliding() or $LeftUp.is_colliding():
+	elif ($LeftDown.is_colliding() or $LeftUp.is_colliding()) and has_powerup.wall_jump:
 		set_state(ST_ONLEFTWALL)
 	
-	elif $RightDown.is_colliding() or $RightUp.is_colliding():
+	elif ($RightDown.is_colliding() or $RightUp.is_colliding()) and has_powerup.wall_jump:
 		set_state(ST_ONRIGHTWALL)
 	
 	elif state==ST_ONGROUND or state==ST_ONLEFTWALL or state==ST_ONRIGHTWALL:
@@ -103,9 +103,7 @@ func _physics_process(delta):
 	# what I want though, if all of this is true, but also down isn't being pressed
 	elif x_input != 0 and !hidden: #and !Input.is_action_pressed('player_down'):
 
-		# vvvvvvvvv
 		animationPlayer.play("Move")
-		# ^^^^^^^
 		
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		motion.x = clamp(motion.x, -max_speed, max_speed)
