@@ -78,13 +78,18 @@ position = Vector2( 134, 124 )
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
 position = Vector2( 110.415, 119.421 )
 
+[node name="TurtleDefault" parent="CompositTurtle" index="0"]
+ball_mode = true
+
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 
 [node name="PowerupBallMode" parent="." instance=ExtResource( 7 )]
 position = Vector2( 188.573, 123.352 )
 
-[node name="PowerupTemplate" parent="." instance=ExtResource( 11 )]
+[node name="PowerupFlutterJump" parent="." instance=ExtResource( 11 )]
 position = Vector2( 171.036, 123.705 )
 
-[node name="PowerupTemplate2" parent="." instance=ExtResource( 12 )]
+[node name="PowerupWallJump" parent="." instance=ExtResource( 12 )]
 position = Vector2( 206.154, 123.621 )
+
+[editable path="CompositTurtle"]

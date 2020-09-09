@@ -4,7 +4,7 @@ class_name CompositeTurtle
 
 
 
-export var ball_mode = false setget set_ball_mode
+var ball_mode = false setget set_ball_mode
 
 
 onready var turt_default = $TurtleDefault

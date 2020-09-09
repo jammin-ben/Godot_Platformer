@@ -2,6 +2,15 @@ extends KinematicBody2D
 
 class_name Turtle
 
+
+# These are here to make it so you can tweak
+# these while debugging. When it comes time
+# to release the game these should be
+# irrelevant
+export var ball_mode = false
+export var wall_jump = false
+export var flutter_jump = false
+
 const TARGET_FPS = 60
 const ACCELERATION = 8
 const MAX_SPEED_DEFAULT = 30
@@ -28,6 +37,7 @@ var motion = Vector2.ZERO
 signal Hidden()
 signal Emerged()
 signal signal_debug_st_changed(state)
+signal signal_consumed_powerup_flutter_jump()
 
 
 onready var sprite = $Sprite
@@ -53,6 +63,9 @@ var has_powerup = {
 var level_powerups = []
 
 func _ready() -> void:
+	has_powerup.ball_mode = ball_mode
+	has_powerup.flutter_jump = flutter_jump
+	has_powerup.wall_jump = wall_jump
 	level_powerups = get_tree().get_nodes_in_group(Globals.POWERUP_GROUP)
 	for powerup in level_powerups:
 		powerup.connect("powerup", self, "_conn_on_powerup_consumed")
@@ -193,5 +206,6 @@ func _conn_on_powerup_consumed(powerup_name: String, _powerup: Powerup):
 			has_powerup.ball_mode = true
 		Globals.POWERUP_FLUTTER_JUMP:
 			has_powerup.flutter_jump = true
+			emit_signal("signal_consumed_powerup_flutter_jump")
 		Globals.POWERUP_WALL_JUMP:
 			has_powerup.wall_jump = true
