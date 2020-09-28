@@ -2,16 +2,18 @@ extends KinematicBody2D
 
 const TARGET_FPS = 60
 const ACCELERATION = 8
-const MAX_SPEED_DEFAULT = 90
+const MAX_SPEED_DEFAULT = 30
 const MAX_SPEED_BOOSTED = 90
 const FRICTION = 10
-const AIR_RESISTANCE = .1
+const AIR_RESISTANCE = 1
 const GRAVITY = 6
 const JUMP_FORCE = 220
 const SKY_SPEED = 35
 const MAX_FLUTTER_GAS = 1.2 #seconds of flutter
 const FLUTTER_POWER = -1.5 #like the opposite of gravity
 const FALLING_THRESHOLD = 30 #how fast you have to be falling to start flutter
+const WALL_SLIDE_SPEED = 40
+
 enum {ST_ONGROUND, ST_FLUTTER, ST_FALLING, ST_AIRBORN, ST_ONLEFTWALL, ST_ONRIGHTWALL}
 var state = ST_FALLING setget set_state
 
@@ -91,8 +93,6 @@ func _physics_process(delta):
 		# ^^^^^^^
 		
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
-		motion.x = clamp(motion.x, -max_speed, max_speed)
-		sprite.flip_h = x_input < 0
 		
 	elif x_input == 0 and !hidden and state==ST_ONGROUND:
 		if animationPlayer.current_animation == "Move":
@@ -143,7 +143,9 @@ func _physics_process(delta):
 	elif state==ST_FLUTTER:
 		if x_input !=0:
 			flutterAccel += delta / MAX_FLUTTER_GAS
-		max_speed = MAX_SPEED_DEFAULT + ease(flutterAccel, 2.0)*MAX_SPEED_BOOSTED
+		
+		#taking max so this doesn't slow us down in the case of a walljump
+		max_speed = max(MAX_SPEED_DEFAULT + ease(flutterAccel, 2.0)*MAX_SPEED_BOOSTED,max_speed)
 		
 		motion.y += FLUTTER_POWER * delta * TARGET_FPS
 		flutterGas -= delta 
@@ -155,11 +157,19 @@ func _physics_process(delta):
 			else:
 				set_state(ST_AIRBORN)
 	elif state==ST_ONLEFTWALL or state == ST_ONRIGHTWALL:
+		motion.y += GRAVITY * delta * TARGET_FPS 
+		motion.y = min(motion.y,WALL_SLIDE_SPEED)
 		if(Input.is_action_just_pressed("player_up")):
+			max_speed = MAX_SPEED_BOOSTED
 			motion.x=-JUMP_FORCE/sqrt(2)
 			motion.y=-JUMP_FORCE/sqrt(2)
 			if state==ST_ONLEFTWALL:
 				motion.x*=-1
+	
+	motion.x = clamp(motion.x, -max_speed, max_speed)
+	if(motion.x!=0):
+		sprite.flip_h = motion.x < 0
+	
 	motion = move_and_slide(motion, Vector2.UP)
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:

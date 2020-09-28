@@ -36,6 +36,7 @@ tracks/0/keys = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+autoplay = true
 
 [node name="Misc_Scenery" type="Node" parent="."]
 
@@ -85,4 +86,6 @@ position = Vector2( 187.099, 121.51 )
 
 [node name="PowerupFake" parent="." instance=ExtResource( 11 )]
 position = Vector2( 146.736, 122.35 )
+powerup_name = ""
 ui_image = ExtResource( 12 )
+particle_color = Color( 0, 0, 0, 1 )
