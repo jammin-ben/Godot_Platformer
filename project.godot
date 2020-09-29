@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "PowerupAnimatedTexture",
 "language": "GDScript",
 "path": "res://level_objects/powerups/AnimatedTexture.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Turtle",
+"language": "GDScript",
+"path": "res://Player/Turtle.gd"
 } ]
 _global_script_class_icons={
 "CompositeTurtle": "",
 "Powerup": "",
-"PowerupAnimatedTexture": ""
+"PowerupAnimatedTexture": "",
+"Turtle": ""
 }
 
 [application]

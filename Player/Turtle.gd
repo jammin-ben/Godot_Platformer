@@ -1,5 +1,16 @@
 extends KinematicBody2D
 
+class_name Turtle
+
+
+# These are here to make it so you can tweak
+# these while debugging. When it comes time
+# to release the game these should be
+# irrelevant
+export var ball_mode = false
+export var wall_jump = false
+export var flutter_jump = false
+
 const TARGET_FPS = 60
 const ACCELERATION = 8
 const MAX_SPEED_DEFAULT = 30
@@ -28,6 +39,7 @@ var motion = Vector2.ZERO
 signal Hidden()
 signal Emerged()
 signal signal_debug_st_changed(state)
+signal signal_consumed_powerup_flutter_jump()
 
 
 onready var sprite = $Sprite
@@ -40,6 +52,25 @@ onready var hitbox = $Hitbox/CollisionShape2D
 #onready var hitboxpivot = $HitboxPivot
 
 var hidden = false;
+
+
+
+
+var has_powerup = {
+	ball_mode = false,
+	flutter_jump = false,
+	wall_jump = false
+}
+
+var level_powerups = []
+
+func _ready() -> void:
+	has_powerup.ball_mode = ball_mode
+	has_powerup.flutter_jump = flutter_jump
+	has_powerup.wall_jump = wall_jump
+	level_powerups = get_tree().get_nodes_in_group(Globals.POWERUP_GROUP)
+	for powerup in level_powerups:
+		powerup.connect("powerup", self, "_conn_on_powerup_consumed")
 
 func set_state(value):
 	emit_signal("signal_debug_st_changed",value)
@@ -65,10 +96,10 @@ func check_for_ground():
 	if $DownLeft.is_colliding() or $DownRight.is_colliding():
 		set_state(ST_ONGROUND)
 	
-	elif $LeftDown.is_colliding() or $LeftUp.is_colliding():
+	elif ($LeftDown.is_colliding() or $LeftUp.is_colliding()) and has_powerup.wall_jump:
 		set_state(ST_ONLEFTWALL)
 	
-	elif $RightDown.is_colliding() or $RightUp.is_colliding():
+	elif ($RightDown.is_colliding() or $RightUp.is_colliding()) and has_powerup.wall_jump:
 		set_state(ST_ONRIGHTWALL)
 	
 	elif state==ST_ONGROUND or state==ST_ONLEFTWALL or state==ST_ONRIGHTWALL:
@@ -88,9 +119,7 @@ func _physics_process(delta):
 	# what I want though, if all of this is true, but also down isn't being pressed
 	elif x_input != 0 and !hidden: #and !Input.is_action_pressed('player_down'):
 
-		# vvvvvvvvv
 		animationPlayer.play("Move")
-		# ^^^^^^^
 		
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		
@@ -135,7 +164,7 @@ func _physics_process(delta):
 			set_state(ST_FALLING)
 
 	elif state==ST_FALLING:
-		if Input.is_action_pressed("player_up") and flutterGas > 0:
+		if Input.is_action_pressed("player_up") and flutterGas > 0 and has_powerup.flutter_jump:
 			set_state(ST_FLUTTER)
 		if motion.y < FALLING_THRESHOLD:
 			set_state(ST_AIRBORN)
@@ -179,3 +208,14 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if (anim_name == 'Emerge'):
 		emit_signal("Emerged")
 		hidden = false;
+
+
+func _conn_on_powerup_consumed(powerup_name: String, _powerup: Powerup):
+	match(powerup_name):
+		Globals.POWERUP_BALL_MODE:
+			has_powerup.ball_mode = true
+		Globals.POWERUP_FLUTTER_JUMP:
+			has_powerup.flutter_jump = true
+			emit_signal("signal_consumed_powerup_flutter_jump")
+		Globals.POWERUP_WALL_JUMP:
+			has_powerup.wall_jump = true

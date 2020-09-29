@@ -1,4 +1,5 @@
 #godot specific:
+*.import
 .import/*
 export.cfg
 export_presets.cfg
