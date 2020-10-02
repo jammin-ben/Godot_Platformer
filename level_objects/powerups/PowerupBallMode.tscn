@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://level_objects/powerups/PowerupTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/Blueberry_UI.png" type="Texture" id=2]
 [ext_resource path="res://ui/images/ui-blueberry-full.png" type="Texture" id=3]
 
 [sub_resource type="Curve" id=1]
@@ -22,7 +23,7 @@ color = Color( 0.101961, 0.352941, 0.709804, 1 )
 
 [node name="PowerupBallMode" instance=ExtResource( 1 )]
 powerup_name = "ball_mode"
-ui_image = ExtResource( 3 )
+ui_image = ExtResource( 2 )
 particle_color = Color( 0.101961, 0.352941, 0.709804, 1 )
 
 [node name="AnimatedTexture" parent="." index="0"]
