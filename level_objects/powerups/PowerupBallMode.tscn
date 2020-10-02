@@ -36,5 +36,4 @@ process_material = SubResource( 3 )
 position = Vector2( 0, 0.44545 )
 
 [node name="UIImage" parent="." index="1"]
-visible = false
 texture = ExtResource( 3 )

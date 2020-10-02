@@ -1,11 +1,24 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sprites/Strawberry.png" type="Texture" id=1]
 [ext_resource path="res://level_objects/Strawberry.gd" type="Script" id=2]
 [ext_resource path="res://collisions/Hurtbox.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Hop"
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+void vertex(){
+	VERTEX.y += sin(TIME)*(1.0-UV.y);
+	VERTEX.x += 10.*sign(0.5-UV.x);
+	//VERTEX.x+=UV.x * 10.0;
+	
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
 length = 0.8
 loop = true
 step = 0.05
@@ -34,13 +47,13 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0.5 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=6]
 flag_disable_z = true
 gravity = Vector3( -200, 0, 0 )
 initial_velocity = 61.22
@@ -48,36 +61,36 @@ angular_velocity = 8.38861e+06
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 3.0
-scale_curve = SubResource( 3 )
+scale_curve = SubResource( 5 )
 color = Color( 0.721569, 0.188235, 0.188235, 1 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 5.55508, 5.35759 )
 
 [node name="Strawberry" type="Sprite"]
-scale = Vector2( 0.900078, 1.11991 )
+material = SubResource( 2 )
 texture = ExtResource( 1 )
-offset = Vector2( 0, -0.340444 )
+offset = Vector2( 0, 0.4 )
 hframes = 4
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Hop"
-anims/Hop = SubResource( 1 )
+anims/Hop = SubResource( 3 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 rotation = 4.71239
 amount = 2
 lifetime = 0.75
 randomness = 1.0
-process_material = SubResource( 4 )
+process_material = SubResource( 6 )
 
 [node name="Area2D" parent="." instance=ExtResource( 3 )]
 collision_layer = 4
 collision_mask = 4
+collision_shape = null
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 
