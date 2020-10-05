@@ -26,6 +26,7 @@ shape = SubResource( 1 )
 visible = false
 position = Vector2( -2.13581, -1.42612 )
 mass = 1.0
+gravity_scale = 3.64
 
 [node name="Area2D2" type="Area2D" parent="TurtleBall"]
 position = Vector2( 2.13581, 1.42612 )
