@@ -36,6 +36,7 @@ tracks/0/keys = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+autoplay = true
 
 [node name="Misc_Scenery" type="Node" parent="."]
 
