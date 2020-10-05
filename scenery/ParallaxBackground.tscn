@@ -70,7 +70,7 @@ vframes = 5
 frame = 3
 
 [node name="Forest_Layer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.3, 0 )
+motion_scale = Vector2( 0.25, 0 )
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Landscape" type="Sprite" parent="Forest_Layer"]
