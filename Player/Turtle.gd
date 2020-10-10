@@ -87,6 +87,8 @@ func set_state(value):
 		$Sprite.offset.y=-5
 
 	if value == ST_ONGROUND:
+		$Sprite.rotation_degrees=0
+		$Sprite.offset.y=0
 		flutterGas = MAX_FLUTTER_GAS
 		flutterAccel = 0 
 		#max_speed = MAX_SPEED_DEFAULT
