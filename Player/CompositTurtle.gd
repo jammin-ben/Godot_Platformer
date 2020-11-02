@@ -53,7 +53,7 @@ func _disable_turt_ball():
 
 func _enable_turt_ball():
 	turt_ball.visible = true
-	$TurtleBall/Camera2D.current = true
+	#$TurtleBall/Camera2D.current = true
 	
 	$TurtleBall/CollisionPolygon2D.disabled = false
 	turt_ball.mode = RigidBody2D.MODE_RIGID
@@ -68,7 +68,7 @@ func _disable_turt_default():
 	
 func _enable_turt_default():
 	turt_default.visible = true
-	$TurtleDefault/Camera2D.current = true
+	#$TurtleDefault/Camera2D.current = true
 	$TurtleDefault/CollisionShape2D.disabled = false
 	turt_default.set_physics_process(true)
 	active_turtle = turt_default
