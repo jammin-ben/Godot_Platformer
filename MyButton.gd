@@ -14,6 +14,7 @@ func run():
 	
 func _on_Area2D_mouse_entered():
 	$Sprite.frame=2
+	$Sound.play()
 	
 func _on_Area2D_mouse_exited():
 	$Sprite.frame=0
