@@ -38,10 +38,10 @@ tracks/0/keys = {
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
+collision_layer = 33
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-autoplay = true
 
 [node name="Misc_Scenery" type="Node" parent="."]
 

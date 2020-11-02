@@ -3,7 +3,6 @@
 [ext_resource path="res://scenery/Beaver.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Beaver.png" type="Texture" id=2]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "Run"
 length = 0.2
@@ -56,9 +55,10 @@ modulate = Color( 0.470588, 0.658824, 0.054902, 1 )
 position = Vector2( 7, -2 )
 enabled = true
 cast_to = Vector2( 0, 10 )
+collision_mask = 32
 
 [node name="lray" type="RayCast2D" parent="."]
 position = Vector2( -7, -2 )
 enabled = true
 cast_to = Vector2( 0, 10 )
-
+collision_mask = 32

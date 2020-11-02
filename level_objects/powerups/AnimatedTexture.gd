@@ -29,11 +29,13 @@ func _process(delta):
 	else:
 		if not Engine.editor_hint:
 			particle.emitting = false
-	self.frame = 4 - Health / 2.5
+	
 	if(Health<=0):
 		emit_signal("eaten")
 		queue_free()
-
+		return
+	self.frame = 4 - Health / 2.5
+	
 func _on_Area2D_area_entered(area):
 	eater = area.get_parent().get_parent()#composite_turtle
 	#print(eater.name)
