@@ -1,0 +1,17 @@
+level design (decide how fail states will work)
+
+make objects which interact with ball mode
+
+sound effects 
+
+Add menu functionality + Fix jittery movement of menu objects
+
+Make turtle not play walk animation when jumping
+
+make butterflies the same color in ball mode
+
+Add background panel for UI fruit
+
+Consider reworking eat animation so it looks more like eating
+
+Fix tileset (outline + complete tileset)

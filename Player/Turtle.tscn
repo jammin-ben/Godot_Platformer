@@ -3,7 +3,7 @@
 [ext_resource path="res://Player/Turtle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Turt/Turt_Default.png" type="Texture" id=2]
 [ext_resource path="res://collisions/Hitbox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player/debug_label.gd" type="Script" id=4]
+[ext_resource path="res://Player_Camera.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.63446, 8 )
@@ -130,26 +130,7 @@ anims/Move = SubResource( 6 )
 anims/Stand = SubResource( 7 )
 anims/Tortoise_Anim = SubResource( 8 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer/MarginContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer/MarginContainer/HBoxContainer"]
-margin_top = 13.0
-margin_bottom = 27.0
-script = ExtResource( 4 )
+[node name="Camera2D" parent="." instance=ExtResource( 4 )]
 
 [node name="DownRight" type="RayCast2D" parent="."]
 position = Vector2( 7, -1 )
@@ -189,7 +170,6 @@ cast_to = Vector2( -2, 0 )
 position = Vector2( -7, -15 )
 enabled = true
 cast_to = Vector2( -2, 0 )
-[connection signal="signal_debug_st_changed" from="." to="Camera2D/CanvasLayer/MarginContainer/HBoxContainer/Label" method="_on_Turt_Kinem_signal_debug_st_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Hitbox"]

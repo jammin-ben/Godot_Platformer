@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenery/ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/title.png" type="Texture" id=2]
 [ext_resource path="res://sounds/Turt_Menu.wav" type="AudioStream" id=3]
+[ext_resource path="res://levels/test.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -10,7 +11,7 @@ length = 6.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,7 +32,7 @@ menu_version = true
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 centered = false
-offset = Vector2( 0, 4.61782 )
+script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "New Anim"
