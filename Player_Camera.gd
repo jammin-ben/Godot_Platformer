@@ -15,4 +15,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var target= turt.position+turt_parent.position
-	self.position += .005*(target - position)
+	self.position += 2* delta*(target - position)
