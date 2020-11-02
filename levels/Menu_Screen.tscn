@@ -40,4 +40,3 @@ autoplay = "New Anim"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-autoplay = true
