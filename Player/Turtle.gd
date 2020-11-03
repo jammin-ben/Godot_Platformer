@@ -57,9 +57,9 @@ var hidden = false;
 
 
 var has_powerup = {
-	ball_mode = false,
-	flutter_jump = false,
-	wall_jump = false
+	ball_mode = true,
+	flutter_jump = true,
+	wall_jump = true
 }
 
 var level_powerups = []
