@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sounds/Sable.wav" type="AudioStream" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://sprites/peach_ui1.png" type="Texture" id=15]
 [ext_resource path="res://Player_Camera.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Player_Camera.gd" type="Script" id=17]
+[ext_resource path="res://sprites/fern_clump.png" type="Texture" id=18]
+[ext_resource path="res://sprites/Bush.png" type="Texture" id=19]
+[ext_resource path="res://scenery/Flower.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Wind"
@@ -42,6 +45,7 @@ collision_layer = 33
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+autoplay = true
 
 [node name="Misc_Scenery" type="Node" parent="."]
 
@@ -78,6 +82,38 @@ texture = ExtResource( 6 )
 [node name="Strawberry2" parent="Misc_Scenery/Fruit" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 134, 124 )
+
+[node name="Ferns" type="Sprite" parent="Misc_Scenery"]
+position = Vector2( 32, -24 )
+texture = ExtResource( 18 )
+
+[node name="Bush" type="Sprite" parent="Misc_Scenery"]
+position = Vector2( 399, 148 )
+texture = ExtResource( 19 )
+
+[node name="Flowrs" parent="Misc_Scenery" instance=ExtResource( 20 )]
+position = Vector2( 221, 204 )
+
+[node name="Flowrs2" parent="Misc_Scenery" instance=ExtResource( 20 )]
+position = Vector2( 196, 204 )
+
+[node name="Flowrs3" parent="Misc_Scenery" instance=ExtResource( 20 )]
+position = Vector2( 208, 204 )
+
+[node name="Flowrs4" parent="Misc_Scenery" instance=ExtResource( 20 )]
+position = Vector2( 243, 204 )
+
+[node name="Flowrs5" parent="Misc_Scenery" instance=ExtResource( 20 )]
+position = Vector2( 264, 204 )
+
+[node name="Flowrs6" parent="Misc_Scenery" instance=ExtResource( 20 )]
+position = Vector2( 255, 204 )
+
+[node name="Flowrs7" parent="Misc_Scenery" instance=ExtResource( 20 )]
+position = Vector2( 249, 204 )
+
+[node name="Flowrs8" parent="Misc_Scenery" instance=ExtResource( 20 )]
+position = Vector2( 168, 204 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 

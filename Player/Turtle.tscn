@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Turtle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Turt/Turt_Default.png" type="Texture" id=2]
 [ext_resource path="res://collisions/Hitbox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player_Camera.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.63446, 8 )
@@ -129,8 +128,6 @@ anims/Jump = SubResource( 5 )
 anims/Move = SubResource( 6 )
 anims/Stand = SubResource( 7 )
 anims/Tortoise_Anim = SubResource( 8 )
-
-[node name="Camera2D" parent="." instance=ExtResource( 4 )]
 
 [node name="DownRight" type="RayCast2D" parent="."]
 position = Vector2( 7, -1 )
