@@ -41,6 +41,7 @@ autoplay = "New Anim"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -8.0
 autoplay = true
 
 [node name="Sprite2" type="Sprite" parent="."]
