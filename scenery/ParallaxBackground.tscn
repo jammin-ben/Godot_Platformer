@@ -31,7 +31,7 @@ frame = 1
 [node name="Sprite" type="Sprite" parent="Sky_Layer"]
 texture = ExtResource( 3 )
 centered = false
-vframes = 5
+vframes = 6
 
 [node name="Cloud_Layer" type="ParallaxLayer" parent="."]
 z_as_relative = false
@@ -42,7 +42,7 @@ motion_mirroring = Vector2( 400, 0 )
 z_as_relative = false
 texture = ExtResource( 3 )
 centered = false
-vframes = 5
+vframes = 6
 frame = 1
 
 [node name="Mountain_Layer_Far" type="ParallaxLayer" parent="."]
@@ -54,7 +54,7 @@ motion_mirroring = Vector2( 400, 0 )
 z_as_relative = false
 texture = ExtResource( 3 )
 centered = false
-vframes = 5
+vframes = 6
 frame = 2
 
 [node name="Mountain_Layer2" type="ParallaxLayer" parent="."]
@@ -66,8 +66,18 @@ motion_mirroring = Vector2( 400, 0 )
 z_as_relative = false
 texture = ExtResource( 3 )
 centered = false
-vframes = 5
+vframes = 6
 frame = 3
+
+[node name="Island_Layer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 0 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Landscape" type="Sprite" parent="Island_Layer"]
+texture = ExtResource( 3 )
+centered = false
+vframes = 6
+frame = 4
 
 [node name="Forest_Layer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.25, 0 )
@@ -76,5 +86,5 @@ motion_mirroring = Vector2( 400, 0 )
 [node name="Landscape" type="Sprite" parent="Forest_Layer"]
 texture = ExtResource( 3 )
 centered = false
-vframes = 5
-frame = 4
+vframes = 6
+frame = 5
