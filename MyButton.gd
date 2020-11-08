@@ -1,9 +1,6 @@
 extends Node2D
-var timer = 0
 # Called when the node enters the scene tree for the first time.
-func _process(delta):
-	timer+=delta
-	self.position.y += sin(timer*3)/20
+func _process(_delta):
 	if($Sprite.frame==2 and Input.is_action_just_pressed("ui_accept")):
 		$Sprite.frame=1
 	

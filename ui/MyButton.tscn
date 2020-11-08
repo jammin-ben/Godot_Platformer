@@ -4,7 +4,7 @@
 [ext_resource path="res://sounds/ui_bop.wav" type="AudioStream" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 33.2877, 10 )
+extents = Vector2( 35.4557, 14.3912 )
 
 [node name="MyButton" type="Node2D"]
 script = ExtResource( 1 )
