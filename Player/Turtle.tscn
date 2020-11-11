@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player/Turtle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Turt/Turt_Default.png" type="Texture" id=2]
@@ -115,7 +115,22 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=9]
 loop = true
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="Animation" id=10]
+resource_name = "Wallslide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 4.11383, 3.90738 )
 
 [node name="Turt_Kinem" type="KinematicBody2D"]
@@ -128,7 +143,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 0, -5 )
 vframes = 4
 hframes = 4
-frame = 6
+frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -8 )
@@ -143,6 +158,7 @@ anims/Move = SubResource( 6 )
 anims/Slide = SubResource( 7 )
 anims/Stand = SubResource( 8 )
 anims/Tortoise_Anim = SubResource( 9 )
+anims/Wallslide = SubResource( 10 )
 
 [node name="DownRight" type="RayCast2D" parent="."]
 position = Vector2( 7, -1 )
@@ -161,7 +177,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( -0.0883942, 0 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="RightDown" type="RayCast2D" parent="."]
 position = Vector2( 7, -3 )

@@ -81,11 +81,12 @@ func set_state(value):
 	if value == ST_ONLEFTWALL:
 		$Sprite.rotation_degrees = 90 
 		$Sprite.offset.y=-5
-		
+		animationPlayer.play("Wallslide")
 	if value == ST_ONRIGHTWALL:
 		$Sprite.rotation_degrees = 270 
 		$Sprite.offset.y=-5
-
+		animationPlayer.play("Wallslide")
+		
 	if value == ST_ONGROUND:
 		$Sprite.rotation_degrees=0
 		$Sprite.offset.y=0
