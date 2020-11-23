@@ -1,4 +1,4 @@
-extends MarginContainer
+extends CanvasLayer
 
 
 # Declare member variables here. Examples:
@@ -6,14 +6,18 @@ extends MarginContainer
 # var b: String = "text"
 export var timeout_seconds=5
 export var fade_time_seconds=1
-export(NodePath) var powerup_trigger
+export(NodePath) var powerup_trigger = "."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var powerup = get_node(powerup_trigger)
+	if (powerup is Powerup):
+		powerup.connect("powerup", self, "_conn_on_powerup_consumed")
+	else:
+		printerr("powerup_trigger should point to a node of type Powerup")
 	$Timer.wait_time = timeout_seconds
-	$Timer.start()
 	$Tween.interpolate_property(
-		$Control/TextureRect,
+		$MarginContainer/Control/TextureRect,
 		"modulate:a",
 		1,
 		0,
@@ -26,3 +30,7 @@ func _ready() -> void:
 
 func _conn_on_timer_timeout() -> void:
 	$Tween.start()
+
+func _conn_on_powerup_consumed(powerup_name: String, powerup: Powerup) -> void:
+	$MarginContainer.visible = true
+	$Timer.start()

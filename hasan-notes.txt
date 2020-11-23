@@ -2,3 +2,8 @@
     Just a bit of the code needed for the tutorial window still todo:
         - Allow you to select the powerup node that it will listen for to be triggered
         - Allow you to select the animation that will play when its triggerd
+11/22/2020
+    Just implemented a very basic working version of the tutorial UI. It still
+        - To figure out how we're going to handle different powerups
+            IDEA: have the instance of the UI remove its self from the scene after it is finished. -- I like this one better
+            Another possible idea: allow multiple triggers to be added, then have reset code in place for when everything is done
