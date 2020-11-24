@@ -7,9 +7,12 @@ extends CanvasLayer
 export var timeout_seconds=5
 export var fade_time_seconds=1
 export(NodePath) var powerup_trigger = "."
+export(Texture) var texture = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if (texture):
+		$MarginContainer/Control/TextureRect.texture = texture
 	var powerup = get_node(powerup_trigger)
 	if (powerup is Powerup):
 		powerup.connect("powerup", self, "_conn_on_powerup_consumed")
@@ -25,7 +28,7 @@ func _ready() -> void:
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT,
 		1
-		)
+	)
 
 
 func _conn_on_timer_timeout() -> void:
@@ -34,3 +37,7 @@ func _conn_on_timer_timeout() -> void:
 func _conn_on_powerup_consumed(powerup_name: String, powerup: Powerup) -> void:
 	$MarginContainer.visible = true
 	$Timer.start()
+
+
+func _conn_on_tween_all_completed() -> void:
+	self.queue_free()
