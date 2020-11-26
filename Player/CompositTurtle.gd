@@ -2,7 +2,7 @@ extends Node2D
 
 class_name CompositeTurtle
 
-
+signal turtle_mode_change(mode)
 
 var ball_mode = false setget set_ball_mode
 
@@ -39,8 +39,10 @@ func set_ball_mode(value: bool):
 	ball_mode = value
 	if (ball_mode):
 		_set_ball_mode()
+		emit_signal("turtle_mode_change", "ball")
 	else:
 		_set_default_mode()
+		emit_signal("turtle_mode_change", "default")
 
 
 func _disable_turt_ball():
