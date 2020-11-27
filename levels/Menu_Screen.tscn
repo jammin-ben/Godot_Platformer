@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenery/ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/title.png" type="Texture" id=2]
 [ext_resource path="res://sounds/Turt_Menu.wav" type="AudioStream" id=3]
+[ext_resource path="res://sprites/Tutorial_Sprites/test.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Creator_Names.png" type="Texture" id=5]
 [ext_resource path="res://ui/PlayButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/QuitButton.tscn" type="PackedScene" id=7]
@@ -53,3 +54,7 @@ position = Vector2( 149.538, 191.228 )
 
 [node name="MyButton2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 240.067, 191.228 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 188.49, 112.38 )
+texture = ExtResource( 4 )
