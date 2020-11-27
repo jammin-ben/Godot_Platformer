@@ -1,17 +1,9 @@
-Friday 4/24/2020:
-    #mentalcapture
-        Trying to implement a game mechanic where the turtle becomes a ball with
-        physics reactions whenever the player is holding down. Trying to naviagate
-        reworking animations given this mechanic because I want you to be able to
-        go into 'ball mode' even while in the air. The idea I have for making this
-        work is to have a seperate 'ball mode' turtle and then dynamically switch
-        which turtle is active based on signals from animation completions
-        (i.e. hide, emerge)
-        
-
-Monday
-8/31/2020
-  #mentalcapture
-    Trying to setup the Powerup.tscn node to be a 'tool'. The latest thing I'm
-    trying to figure out is how to get the CollisionShape2D in the Hurtbox
-    child to work. Maybe make the properties setget all the way down?
+11/21/2020
+    Just a bit of the code needed for the tutorial window still todo:
+        - Allow you to select the powerup node that it will listen for to be triggered
+        - Allow you to select the animation that will play when its triggerd
+11/22/2020
+    Just implemented a very basic working version of the tutorial UI. It still
+        - To figure out how we're going to handle different powerups
+            IDEA: have the instance of the UI remove its self from the scene after it is finished. -- I like this one better
+            Another possible idea: allow multiple triggers to be added, then have reset code in place for when everything is done
