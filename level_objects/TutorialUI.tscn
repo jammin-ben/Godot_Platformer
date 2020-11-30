@@ -4,6 +4,7 @@
 
 [node name="TutorialUI" type="CanvasLayer"]
 script = ExtResource( 2 )
+sprite_sheet = "res://sprites/Tutorial_Sprites/Ballmode.png"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 visible = false
@@ -12,7 +13,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -20.0
-margin_top = -40.0
+margin_top = -52.0
 margin_right = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,32 +21,18 @@ __meta__ = {
 
 [node name="Control" type="Control" parent="MarginContainer"]
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 52.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -40.0
-margin_top = -40.0
-margin_right = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MarginContainer/Control"]
+speed_scale = 0.5
+playing = true
+centered = false
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
-
-[node name="VideoPlayer" type="VideoPlayer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="timeout" from="Timer" to="." method="_conn_on_timer_timeout"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_conn_on_tween_all_completed"]
