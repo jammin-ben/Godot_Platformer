@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sounds/Sable.wav" type="AudioStream" id=2]
@@ -22,7 +22,6 @@
 [ext_resource path="res://scenery/Flower.tscn" type="PackedScene" id=20]
 [ext_resource path="res://sprites/Tiles.png" type="Texture" id=21]
 [ext_resource path="res://level_objects/TutorialUI.tscn" type="PackedScene" id=22]
-[ext_resource path="res://sprites/text-box.png" type="Texture" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -392,6 +391,14 @@ particle_color = Color( 0, 0, 0, 1 )
 position = Vector2( 67.4094, 114.796 )
 script = ExtResource( 17 )
 
-[node name="TutorialUI" parent="." instance=ExtResource( 22 )]
-powerup_trigger = NodePath("../PowerupBallMode")
-texture = ExtResource( 23 )
+[node name="Tutorials" type="Node2D" parent="."]
+
+[node name="TutorialBallMode" parent="Tutorials" instance=ExtResource( 22 )]
+powerup_trigger = NodePath("../../PowerupBallMode")
+
+[node name="TutorialFlutterJump" parent="Tutorials" instance=ExtResource( 22 )]
+timeout_seconds = 10
+animation_speed_scale = 1.0
+sprite_sheet = "res://sprites/Tutorial_Sprites/Flutter.png"
+hframes = 13
+powerup_trigger = NodePath("../../PowerupFlutterJump")
