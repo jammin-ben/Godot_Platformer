@@ -65,7 +65,7 @@ func create_animation_frames():
 	# we'll need the image texture later for the
 	# individual atlas texture frames
 	var imageTexture = ImageTexture.new()
-	imageTexture.create_from_image(sprite_sheet_image)
+	imageTexture.create_from_image(sprite_sheet_image, Texture.FLAG_MIPMAPS)
 	
 	var frame_width = image_width / hframes
 	var frame_height = image_height / vframes
