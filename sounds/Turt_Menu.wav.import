@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Turt_Menu.wav-56876c0ccb1a2259c1c200d51907e944.sample"
+
+[deps]
+
+source_file="res://sounds/Turt_Menu.wav"
+dest_files=[ "res://.import/Turt_Menu.wav-56876c0ccb1a2259c1c200d51907e944.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
