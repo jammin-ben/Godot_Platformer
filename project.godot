@@ -48,6 +48,7 @@ Globals="*res://scripts/Globals.gd"
 
 [debug]
 
+gdscript/warnings/treat_warnings_as_errors=true
 shapes/navigation/geometry_color=Color( 0.101961, 1, 0.701961, 0.4 )
 
 [display]
