@@ -7,20 +7,22 @@ extends CanvasLayer
 export var timeout_seconds = 5
 export var fade_time_seconds = 1
 export var animation_speed_scale = 0.5
-export(String, FILE, "*.png,*.jpg,*.jpeg") var sprite_sheet = null
+export(Texture) var sprite_sheet = null
 export var hframes=4
 export var vframes=1
-export(NodePath) var powerup_trigger = "."
+export var auto_start=false
+export(NodePath) var powerup_trigger = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$MarginContainer/Control/AnimatedSprite.speed_scale = animation_speed_scale
 	create_animation_frames()
-	var powerup = get_node(powerup_trigger)
-	if (powerup is Powerup):
-		powerup.connect("powerup", self, "_conn_on_powerup_consumed")
-	else:
-		printerr("powerup_trigger should point to a node of type Powerup")
+	if powerup_trigger:
+		var powerup = get_node(powerup_trigger)
+		if (powerup is Powerup):
+			powerup.connect("powerup", self, "_conn_on_powerup_consumed")
+		else:
+			printerr("powerup_trigger should point to a node of type Powerup")
 	$Timer.wait_time = timeout_seconds
 	$Tween.interpolate_property(
 		$MarginContainer/Control/AnimatedSprite,
@@ -32,12 +34,19 @@ func _ready() -> void:
 		Tween.EASE_IN_OUT,
 		1
 	)
+	if auto_start:
+		start_tutorial()
 
 
 func _conn_on_timer_timeout() -> void:
 	$Tween.start()
 
+#warning-ignore:unused_argument
+#warning-ignore:unused_argument
 func _conn_on_powerup_consumed(powerup_name: String, powerup: Powerup) -> void:
+	start_tutorial()
+
+func start_tutorial():
 	$MarginContainer.visible = true
 	$Timer.start()
 
@@ -56,16 +65,12 @@ func create_animation_frames():
 	
 	
 	
-	var sprite_sheet_image = Image.new() # just need this for width info
-	sprite_sheet_image.load(sprite_sheet)
+	if not sprite_sheet:
+		return
 	# get the width so we know how many frames are in it
-	var image_width = sprite_sheet_image.get_width()
-	var image_height = sprite_sheet_image.get_height()
-	
-	# we'll need the image texture later for the
-	# individual atlas texture frames
-	var imageTexture = ImageTexture.new()
-	imageTexture.create_from_image(sprite_sheet_image, Texture.FLAG_MIPMAPS)
+	var image_width = sprite_sheet.get_width()
+	var image_height = sprite_sheet.get_height()
+
 	
 	var frame_width = image_width / hframes
 	var frame_height = image_height / vframes
@@ -80,7 +85,7 @@ func create_animation_frames():
 			# we know we want to use the the sprite sheet for
 			# each frame so set the atlas property to the sprite
 			# sheet imageTexture we loaded in ealier
-			frame.atlas = imageTexture
+			frame.atlas = sprite_sheet
 			
 			# now we're going to calculate the rect that
 			# we need for the frame coordinates
@@ -89,6 +94,3 @@ func create_animation_frames():
 			#frame.region = Rect2(Vector2(0, 0), Vector2(0, 0))
 			frame.region = Rect2(frame_width * horizontal_frames, frame_height * vertical_frames, frame_width, frame_height)
 			sprite_frames.add_frame('default', frame)
-			
-
-	pass

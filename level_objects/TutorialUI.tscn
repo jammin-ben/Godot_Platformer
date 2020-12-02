@@ -4,7 +4,6 @@
 
 [node name="TutorialUI" type="CanvasLayer"]
 script = ExtResource( 2 )
-sprite_sheet = "res://sprites/Tutorial_Sprites/Ballmode.png"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 visible = false
