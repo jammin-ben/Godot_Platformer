@@ -30,6 +30,9 @@ func on_turtle_hidden():
 func on_turtle_emerged():
 	set_ball_mode(false)
 
+func set_flutter_group_to_active_turtle(flutter_group):
+	active_turtle.add_child(flutter_group)
+
 
 func set_texture(value):
 	$TurtleDefault/Sprite.texture = load(value)
@@ -60,20 +63,27 @@ func _enable_turt_ball():
 	$TurtleBall/CollisionPolygon2D.disabled = false
 	turt_ball.mode = RigidBody2D.MODE_RIGID
 	turt_ball.sleeping = false
+	var flutter_group = get_and_remove_flutter_group()
 	active_turtle = turt_ball
+	set_flutter_group_to_active_turtle(flutter_group)
 
 func _disable_turt_default():
 	turt_default.visible = false
-	#$TurtleDefault/Camera2D.current = false
 	$TurtleDefault/CollisionShape2D.disabled = true
 	turt_default.set_physics_process(false)
 	
 func _enable_turt_default():
 	turt_default.visible = true
-	#$TurtleDefault/Camera2D.current = true
 	$TurtleDefault/CollisionShape2D.disabled = false
 	turt_default.set_physics_process(true)
+	var flutter_group = get_and_remove_flutter_group()
 	active_turtle = turt_default
+	set_flutter_group_to_active_turtle(flutter_group)
+
+func get_and_remove_flutter_group():
+	var flutter_group = active_turtle.get_node("FlutterGroup")
+	active_turtle.remove_child(flutter_group)
+	return flutter_group
 
 func _set_default_mode():
 	_disable_turt_ball()

@@ -95,6 +95,9 @@ func set_state(value):
 		#max_speed = MAX_SPEED_DEFAULT
 	state = value
 
+func get_sprite():
+	return $Sprite
+
 func check_for_ground():
 	if $DownLeft.is_colliding() or $DownRight.is_colliding():
 		set_state(ST_ONGROUND)
