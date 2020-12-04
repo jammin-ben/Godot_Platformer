@@ -57,6 +57,7 @@ extents = Vector2( 4.61814, 4.368 )
 [node name="PowerupTemplate" type="Node2D" groups=[
 "g_powerup",
 ]]
+pause_mode = 2
 script = ExtResource( 1 )
 animated_texture = ExtResource( 5 )
 

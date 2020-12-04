@@ -68,6 +68,7 @@ color = Color( 0.721569, 0.188235, 0.188235, 1 )
 extents = Vector2( 5.55508, 5.35759 )
 
 [node name="Strawberry" type="Sprite"]
+pause_mode = 2
 material = SubResource( 2 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, 0.4 )
