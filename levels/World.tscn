@@ -1,8 +1,8 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sounds/Sable.wav" type="AudioStream" id=2]
-[ext_resource path="res://scenery/Tree.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/Tree.png" type="Texture" id=3]
 [ext_resource path="res://scenery/Beaver.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level_objects/Strawberry.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/Lime.png" type="Texture" id=6]
@@ -26,6 +26,7 @@
 [ext_resource path="res://sprites/Tutorial_Sprites/Ballmode.png" type="Texture" id=24]
 [ext_resource path="res://sprites/Tutorial_Sprites/Flutter.png" type="Texture" id=25]
 [ext_resource path="res://sprites/Tutorial_Sprites/Walljump.png" type="Texture" id=26]
+[ext_resource path="res://scenery/Tree.tscn" type="PackedScene" id=27]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -270,6 +271,22 @@ resource_local_to_scene = true
 } ]
 0/z_index = 0
 
+[sub_resource type="Animation" id=26]
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
@@ -283,7 +300,21 @@ volume_db = -8.0
 
 [node name="Misc_Scenery" type="Node" parent="."]
 
-[node name="Tree" parent="Misc_Scenery" instance=ExtResource( 3 )]
+[node name="Tree2" parent="Misc_Scenery" instance=ExtResource( 27 )]
+position = Vector2( 1505, 0 )
+texture = ExtResource( 20 )
+vframes = 1
+
+[node name="Tree" type="Sprite" parent="Misc_Scenery"]
+position = Vector2( 184, 32 )
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc_Scenery/Tree"]
+autoplay = "Wind"
+anims/Wind = SubResource( 26 )
 
 [node name="Animals" type="Node" parent="Misc_Scenery"]
 
@@ -316,15 +347,10 @@ texture = ExtResource( 18 )
 position = Vector2( 418, 180 )
 texture = ExtResource( 19 )
 
-[node name="Tree2" parent="Misc_Scenery" instance=ExtResource( 3 )]
-position = Vector2( 1517, 0 )
-texture = ExtResource( 20 )
-vframes = 1
-
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1535, -71 )
+position = Vector2( 103, 193 )
 
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 

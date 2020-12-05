@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/munch.wav-24aaac72ba901b342c1c8e1809850210.sample"
+
+[deps]
+
+source_file="res://sounds/munch.wav"
+dest_files=[ "res://.import/munch.wav-24aaac72ba901b342c1c8e1809850210.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

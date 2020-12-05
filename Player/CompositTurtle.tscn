@@ -16,14 +16,14 @@ ball_mode = true
 wall_jump = true
 flutter_jump = true
 
+[node name="FlutterGroup" parent="TurtleDefault" instance=ExtResource( 4 )]
+
 [node name="Area2D" type="Area2D" parent="TurtleDefault"]
 position = Vector2( 1, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleDefault/Area2D"]
 position = Vector2( -0.434212, -11.5065 )
 shape = SubResource( 1 )
-
-[node name="FlutterGroup" parent="TurtleDefault" instance=ExtResource( 4 )]
 
 [node name="TurtleBall" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -38,9 +38,6 @@ position = Vector2( 2.13581, 1.42612 )
 position = Vector2( -0.434212, -11.5065 )
 shape = SubResource( 1 )
 
-[node name="FlutterGroup" parent="TurtleBall" instance=ExtResource( 4 )]
-
 [node name="Tween" type="Tween" parent="."]
-[connection signal="signal_consumed_powerup_flutter_jump" from="TurtleDefault" to="TurtleBall/FlutterGroup" method="_conn_consumed_powerup_flutter_jump"]
 [connection signal="signal_consumed_powerup_flutter_jump" from="TurtleDefault" to="TurtleDefault/FlutterGroup" method="_conn_consumed_powerup_flutter_jump"]
 [connection signal="signal_debug_st_changed" from="TurtleDefault" to="TurtleDefault/FlutterGroup" method="_on_TurtleDefault_signal_debug_st_changed"]
