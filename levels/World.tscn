@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sounds/Sable.wav" type="AudioStream" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://sprites/Tutorial_Sprites/Flutter.png" type="Texture" id=25]
 [ext_resource path="res://sprites/Tutorial_Sprites/Walljump.png" type="Texture" id=26]
 [ext_resource path="res://scenery/Tree.tscn" type="PackedScene" id=27]
+[ext_resource path="res://sprites/Boulder.png" type="Texture" id=28]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -301,8 +302,9 @@ volume_db = -8.0
 [node name="Misc_Scenery" type="Node" parent="."]
 
 [node name="Tree2" parent="Misc_Scenery" instance=ExtResource( 27 )]
-position = Vector2( 1505, 0 )
+position = Vector2( 1481, -33 )
 texture = ExtResource( 20 )
+centered = false
 vframes = 1
 
 [node name="Tree" type="Sprite" parent="Misc_Scenery"]
@@ -346,6 +348,19 @@ texture = ExtResource( 18 )
 [node name="Bush" type="Sprite" parent="Misc_Scenery"]
 position = Vector2( 418, 180 )
 texture = ExtResource( 19 )
+
+[node name="Boulder" type="Sprite" parent="Misc_Scenery"]
+position = Vector2( 1111, 111 )
+texture = ExtResource( 28 )
+centered = false
+hframes = 2
+
+[node name="Boulder2" type="Sprite" parent="Misc_Scenery"]
+position = Vector2( 563, 95 )
+texture = ExtResource( 28 )
+centered = false
+hframes = 2
+frame = 1
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
