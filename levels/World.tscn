@@ -405,7 +405,11 @@ frame = 2
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
-position = Vector2( 637, 194 )
+
+position = Vector2( 384.247, 214.534 )
+ball_mode_powerup = true
+wall_jump_powerup = true
+flutter_jump_powerup = true
 
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 
