@@ -2,7 +2,6 @@ extends ParallaxBackground
 
 onready var clouds = $Cloud_Layer
 onready var sky = $Sky_Layer
-onready var sunset = $Sky_Layer/Sunrise
 onready var forest = $Forest_Layer
 onready var mountains = $Mountain_Layer2 
 onready var mountains_far = $Mountain_Layer_Far 
