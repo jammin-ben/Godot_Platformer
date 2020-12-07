@@ -398,7 +398,7 @@ tile_data = PoolIntArray( 393265, 0, 0, 393266, 0, 0, 393267, 0, 0, 393268, 0, 0
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
-position = Vector2( 103, 193 )
+position = Vector2( 384.247, 214.534 )
 ball_mode_powerup = true
 wall_jump_powerup = true
 flutter_jump_powerup = true
