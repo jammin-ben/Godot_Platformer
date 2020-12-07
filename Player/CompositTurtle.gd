@@ -11,11 +11,18 @@ onready var turt_default = $TurtleDefault
 onready var turt_ball = $TurtleBall
 onready var active_turtle = turt_default
 
+export var ball_mode_powerup = false;
+export var wall_jump_powerup = false;
+export var flutter_jump_powerup = false;
+
 var level_powerups = []
 
 
 func _ready() -> void:
 	turt_default.connect("Hidden", self, "on_turtle_hidden")
+	$TurtleDefault.ball_mode = ball_mode_powerup
+	$TurtleDefault.wall_jump = wall_jump_powerup
+	$TurtleDefault.flutter_jump = flutter_jump_powerup
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("turtle_hide"):

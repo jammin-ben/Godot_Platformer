@@ -12,6 +12,9 @@ extents = Vector2( 15.7222, 11.5594 )
 script = ExtResource( 1 )
 
 [node name="TurtleDefault" parent="." instance=ExtResource( 2 )]
+ball_mode = true
+wall_jump = true
+flutter_jump = true
 
 [node name="FlutterGroup" parent="TurtleDefault" instance=ExtResource( 4 )]
 
