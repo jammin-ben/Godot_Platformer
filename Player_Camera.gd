@@ -35,8 +35,7 @@ func _process(delta):
 	if (580 < self.transform.origin.x and self.transform.origin.x < 1300):
 		$Sprite.modulate.a = (self.transform.origin.y - 200) / 240 /2
 	sintimer+=delta
-	#$Sprite.modulate.a = 105 + 100 * sin(sintimer*2)
-
+	
 func _conn_turtle_mode_change(mode: String):
 	if mode == "ball":
 		turt = turt_ball
