@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Flock_2"
-run/main_scene="res://levels/World.tscn"
+run/main_scene="res://levels/Menu_Screen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

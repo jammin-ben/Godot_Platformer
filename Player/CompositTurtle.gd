@@ -13,7 +13,6 @@ onready var active_turtle = turt_default
 
 var level_powerups = []
 
-#var texture = false setget set_texture
 
 func _ready() -> void:
 	turt_default.connect("Hidden", self, "on_turtle_hidden")
