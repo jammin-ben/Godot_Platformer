@@ -128,7 +128,7 @@ func _physics_process(delta):
 	
 	# if x_input is not 0, then that means that there IS some input, therefor we'll do this stuff
 	# what I want though, if all of this is true, but also down isn't being pressed
-	elif x_input != 0 and !Input.is_action_pressed('player_down'):
+	elif x_input != 0 and !hidden and !Input.is_action_pressed('player_down'):
 
 		animationPlayer.play("Move")
 		
