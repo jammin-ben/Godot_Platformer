@@ -46,11 +46,10 @@ onready var sprite = $Sprite
 
 onready var animationPlayer = $AnimationPlayer
 
-#onready var rray = $RayCastRight
-#onready var lray = $RayCastLeft
 onready var hitbox = $Hitbox/CollisionShape2D
-#onready var hitboxpivot = $HitboxPivot
 
+
+# for hidden animation
 var hidden = false;
 
 
@@ -74,9 +73,10 @@ func _ready() -> void:
 
 func set_state(value):
 	emit_signal("signal_debug_st_changed",value)
+	# Here for states where the player is not rotated 90 degrees
 	if value == ST_AIRBORN or value == ST_FALLING or value == ST_FLUTTER:
 		$Sprite.rotation_degrees = 0
-		$Sprite.offset.y=0
+		$Sprite.offset.y = 0
 		
 	if value == ST_ONLEFTWALL:
 		$Sprite.rotation_degrees = 90 
@@ -92,9 +92,11 @@ func set_state(value):
 		$Sprite.offset.y=0
 		flutterGas = MAX_FLUTTER_GAS
 		flutterAccel = 0 
-		#max_speed = MAX_SPEED_DEFAULT
 	state = value
 
+# for a unified interface between TurtleBall and Turtle.gd
+# This is used in when moving the fluttergroup between nodes
+# because turtle-ball is a seperate node
 func get_sprite():
 	return $Sprite
 
@@ -111,6 +113,9 @@ func check_for_ground():
 	elif state==ST_ONGROUND or state==ST_ONLEFTWALL or state==ST_ONRIGHTWALL:
 		set_state(ST_AIRBORN)
 
+
+
+	
 func _physics_process(delta):
 	var x_input = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 
