@@ -66,6 +66,7 @@ var has_powerup = {
 var level_powerups = []
 
 func _ready() -> void:
+	state_machine.travel("Move")
 	has_powerup.ball_mode = ball_mode
 	has_powerup.flutter_jump = flutter_jump
 	has_powerup.wall_jump = wall_jump
@@ -83,11 +84,11 @@ func set_state(value):
 	if value == ST_ONLEFTWALL:
 		$Sprite.rotation_degrees = 90 
 		$Sprite.offset.y=-5
-		animationPlayer.play("Wallslide")
+		#animationPlayer.play("Wallslide")
 	if value == ST_ONRIGHTWALL:
 		$Sprite.rotation_degrees = 270 
 		$Sprite.offset.y=-5
-		animationPlayer.play("Wallslide")
+		#animationPlayer.play("Wallslide")
 		
 	if value == ST_ONGROUND:
 		$Sprite.rotation_degrees=0
@@ -124,22 +125,25 @@ func _physics_process(delta):
 	if Input.is_action_pressed("player_down") :
 		# motion.x=0
 		if !hidden:
-			animationPlayer.play("Hide")
+			pass
+			#animationPlayer.play("Hide")
 	elif(Input.is_action_just_released("player_down")):
-		animationPlayer.play("Emerge")
+		pass
+		#animationPlayer.play("Emerge")
 	
 	# if x_input is not 0, then that means that there IS some input, therefor we'll do this stuff
 	# what I want though, if all of this is true, but also down isn't being pressed
 	elif x_input != 0 and !hidden and !Input.is_action_pressed('player_down'):
 
-		animationPlayer.play("Move")
+		#animationPlayer.play("Move")
 		
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		
 	#elif x_input == 0 and !hidden and state==ST_ONGROUND:
 	elif x_input == 0 and state==ST_ONGROUND:
 		if animationPlayer.current_animation == "Move":
-			animationPlayer.play("Stand")
+			pass
+			#animationPlayer.play("Stand")
 	
 	if sprite.flip_h:
 		$Hitbox.position.x = -12
@@ -153,7 +157,8 @@ func _physics_process(delta):
 		max_speed = lerp(max_speed,MAX_SPEED_DEFAULT,.1)
 		
 		if Input.is_action_pressed("eat"):
-			animationPlayer.play('Eat')
+			pass
+			#animationPlayer.play('Eat')
 			hitbox.disabled = false
 		else:
 			hitbox.disabled = true
