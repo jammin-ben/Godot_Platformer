@@ -48,6 +48,8 @@ onready var animationPlayer = $AnimationPlayer
 
 onready var hitbox = $Hitbox/CollisionShape2D
 
+onready var state_machine = $AnimationTree["parameters/playback"]
+
 
 # for hidden animation
 var hidden = false;
