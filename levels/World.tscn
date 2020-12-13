@@ -406,9 +406,6 @@ frame = 2
 
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
 position = Vector2( 384.247, 214.534 )
-ball_mode_powerup = true
-wall_jump_powerup = true
-flutter_jump_powerup = true
 
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 
@@ -453,3 +450,5 @@ animation_speed_scale = 1.0
 sprite_sheet = ExtResource( 23 )
 hframes = 18
 auto_start = true
+
+[editable path="CompositTurtle"]

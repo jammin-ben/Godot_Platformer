@@ -112,7 +112,7 @@ tracks/0/keys = {
 "values": [ 10, 9, 8 ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath(".")
+tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -122,7 +122,7 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "_on_unhidden"
+"method": "on_turtle_emerged"
 } ]
 }
 
@@ -141,7 +141,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10 ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath(".")
+tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -151,7 +151,7 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "_on_hidden"
+"method": "on_turtle_hidden"
 } ]
 }
 
@@ -250,7 +250,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 0, -5 )
 vframes = 4
 hframes = 4
-frame = 10
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -8 )
