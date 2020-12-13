@@ -48,6 +48,7 @@ animation = "Wallslide"
 [sub_resource type="AnimationNodeStateMachineTransition" id=34]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=36]
 
@@ -74,7 +75,7 @@ states/Wallslide/node = SubResource( 37 )
 states/Wallslide/position = Vector2( 858.098, 373 )
 transitions = [ "Stand", "Eat", SubResource( 21 ), "Eat", "Stand", SubResource( 22 ), "Stand", "Move", SubResource( 23 ), "Move", "Stand", SubResource( 24 ), "Move", "Jump", SubResource( 28 ), "Jump", "Move", SubResource( 29 ), "Stand", "Jump", SubResource( 30 ), "Jump", "Stand", SubResource( 31 ), "Jump", "Hide", SubResource( 32 ), "Hide", "Emerge", SubResource( 33 ), "Emerge", "Jump", SubResource( 34 ), "Emerge", "Stand", SubResource( 35 ), "Stand", "Hide", SubResource( 36 ), "Jump", "Wallslide", SubResource( 38 ), "Wallslide", "Jump", SubResource( 39 ), "Wallslide", "Stand", SubResource( 40 ) ]
 start_node = "Stand"
-graph_offset = Vector2( 157.677, 43.9334 )
+graph_offset = Vector2( 157.677, 172.771 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=43]
 
@@ -110,6 +111,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 10, 9, 8 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_unhidden"
+} ]
+}
 
 [sub_resource type="Animation" id=47]
 length = 0.5
@@ -124,6 +139,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 8, 9, 10 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_hidden"
+} ]
 }
 
 [sub_resource type="Animation" id=48]
@@ -221,7 +250,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 0, -5 )
 vframes = 4
 hframes = 4
-frame = 4
+frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -8 )

@@ -66,7 +66,6 @@ var has_powerup = {
 var level_powerups = []
 
 func _ready() -> void:
-	state_machine.travel("Move")
 	has_powerup.ball_mode = ball_mode
 	has_powerup.flutter_jump = flutter_jump
 	has_powerup.wall_jump = wall_jump
@@ -125,26 +124,20 @@ func _physics_process(delta):
 	if Input.is_action_pressed("player_down") :
 		# motion.x=0
 		if !hidden:
-			pass
-			#animationPlayer.play("Hide")
+			state_machine.travel("Hide")
 	elif(Input.is_action_just_released("player_down")):
-		pass
-		#animationPlayer.play("Emerge")
+			state_machine.travel("Emerge")
 	
 	# if x_input is not 0, then that means that there IS some input, therefor we'll do this stuff
 	# what I want though, if all of this is true, but also down isn't being pressed
 	elif x_input != 0 and !hidden and !Input.is_action_pressed('player_down'):
-
-		#animationPlayer.play("Move")
+		state_machine.travel("Move")
 		
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		
 	#elif x_input == 0 and !hidden and state==ST_ONGROUND:
 	elif x_input == 0 and state==ST_ONGROUND:
-		if animationPlayer.current_animation == "Move":
-			pass
-			#animationPlayer.play("Stand")
-	
+		state_machine.travel("Stand")
 	if sprite.flip_h:
 		$Hitbox.position.x = -12
 	else:
@@ -157,14 +150,14 @@ func _physics_process(delta):
 		max_speed = lerp(max_speed,MAX_SPEED_DEFAULT,.1)
 		
 		if Input.is_action_pressed("eat"):
-			pass
-			#animationPlayer.play('Eat')
+			state_machine.travel("Eat")
 			hitbox.disabled = false
 		else:
 			hitbox.disabled = true
 		
 		if Input.is_action_just_pressed("player_up"):
 			motion.y = -JUMP_FORCE
+			state_machine.travel("Jump")
 			set_state(ST_AIRBORN)
 	
 	#not sure if this is poor practice for a FSM
@@ -220,6 +213,13 @@ func _physics_process(delta):
 	
 	motion = move_and_slide(motion, Vector2.UP)
 
+
+func _on_hidden():
+	emit_signal("Hidden")
+func _on_unhidden():
+	emit_signal("Emerged")
+
+	
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if (anim_name == 'Hide'):
 		emit_signal("Hidden")
