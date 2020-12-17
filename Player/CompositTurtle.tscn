@@ -22,7 +22,7 @@ flutter_jump = true
 parameters/playback = SubResource( 1 )
 
 [node name="Sprite" parent="TurtleDefault" index="1"]
-frame = 10
+frame = 4
 
 [node name="FlutterGroup" parent="TurtleDefault" instance=ExtResource( 4 )]
 

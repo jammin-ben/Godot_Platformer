@@ -407,9 +407,6 @@ frame = 2
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
 position = Vector2( 384.247, 214.534 )
 
-[node name="TurtleDefault" parent="CompositTurtle" index="0"]
-ball_mode = false
-
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 
 [node name="PowerupBallMode" parent="." instance=ExtResource( 7 )]
