@@ -5,9 +5,9 @@
 [ext_resource path="res://Player/TurtleBall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/FlutterGroup.tscn" type="PackedScene" id=4]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15.7222, 11.5594 )
 
 [node name="CompositTurtle" type="Node2D"]
@@ -19,10 +19,10 @@ wall_jump = true
 flutter_jump = true
 
 [node name="AnimationTree" parent="TurtleDefault" index="0"]
-parameters/playback = SubResource( 2 )
+parameters/playback = SubResource( 1 )
 
 [node name="Sprite" parent="TurtleDefault" index="1"]
-frame = 4
+frame = 10
 
 [node name="FlutterGroup" parent="TurtleDefault" instance=ExtResource( 4 )]
 
@@ -31,7 +31,7 @@ position = Vector2( 1, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleDefault/Area2D"]
 position = Vector2( -0.434212, -11.5065 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="TurtleBall" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -44,10 +44,11 @@ position = Vector2( 2.13581, 1.42612 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleBall/Area2D2"]
 position = Vector2( -0.434212, -11.5065 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
 [connection signal="signal_consumed_powerup_flutter_jump" from="TurtleDefault" to="TurtleDefault/FlutterGroup" method="_conn_consumed_powerup_flutter_jump"]
 [connection signal="signal_debug_st_changed" from="TurtleDefault" to="TurtleDefault/FlutterGroup" method="_on_TurtleDefault_signal_debug_st_changed"]
+[connection signal="animation_started" from="TurtleDefault/AnimationPlayer" to="." method="_conn_on_animation_started"]
 
 [editable path="TurtleDefault"]

@@ -122,11 +122,14 @@ func _physics_process(delta):
 	var x_input = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 
 	if Input.is_action_pressed("player_down") :
-		# motion.x=0
 		if !hidden:
+
+			pass
 			state_machine.travel("Hide")
 	elif(Input.is_action_just_released("player_down")):
-			state_machine.travel("Emerge")
+		pass
+		state_machine.travel("Emerge")
+
 	
 	# if x_input is not 0, then that means that there IS some input, therefor we'll do this stuff
 	# what I want though, if all of this is true, but also down isn't being pressed
@@ -136,7 +139,8 @@ func _physics_process(delta):
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		
 	#elif x_input == 0 and !hidden and state==ST_ONGROUND:
-	elif x_input == 0 and state==ST_ONGROUND:
+	elif x_input == 0 and state==ST_ONGROUND && !hidden:
+		pass
 		state_machine.travel("Stand")
 	if sprite.flip_h:
 		$Hitbox.position.x = -12
@@ -162,6 +166,7 @@ func _physics_process(delta):
 	
 	#not sure if this is poor practice for a FSM
 	elif state == ST_FALLING or state == ST_AIRBORN:
+		# state_machine.travel("Jump")
 		motion.y += GRAVITY * delta * TARGET_FPS
 		if Input.is_action_just_released("player_up"): 
 			#secondJump = true

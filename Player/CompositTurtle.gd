@@ -23,15 +23,13 @@ func _input(event: InputEvent) -> void:
 			set_ball_mode(false)
 
 func on_turtle_hidden():
-	if turt_default.has_powerup.ball_mode:
+	if turt_default.has_powerup.ball_mode and (!active_turtle == turt_ball):
 		set_ball_mode(true)
-		print("Yes, has powerup ball mode")
-		pass
 
-func on_turtle_emerged():
-	pass
-	# print("The tutle has emerged");
-	# set_ball_mode(false)
+# func on_turtle_emerged():
+# 	print("Here3")
+# 	if ball_mode:
+# 		set_ball_mode(false)
 
 func set_flutter_group_to_active_turtle(flutter_group):
 	active_turtle.add_child(flutter_group)
@@ -74,6 +72,7 @@ func _disable_turt_default():
 	turt_default.visible = false
 	$TurtleDefault/CollisionShape2D.disabled = true
 	turt_default.set_physics_process(false)
+	#turt_default.get_parent().remove_child(turt_default)
 	
 func _enable_turt_default():
 	turt_default.visible = true
@@ -114,7 +113,3 @@ func _set_ball_mode():
 		$TurtleBall/CollisionPolygon2D.scale.x = -1
 	else:
 		$TurtleBall/CollisionPolygon2D.scale.x = 1
-
-
-
-
