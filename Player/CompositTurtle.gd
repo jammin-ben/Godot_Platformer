@@ -94,6 +94,7 @@ func _set_default_mode():
 	turt_default.rotation = turt_ball.rotation
 	turt_default.motion = turt_ball.linear_velocity
 	_correct_turt_default()
+	turt_default.state_machine.travel("Emerge")
 
 func _correct_turt_default():
 	var tween = $Tween

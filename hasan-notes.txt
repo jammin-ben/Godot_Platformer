@@ -7,3 +7,9 @@
         - To figure out how we're going to handle different powerups
             IDEA: have the instance of the UI remove its self from the scene after it is finished. -- I like this one better
             Another possible idea: allow multiple triggers to be added, then have reset code in place for when everything is done
+
+
+12/16/2020:
+    Working on getting ball mode to work using a state machine. Currently the issue
+    is that when coming out of ball-mode, well, he doesn't come out of ball mode.
+    Its clear that there is some logical error in the switching-back code. Figure that out
