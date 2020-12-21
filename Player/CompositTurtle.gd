@@ -6,6 +6,7 @@ class_name CompositeTurtle
 signal turtle_mode_change(mode)
 
 var ball_mode = false setget set_ball_mode
+var is_emerged = true
 
 
 onready var turt_default = $TurtleDefault
@@ -26,17 +27,20 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	pass
 	if event.is_action_released("turtle_hide"):
-		if ball_mode:
-			set_ball_mode(false)
+		if not self.is_a_parent_of(turt_default):
+			# call_deferred("add_child", turt_default)
+			self.add_child(turt_default)
+			# set_ball_mode(false)
 
 func on_turtle_hidden():
-	if turt_default.has_powerup.ball_mode and (!active_turtle == turt_ball):
+	if turt_default.has_powerup.ball_mode and (!active_turtle == turt_ball) and is_emerged:
 		set_ball_mode(true)
 
-# func on_turtle_emerged():
-# 	print("Here3")
-# 	if ball_mode:
-# 		set_ball_mode(false)
+func on_turtle_emerged():
+	is_emerged = true
+	pass
+	# if ball_mode:
+	# 	set_ball_mode(false)
 
 
 # warning-ignore:unused_argument
@@ -55,7 +59,8 @@ func set_texture(value):
 func set_ball_mode(value: bool):
 	ball_mode = value
 	if (ball_mode):
-		_disable_turt_default()
+		# _disable_turt_default()
+		remove_child(turt_default)
 		# _enable_turt_ball()
 		# turt_ball.position = turt_default.position
 		# turt_ball.position.y -= 2
@@ -67,9 +72,14 @@ func set_ball_mode(value: bool):
 		# else:
 		# 	$TurtleBall/CollisionPolygon2D.scale.x = 1
 			# emit_signal("turtle_mode_change", "ball")
+		is_emerged = false
 	else:
-		print("Heree")
-		pass
+		# print(turt_default)
+		# add_child(turt_default)
+		add_child(turt_default)
+		print("setting default mode")
+		# call_deferred("add_child", turt_default)
+		# turt_default.position = Vector2(0, 25)
 		# _set_default_mode()
 		# emit_signal("turtle_mode_change", "default")
 
@@ -99,15 +109,14 @@ func _disable_turt_default():
 	turt_default.visible = false
 	$TurtleDefault/CollisionShape2D.disabled = true
 	turt_default.set_physics_process(false)
-	turt_default.get_parent().remove_child(turt_default)
 	
 func _enable_turt_default():
-	turt_default.visible = true
 	turt_default.get_node("CollisionShape2D").disabled = false
 	turt_default.set_physics_process(true)
 	var flutter_group = get_and_remove_flutter_group()
 	active_turtle = turt_default
 	set_flutter_group_to_active_turtle(flutter_group)
+	turt_default.visible = true
 
 func get_and_remove_flutter_group():
 	pass
@@ -116,7 +125,6 @@ func get_and_remove_flutter_group():
 	# return flutter_group
 
 func _set_default_mode():
-	pass
 	_disable_turt_ball()
 	_enable_turt_default()
 	turt_default.position = turt_ball.position

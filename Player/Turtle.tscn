@@ -7,7 +7,7 @@
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "Eat"
 
-[sub_resource type="AnimationNodeAnimation" id=37]
+[sub_resource type="AnimationNodeAnimation" id=2]
 animation = "Emerge"
 
 [sub_resource type="AnimationNodeAnimation" id=3]
@@ -43,24 +43,24 @@ animation = "Wallslide"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=20]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=38]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=39]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=24]
+[sub_resource type="AnimationNodeStateMachine" id=23]
 states/Eat/node = SubResource( 1 )
 states/Eat/position = Vector2( 307.884, 217 )
-states/Emerge/node = SubResource( 37 )
+states/Emerge/node = SubResource( 2 )
 states/Emerge/position = Vector2( 525.754, 217 )
 states/Hide/node = SubResource( 3 )
 states/Hide/position = Vector2( 708.884, 217 )
@@ -72,16 +72,16 @@ states/Stand/node = SubResource( 6 )
 states/Stand/position = Vector2( 307.884, 373 )
 states/Wallslide/node = SubResource( 7 )
 states/Wallslide/position = Vector2( 858.098, 373 )
-transitions = [ "Stand", "Eat", SubResource( 8 ), "Eat", "Stand", SubResource( 9 ), "Stand", "Move", SubResource( 10 ), "Move", "Stand", SubResource( 11 ), "Move", "Jump", SubResource( 12 ), "Jump", "Move", SubResource( 13 ), "Stand", "Jump", SubResource( 14 ), "Jump", "Stand", SubResource( 15 ), "Jump", "Hide", SubResource( 16 ), "Stand", "Hide", SubResource( 20 ), "Jump", "Wallslide", SubResource( 21 ), "Wallslide", "Jump", SubResource( 22 ), "Wallslide", "Stand", SubResource( 23 ), "Hide", "Emerge", SubResource( 38 ), "Emerge", "Stand", SubResource( 39 ) ]
+transitions = [ "Stand", "Eat", SubResource( 8 ), "Eat", "Stand", SubResource( 9 ), "Stand", "Move", SubResource( 10 ), "Move", "Stand", SubResource( 11 ), "Move", "Jump", SubResource( 12 ), "Jump", "Move", SubResource( 13 ), "Stand", "Jump", SubResource( 14 ), "Jump", "Stand", SubResource( 15 ), "Jump", "Hide", SubResource( 16 ), "Stand", "Hide", SubResource( 17 ), "Jump", "Wallslide", SubResource( 18 ), "Wallslide", "Jump", SubResource( 19 ), "Wallslide", "Stand", SubResource( 20 ), "Hide", "Emerge", SubResource( 21 ), "Emerge", "Stand", SubResource( 22 ) ]
 start_node = "Stand"
 graph_offset = Vector2( 279.754, 467.771 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=25]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=24]
 
-[sub_resource type="RectangleShape2D" id=26]
+[sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 8.63446, 8 )
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=26]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -96,7 +96,7 @@ tracks/0/keys = {
 "values": [ 12, 4 ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=27]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -105,13 +105,27 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.001, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 10, 9, 8 ]
+"values": [ 10, 10, 9, 8 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_turtle_emerged"
+} ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=28]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -140,7 +154,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=29]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -154,7 +168,7 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=30]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -170,7 +184,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 4 ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=31]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -184,7 +198,7 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=32]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -198,10 +212,10 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=33]
 loop = true
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=34]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -215,7 +229,7 @@ tracks/0/keys = {
 "values": [ 8 ]
 }
 
-[sub_resource type="RectangleShape2D" id=36]
+[sub_resource type="RectangleShape2D" id=35]
 extents = Vector2( 4.11383, 3.90738 )
 
 [node name="Turt_Kinem" type="KinematicBody2D"]
@@ -223,11 +237,11 @@ z_as_relative = false
 script = ExtResource( 1 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 24 )
+tree_root = SubResource( 23 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
-parameters/playback = SubResource( 25 )
+parameters/playback = SubResource( 24 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
@@ -239,18 +253,18 @@ frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -8 )
-shape = SubResource( 26 )
+shape = SubResource( 25 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Eat = SubResource( 27 )
-anims/Emerge = SubResource( 28 )
-anims/Hide = SubResource( 29 )
-anims/Jump = SubResource( 30 )
-anims/Move = SubResource( 31 )
-anims/Slide = SubResource( 32 )
-anims/Stand = SubResource( 33 )
-anims/Tortoise_Anim = SubResource( 34 )
-anims/Wallslide = SubResource( 35 )
+anims/Eat = SubResource( 26 )
+anims/Emerge = SubResource( 27 )
+anims/Hide = SubResource( 28 )
+anims/Jump = SubResource( 29 )
+anims/Move = SubResource( 30 )
+anims/Slide = SubResource( 31 )
+anims/Stand = SubResource( 32 )
+anims/Tortoise_Anim = SubResource( 33 )
+anims/Wallslide = SubResource( 34 )
 
 [node name="DownRight" type="RayCast2D" parent="."]
 position = Vector2( 7, -1 )
@@ -269,7 +283,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( -0.0883942, 0 )
-shape = SubResource( 36 )
+shape = SubResource( 35 )
 
 [node name="RightDown" type="RayCast2D" parent="."]
 position = Vector2( 7, -3 )

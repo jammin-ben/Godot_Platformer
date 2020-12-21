@@ -13,3 +13,11 @@
     Working on getting ball mode to work using a state machine. Currently the issue
     is that when coming out of ball-mode, well, he doesn't come out of ball mode.
     Its clear that there is some logical error in the switching-back code. Figure that out
+
+12/17/2020:
+    Still trying to get coming out of ball mode to work properly. For some reason it looks like
+    the turt_default isn't actually being set to visible. Its quite strange. May be a good idea
+    to try removing the object from the scene and see if that comes with fewer issues
+UPDATE:
+    - The issue seems to be that something is RE calling the method to set ball mode. Its
+    getting called twice somehow. Double check and figure out what is calling it twice
