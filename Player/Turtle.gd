@@ -134,7 +134,10 @@ func _physics_process(delta):
 	# if x_input is not 0, then that means that there IS some input, therefor we'll do this stuff
 	# what I want though, if all of this is true, but also down isn't being pressed
 	elif x_input != 0 and !hidden and !Input.is_action_pressed('player_down'):
-		state_machine.travel("Move")
+		if state == ST_AIRBORN:
+			state_machine.travel("Jump")
+		else:
+			state_machine.travel("Move")
 		
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		
