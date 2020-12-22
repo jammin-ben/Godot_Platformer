@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sounds/Sable.wav" type="AudioStream" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://scenery/Tree.tscn" type="PackedScene" id=27]
 [ext_resource path="res://sprites/Boulder.png" type="Texture" id=28]
 [ext_resource path="res://sprites/bkgrnd_cave.png" type="Texture" id=29]
+[ext_resource path="res://sprites/Tutorial_Sprites/Eating.png" type="Texture" id=30]
+[ext_resource path="res://TutorialUICollisionTrigger.tscn" type="PackedScene" id=31]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -405,7 +407,7 @@ frame = 2
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
-position = Vector2( 384.247, 214.534 )
+position = Vector2( 131.832, 114.31 )
 
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 
@@ -451,4 +453,13 @@ sprite_sheet = ExtResource( 23 )
 hframes = 18
 auto_start = true
 
+[node name="TutorialUICollisionTrigger" parent="." instance=ExtResource( 31 )]
+position = Vector2( 188.476, 117.829 )
+
+[node name="TutorialUI" parent="TutorialUICollisionTrigger" index="0"]
+sprite_sheet = ExtResource( 30 )
+hframes = 6
+
 [editable path="CompositTurtle"]
+
+[editable path="TutorialUICollisionTrigger"]
