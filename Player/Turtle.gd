@@ -216,7 +216,7 @@ func _physics_process(delta):
 				motion.x*=-1
 	
 	motion.x = clamp(motion.x, -max_speed, max_speed)
-	if(motion.x!=0):
+	if motion.x != 0:
 		sprite.flip_h = motion.x < 0
 	
 	motion = move_and_slide(motion, Vector2.UP)
@@ -226,6 +226,12 @@ func _on_hidden():
 	emit_signal("Hidden")
 func _on_unhidden():
 	emit_signal("Emerged")
+
+
+# returns true if a num1 and num2 are within margin distanc of eachother
+func is_eq_margin(num1: float, num2: float, margin=0.001) -> bool:
+	var diff = abs(num1 - num2) 
+	return diff <= margin
 
 	
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
