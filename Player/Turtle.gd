@@ -216,8 +216,12 @@ func _physics_process(delta):
 				motion.x*=-1
 	
 	motion.x = clamp(motion.x, -max_speed, max_speed)
-	if motion.x != 0:
-		sprite.flip_h = motion.x < 0
+
+	# handles the flipping of the sprite left or right depending on input
+	if x_input == -1:
+		sprite.flip_h = true
+	elif x_input == 1:
+		sprite.flip_h = false;
 	
 	motion = move_and_slide(motion, Vector2.UP)
 
