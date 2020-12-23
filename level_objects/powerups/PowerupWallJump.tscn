@@ -31,7 +31,7 @@ particle_color = Color( 0.854902, 0.360784, 0.0941176, 1 )
 texture = ExtResource( 2 )
 particle_color = Color( 0.854902, 0.360784, 0.0941176, 1 )
 
-[node name="Particles2D" parent="AnimatedTexture" index="1"]
+[node name="Particles2D" parent="AnimatedTexture" index="2"]
 process_material = SubResource( 3 )
 
 [node name="UIImage" parent="." index="1"]

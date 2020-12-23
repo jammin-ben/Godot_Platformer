@@ -27,10 +27,7 @@ func _process(delta):
 	if(target.y  - self.position.y> 50):
 		weights.y = 4
 	self.position += delta * weights * (target - position)
-	
-	if(Input.is_action_just_pressed("ui_accept")):
-		print("Camera position (printing from Player_Camera.gd)")
-		print(self.transform)
+
 	
 	if (580 < self.transform.origin.x and self.transform.origin.x < 1300):
 		$Sprite.modulate.a = (self.transform.origin.y - 200) / 240 /2
