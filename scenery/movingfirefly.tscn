@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenery/Firefly.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenery/Butterfly.tscn" type="PackedScene" id=2]
+
+[node name="KinematicBody2D" instance=ExtResource( 2 )]
+
+[node name="Firefly" parent="." index="5" instance=ExtResource( 1 )]
+color = Color( 0.109804, 0.694118, 0.94902, 1 )

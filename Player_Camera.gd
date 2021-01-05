@@ -10,7 +10,6 @@ onready var turt_ball = get_parent().get_node("CompositTurtle/TurtleBall")
 onready var turt_parent = get_parent().get_node("CompositTurtle")
 onready var turt = turt_default
 
-var sintimer=0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -29,9 +28,9 @@ func _process(delta):
 	self.position += delta * weights * (target - position)
 
 	
-	if (580 < self.transform.origin.x and self.transform.origin.x < 1300):
-		$Sprite.modulate.a = (self.transform.origin.y - 200) / 240 /2
-	sintimer+=delta
+	#if (580 < self.transform.origin.x and self.transform.origin.x < 1300):
+	#	$Sprite.modulate.a = (self.transform.origin.y - 200) / 240 /2
+	#sintimer+=delta
 	
 func _conn_turtle_mode_change(mode: String):
 	if mode == "ball":
