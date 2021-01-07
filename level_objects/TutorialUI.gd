@@ -39,6 +39,7 @@ func _ready() -> void:
 
 
 func _conn_on_timer_timeout() -> void:
+	print("tutorialUI timer timeout")
 	$Tween.start()
 
 #warning-ignore:unused_argument
@@ -52,6 +53,7 @@ func start_tutorial():
 
 
 func _conn_on_tween_all_completed() -> void:
+	print("tutorialUI tween all completed")
 	self.queue_free()
 
 
