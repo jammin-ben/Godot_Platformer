@@ -21,15 +21,12 @@ flutter_jump = true
 [node name="AnimationTree" parent="TurtleDefault" index="0"]
 parameters/playback = SubResource( 1 )
 
-[node name="Sprite" parent="TurtleDefault" index="1"]
-frame = 4
-
 [node name="FlutterGroup" parent="TurtleDefault" instance=ExtResource( 4 )]
 
 [node name="Area2D" type="Area2D" parent="TurtleDefault"]
 position = Vector2( 1, 0 )
-collision_layer = 2049
-collision_mask = 2049
+collision_layer = 6145
+collision_mask = 6145
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleDefault/Area2D"]
 position = Vector2( -0.434212, -11.5065 )
@@ -43,6 +40,8 @@ gravity_scale = 3.64
 
 [node name="Area2D2" type="Area2D" parent="TurtleBall"]
 position = Vector2( 2.13581, 1.42612 )
+collision_layer = 6145
+collision_mask = 6145
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleBall/Area2D2"]
 position = Vector2( -0.434212, -11.5065 )

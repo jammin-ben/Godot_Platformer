@@ -6,6 +6,7 @@
 
 [node name="Cave Dimmer" type="Node2D"]
 script = ExtResource( 1 )
+c_dark = Color( 0.0823529, 0.0980392, 0.572549, 1 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
