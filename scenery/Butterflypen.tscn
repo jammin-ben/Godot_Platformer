@@ -1,44 +1,22 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Butterflypen.gd" type="Script" id=1]
-[ext_resource path="res://scenery/Butterfly.tscn" type="PackedScene" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 92, 146 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 195, 44 )
 
 [node name="Butterflypen" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 94, 67 )
-
-[node name="KinematicBody2D2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 123, 60 )
-
-[node name="KinematicBody2D3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 115, 88 )
-
-[node name="KinematicBody2D4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 158, 77 )
-
-[node name="vertical_walls" type="Area2D" parent="."]
+[node name="xbounds" type="Area2D" parent="."]
+position = Vector2( -16, -154 )
 collision_layer = 1024
 collision_mask = 1024
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="vertical_walls"]
-position = Vector2( 140, 85 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="xbounds"]
 
-[node name="horizontal_walls" type="Area2D" parent="."]
-position = Vector2( 27, 13 )
+[node name="ybounds" type="Area2D" parent="."]
+position = Vector2( -16, -154 )
 collision_layer = 1024
 collision_mask = 1024
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="horizontal_walls"]
-position = Vector2( 117, 70 )
-shape = SubResource( 2 )
-[connection signal="body_exited" from="vertical_walls" to="." method="_on_vertical_walls_body_exited"]
-[connection signal="body_exited" from="horizontal_walls" to="." method="_on_horizontal_walls_body_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ybounds"]
+[connection signal="body_exited" from="xbounds" to="." method="_on_xbounds_body_exited"]
+[connection signal="body_exited" from="ybounds" to="." method="_on_ybounds_body_exited"]

@@ -8,7 +8,7 @@ const MAX_SPEED = 50
 const OBSTACLE_WEIGHT = 20
 const PEER_WEIGHT = 20
 const CONVERGE_WEIGHT = 20
-enum {FREE,FRIEND}
+enum {FREE,FRIEND,GOTO_CENTER}
 
 export var movementMode = FREE
 var height = 0
@@ -22,6 +22,7 @@ var angle = -1
 # Called when the node enters the scene tree for the first time.
 var yoffset = 0
 var xoffset = 0
+var center_timer = 0
 
 
 var vel = Vector2(0,0)
@@ -134,4 +135,11 @@ func _physics_process(delta):
 		
 		apply_acceleration(delta)
 		self.position += self.vel * delta
+		
+	elif movementMode == GOTO_CENTER:
+		self.vel = -MIN_SPEED * normalize(self.position)
+		self.position += self.vel * delta
+		center_timer -= delta
+		if center_timer <0:
+			movementMode = FREE
 	#self.position=get_global_mouse_position()

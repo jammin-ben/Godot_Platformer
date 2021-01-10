@@ -1,22 +1,14 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
-func _on_vertical_walls_body_exited(body):
-	body.vel.x*=-1
-
-func _on_horizontal_walls_body_exited(body):
+func _on_ybounds_body_exited(body):
 	body.vel.y*=-1
+	
+
+func _on_xbounds_body_exited(body):
+	body.vel.x*=-1
