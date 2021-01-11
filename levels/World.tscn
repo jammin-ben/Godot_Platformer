@@ -629,7 +629,9 @@ position = Vector2( 620, 402 )
 
 [node name="Beaver" parent="." instance=ExtResource( 32 )]
 position = Vector2( 1999, 145 )
-speed = 100
+time_chunk = 0.6
+max_run_chunks = 4
+max_wait_chunks = 8
 
 [editable path="CompositTurtle"]
 
