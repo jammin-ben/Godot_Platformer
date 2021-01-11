@@ -39,3 +39,4 @@ func _on_TurtleDefault_signal_debug_st_changed(state):
 
 func _conn_consumed_powerup_flutter_jump() -> void:
 	visible = true
+	
