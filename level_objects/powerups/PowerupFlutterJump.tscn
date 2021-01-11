@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://level_objects/powerups/PowerupTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/Strawberry.png" type="Texture" id=2]
+[ext_resource path="res://sprites/light.png" type="Texture" id=3]
 [ext_resource path="res://sprites/ui_strawberry.png" type="Texture" id=4]
 
 [sub_resource type="Curve" id=1]
@@ -21,6 +22,23 @@ scale = 3.0
 scale_curve = SubResource( 2 )
 color = Color( 0.811765, 0.156863, 0.156863, 1 )
 
+[sub_resource type="Animation" id=4]
+resource_name = "shimmer"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.25, 0.25 ) ]
+}
+
 [node name="PowerupFlutterJump" instance=ExtResource( 1 )]
 powerup_name = "flutter_jump"
 animated_texture = ExtResource( 2 )
@@ -30,9 +48,19 @@ particle_color = Color( 0.811765, 0.156863, 0.156863, 1 )
 [node name="AnimatedTexture" parent="." index="0"]
 texture = ExtResource( 2 )
 particle_color = Color( 0.811765, 0.156863, 0.156863, 1 )
+eat_sfx_pitch_scale_range = Vector2( 0.9, 1.1 )
 
-[node name="Particles2D" parent="AnimatedTexture" index="1"]
+[node name="Particles2D" parent="AnimatedTexture" index="2"]
 process_material = SubResource( 3 )
 
 [node name="UIImage" parent="." index="1"]
 texture = ExtResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="." index="2"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 3 )
+color = Color( 1, 0.211765, 0.431373, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+autoplay = "shimmer"
+anims/shimmer = SubResource( 4 )
