@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 100
+export var speed = 100
 
 var dir = 1
 var motion = Vector2.ZERO
@@ -36,7 +36,7 @@ func _ready():
 
 func _physics_process(delta):
 	if(abs(dir)>0):
-		motion.x = SPEED * dir * delta * 60
+		motion.x = speed * dir * delta * 60
 		sprite.flip_h = (dir < 0)
 		motion = move_and_slide(motion, Vector2.UP)
 		if(!raycast.is_colliding() or randf() < .02):

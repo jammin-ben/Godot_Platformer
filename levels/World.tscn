@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenery/Firefly.tscn" type="PackedScene" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://sprites/bkgrnd_cave.png" type="Texture" id=29]
 [ext_resource path="res://sprites/Tutorial_Sprites/Eating.png" type="Texture" id=30]
 [ext_resource path="res://TutorialUICollisionTrigger.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scenery/Bun.tscn" type="PackedScene" id=32]
 [ext_resource path="res://scenery/Cave Dimmer.tscn" type="PackedScene" id=33]
 [ext_resource path="res://sprites/Flowrs.png" type="Texture" id=34]
 [ext_resource path="res://sounds/Music_Layerer.tscn" type="PackedScene" id=35]
@@ -436,7 +437,7 @@ texture = ExtResource( 34 )
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
-position = Vector2( 1364, 606 )
+position = Vector2( 2110, 111 )
 
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 
@@ -625,6 +626,10 @@ position = Vector2( 620, 402 )
 
 [node name="Firefly22" parent="Butterflies" instance=ExtResource( 2 )]
 position = Vector2( 620, 402 )
+
+[node name="Beaver" parent="." instance=ExtResource( 32 )]
+position = Vector2( 1999, 145 )
+speed = 100
 
 [editable path="CompositTurtle"]
 
