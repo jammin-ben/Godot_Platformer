@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenery/Firefly.tscn" type="PackedScene" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://sounds/Music_Layerer.tscn" type="PackedScene" id=35]
 [ext_resource path="res://scenery/Butterflypen.tscn" type="PackedScene" id=36]
 [ext_resource path="res://scenery/Butterfly_simple.tscn" type="PackedScene" id=37]
+[ext_resource path="res://level_objects/Trampoline.tscn" type="PackedScene" id=38]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -629,9 +630,14 @@ position = Vector2( 620, 402 )
 
 [node name="Beaver" parent="." instance=ExtResource( 32 )]
 position = Vector2( 1999, 145 )
-time_chunk = 0.6
 max_run_chunks = 4
 max_wait_chunks = 8
+
+[node name="Trampoline" parent="." instance=ExtResource( 38 )]
+position = Vector2( 1895, 144 )
+
+[node name="Trampoline2" parent="." instance=ExtResource( 38 )]
+position = Vector2( 1962, 128 )
 
 [editable path="CompositTurtle"]
 
