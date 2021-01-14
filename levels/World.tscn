@@ -507,7 +507,7 @@ position = Vector2( 1898, 620 )
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
-position = Vector2( 1243, -342 )
+position = Vector2( -117, -28 )
 
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 
@@ -719,6 +719,9 @@ position = Vector2( 1688, 129 )
 
 [node name="Beaver3" parent="." instance=ExtResource( 40 )]
 position = Vector2( 1279, -319 )
+
+[node name="Trampoline5" parent="." instance=ExtResource( 38 )]
+position = Vector2( -66, -30 )
 
 [editable path="CompositTurtle"]
 

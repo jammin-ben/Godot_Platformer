@@ -8,4 +8,4 @@
 frame = 1
 
 [node name="Light2D" parent="." index="1"]
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.0862745, 0.85098, 1, 1 )

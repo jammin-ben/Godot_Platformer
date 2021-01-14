@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.03989, 3.95804 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "Blue"
 length = 0.4
 loop = true
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Red"
 length = 0.4
 loop = true
@@ -41,7 +41,7 @@ tracks/0/keys = {
 "values": [ 6, 7 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "White"
 length = 0.4
 loop = true
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "values": [ 4, 5 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "Yellow"
 length = 0.4
 loop = true
@@ -96,7 +96,7 @@ hframes = 2
 
 [node name="ButterflyAnimator" type="AnimationPlayer" parent="ButterflySprite"]
 autoplay = "Blue"
-anims/Blue = SubResource( 4 )
-anims/Red = SubResource( 5 )
-anims/White = SubResource( 6 )
-anims/Yellow = SubResource( 7 )
+anims/Blue = SubResource( 2 )
+anims/Red = SubResource( 3 )
+anims/White = SubResource( 4 )
+anims/Yellow = SubResource( 5 )

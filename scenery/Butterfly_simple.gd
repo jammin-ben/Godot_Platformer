@@ -3,7 +3,23 @@ extends KinematicBody2D
 var vel = Vector2(1,1)
 const SPEED = 35
 
+export var white = false
+
 func _ready():
+	var r = randf()
+	
+	if(!white):
+		if(r<.25):
+			$ButterflySprite/ButterflyAnimator.play("Red")
+		elif(r<.5):
+			$ButterflySprite/ButterflyAnimator.play("Yellow")
+		elif(r<.75):
+			$ButterflySprite/ButterflyAnimator.play("Blue")
+		else:
+			$ButterflySprite/ButterflyAnimator.play("White")
+	else:
+		$ButterflySprite/ButterflyAnimator.play("White")
+	
 	self.vel.x = 2*randf()-1
 	self.vel.y = 2*randf()-1
 	self.vel=self.vel.normalized()*SPEED
