@@ -50,7 +50,7 @@ tracks/0/keys = {
 }
 
 [node name="Beaver" instance=ExtResource( 2 )]
-speed = 75
+speed = 15
 time_chunk = 0.6
 
 [node name="Sprite" parent="." index="0"]

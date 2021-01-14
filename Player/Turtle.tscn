@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Player/Turtle.gd" type="Script" id=1]
-[ext_resource path="res://sprites/Turt/Turt_Default.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Turt/Turt.png" type="Texture" id=2]
 [ext_resource path="res://collisions/Hitbox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AnimationNodeAnimation" id=1]

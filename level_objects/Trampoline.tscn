@@ -53,18 +53,19 @@ animation = "spring"
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
 
-[sub_resource type="AnimationNodeStateMachine" id=8]
+[sub_resource type="AnimationNodeStateMachine" id=9]
 states/idle/node = SubResource( 5 )
 states/idle/position = Vector2( 156, 57 )
 states/spring/node = SubResource( 6 )
 states/spring/position = Vector2( 540, 84 )
-transitions = [ "spring", "idle", SubResource( 7 ), "idle", "spring", SubResource( 10 ) ]
+transitions = [ "spring", "idle", SubResource( 7 ), "idle", "spring", SubResource( 8 ) ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
 [node name="Trampoline" type="Node2D"]
+z_index = -15
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -86,7 +87,7 @@ anims/idle = SubResource( 3 )
 anims/spring = SubResource( 4 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 8 )
+tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 9 )
+parameters/playback = SubResource( 10 )

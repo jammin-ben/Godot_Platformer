@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenery/Beaver.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/baby_pig.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_local_to_scene = true
+resource_name = "Run"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_local_to_scene = true
+resource_name = "Stand"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[node name="Beaver" instance=ExtResource( 1 )]
+speed = 50
+time_chunk = 0.5
+max_run_chunks = 2
+max_wait_chunks = 10
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+hframes = 2
+frame = 0
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/Run = SubResource( 1 )
+anims/Stand = SubResource( 2 )
