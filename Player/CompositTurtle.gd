@@ -65,9 +65,9 @@ func set_ball_mode(value: bool):
 		turt_ball.linear_velocity = turt_default.motion;
 		turt_ball.get_node("Sprite").flip_h = turt_default.get_node("Sprite").flip_h
 		if turt_ball.get_node("Sprite").flip_h:
-			turt_ball.get_node("CollisionPolygon2D").scale.x = -1
+			turt_ball.get_node("CollisionShape").scale.x = -1
 		else:
-			turt_ball.get_node("CollisionPolygon2D").scale.x = 1
+			turt_ball.get_node("CollisionShape").scale.x = 1
 			emit_signal("turtle_mode_change", "ball")
 		is_emerged = false
 	else:
@@ -81,13 +81,13 @@ func _disable_turt_ball():
 	turt_ball.visible = false
 	# turt_ball.get_node("Camera2D").current = false
 	
-	turt_ball.get_node("CollisionPolygon2D").disabled = true
+	turt_ball.get_node("CollisionShape").disabled = true
 	turt_ball.mode = RigidBody2D.MODE_STATIC
 	turt_ball.sleeping = true
 
 func _enable_turt_ball():
 	turt_ball.visible = true
-	turt_ball.get_node("CollisionPolygon2D").disabled = false
+	turt_ball.get_node("CollisionShape").disabled = false
 	turt_ball.mode = RigidBody2D.MODE_RIGID
 	turt_ball.sleeping = false
 	var flutter_group = get_and_remove_flutter_group()
