@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenery/Firefly.tscn" type="PackedScene" id=2]
@@ -43,6 +43,8 @@
 [ext_resource path="res://scenery/mushrooms.tscn" type="PackedScene" id=41]
 [ext_resource path="res://scenery/Mush_White.tscn" type="PackedScene" id=42]
 [ext_resource path="res://sprites/monstera.png" type="Texture" id=43]
+[ext_resource path="res://sprites/bigleaf_bush.png" type="Texture" id=44]
+[ext_resource path="res://sprites/alocuteia.png" type="Texture" id=45]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -365,6 +367,18 @@ texture = ExtResource( 43 )
 centered = false
 vframes = 1
 
+[node name="Tree5" parent="Misc_Scenery" instance=ExtResource( 27 )]
+position = Vector2( -180, -50 )
+texture = ExtResource( 44 )
+centered = false
+vframes = 1
+
+[node name="Tree6" parent="Misc_Scenery" instance=ExtResource( 27 )]
+position = Vector2( -133, -50 )
+texture = ExtResource( 45 )
+centered = false
+vframes = 1
+
 [node name="Tree" type="Sprite" parent="Misc_Scenery"]
 position = Vector2( 184, 32 )
 texture = ExtResource( 3 )
@@ -398,14 +412,6 @@ texture = ExtResource( 6 )
 [node name="Strawberry2" parent="Misc_Scenery/Fruit" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 134, 124 )
-
-[node name="Ferns" type="Sprite" parent="Misc_Scenery"]
-position = Vector2( 32, -24 )
-texture = ExtResource( 18 )
-
-[node name="Bush" type="Sprite" parent="Misc_Scenery"]
-position = Vector2( 418, 180 )
-texture = ExtResource( 19 )
 
 [node name="Boulder" type="Sprite" parent="Misc_Scenery"]
 position = Vector2( 1146, 191 )
@@ -502,12 +508,22 @@ position = Vector2( 1798, 652 )
 [node name="Mush_Red12" parent="Misc_Scenery" instance=ExtResource( 41 )]
 position = Vector2( 1898, 620 )
 
+[node name="Bush" parent="Misc_Scenery" instance=ExtResource( 27 )]
+position = Vector2( 435, 180 )
+texture = ExtResource( 19 )
+vframes = 1
+
+[node name="Tree4" parent="Misc_Scenery" instance=ExtResource( 27 )]
+position = Vector2( 56, -25 )
+texture = ExtResource( 18 )
+vframes = 1
+
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
-position = Vector2( -117, -28 )
+position = Vector2( 9, -53 )
 
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 

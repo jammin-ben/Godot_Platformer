@@ -12,4 +12,4 @@ hframes = 2
 [node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
-color = Color( 0.0941176, 0.313726, 0.894118, 1 )
+color = Color( 0.6, 1, 0.964706, 1 )
