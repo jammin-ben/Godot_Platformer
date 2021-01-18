@@ -523,7 +523,7 @@ vframes = 1
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
-position = Vector2( 9, -53 )
+position = Vector2( 1225, -357 )
 
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 

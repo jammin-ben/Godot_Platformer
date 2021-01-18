@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Player/CompositTurtle.gd" type="Script" id=1]
 [ext_resource path="res://Player/Turtle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player/TurtleBall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/TurtleBallRound.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/FlutterGroup.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
@@ -32,22 +32,10 @@ collision_mask = 6145
 position = Vector2( -0.434212, -11.5065 )
 shape = SubResource( 2 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [node name="TurtleBall" parent="." instance=ExtResource( 3 )]
 visible = false
-position = Vector2( -2.13581, -1.42612 )
-mass = 1.0
-gravity_scale = 3.64
-
-[node name="Area2D2" type="Area2D" parent="TurtleBall"]
-position = Vector2( 2.13581, 1.42612 )
-collision_layer = 6145
-collision_mask = 6145
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleBall/Area2D2"]
-position = Vector2( -0.434212, -11.5065 )
-shape = SubResource( 2 )
-
-[node name="Tween" type="Tween" parent="."]
 [connection signal="signal_consumed_powerup_flutter_jump" from="TurtleDefault" to="TurtleDefault/FlutterGroup" method="_conn_consumed_powerup_flutter_jump"]
 [connection signal="signal_debug_st_changed" from="TurtleDefault" to="TurtleDefault/FlutterGroup" method="_on_TurtleDefault_signal_debug_st_changed"]
 [connection signal="animation_started" from="TurtleDefault/AnimationPlayer" to="." method="_conn_on_animation_started"]

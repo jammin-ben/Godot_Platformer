@@ -41,7 +41,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=3]
 curve = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=4]
 flag_disable_z = true
 gravity = Vector3( -200, 0, 0 )
 initial_velocity = 61.22
@@ -68,6 +68,7 @@ offset = Vector2( 0, 0.4 )
 hframes = 4
 script = ExtResource( 2 )
 particle_color = Color( 0, 0, 0, 1 )
+eat_sfx_pitch_scale_range = Vector2( 0.9, 1.1 )
 
 [node name="SfxEat" type="AudioStreamPlayer2D" parent="AnimatedTexture"]
 stream = ExtResource( 3 )
@@ -83,7 +84,7 @@ emitting = false
 amount = 2
 lifetime = 0.75
 randomness = 1.0
-process_material = SubResource( 6 )
+process_material = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="AnimatedTexture"]
 collision_layer = 4
