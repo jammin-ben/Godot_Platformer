@@ -64,11 +64,10 @@ animated_texture = ExtResource( 5 )
 
 [node name="AnimatedTexture" type="Sprite" parent="."]
 texture = ExtResource( 5 )
-offset = Vector2( 0, 0.4 )
+offset = Vector2( 0, 0.35 )
 hframes = 4
 script = ExtResource( 2 )
 particle_color = Color( 0, 0, 0, 1 )
-eat_sfx_pitch_scale_range = Vector2( 0.9, 1.1 )
 
 [node name="SfxEat" type="AudioStreamPlayer2D" parent="AnimatedTexture"]
 stream = ExtResource( 3 )

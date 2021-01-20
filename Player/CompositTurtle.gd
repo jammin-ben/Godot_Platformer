@@ -128,3 +128,7 @@ func _correct_turt_default():
 
 func _set_ball_mode():
 	pass
+
+
+func _on_eat_giant_strawberry(area):
+	$TurtleDefault.in_cutscene=true
