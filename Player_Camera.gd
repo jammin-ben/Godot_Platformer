@@ -27,13 +27,14 @@ func _process(delta):
 	
 	if(!in_cutscene):
 		weights = Vector2(2,2)
-		target= turt.position+turt_parent.position
+		target = turt.position + turt_parent.position
 	
 		#This code increases camera speed if turtle is falling too fast
 		var t = target.y - self.position.y
 		var interp = clamp((t-YDISTTHRESHOLD)/YDISTSLACK,0,1)
 		weights.y = YWEIGHTMIN+YWEIGHTEXTRA*interp
 	
+
 	self.position += delta * weights * (target - position)
 
 func _conn_turtle_mode_change(mode: String):

@@ -68,7 +68,7 @@ func set_ball_mode(value: bool):
 			turt_ball.get_node("CollisionShape").scale.x = -1
 		else:
 			turt_ball.get_node("CollisionShape").scale.x = 1
-			emit_signal("turtle_mode_change", "ball")
+		emit_signal("turtle_mode_change", "ball")
 		is_emerged = false
 	else:
 		add_child(turt_default)
