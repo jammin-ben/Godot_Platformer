@@ -45,6 +45,10 @@ func _conn_turtle_mode_change(mode: String):
 
 func _on_giantstrawberry_eaten(position):
 	in_cutscene=true
-	weights = Vector2(1,.1)
+	weights = Vector2(1,.16)
 	target = position
 	target.y -= 80
+
+
+func _on_giantstrawberry_credits_done():
+	in_cutscene = false

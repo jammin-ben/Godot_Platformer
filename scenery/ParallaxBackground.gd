@@ -27,3 +27,7 @@ func _process(delta: float) -> void:
 		mountains.motion_offset.x -= delta / 2
 		mountains_far.motion_offset.x -= delta / 3
 		
+
+
+func _on_giantstrawberry_eaten(_position):
+	$creditsplayer.play("credits")

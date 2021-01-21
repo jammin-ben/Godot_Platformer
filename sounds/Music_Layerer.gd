@@ -22,3 +22,8 @@ func _on_EndgameArea_area_entered(_area):
 	tween.interpolate_property($aboveground,"volume_db",$aboveground.volume_db,-60,5)
 	tween.interpolate_property($belowground,"volume_db",$belowground.volume_db,-60,5)
 	tween.start()
+
+
+func _on_giantstrawberry_credits_done():
+	$aboveground.stop()
+	$belowground.stop()
