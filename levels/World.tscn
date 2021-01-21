@@ -750,8 +750,8 @@ position = Vector2( 0, -4 )
 [node name="endgamemusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 48 )
 script = ExtResource( 47 )
-[connection signal="eaten" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
+[connection signal="eaten" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_eaten"]
 
 [editable path="CompositTurtle"]
 

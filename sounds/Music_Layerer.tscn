@@ -36,4 +36,3 @@ shape = SubResource( 1 )
 [connection signal="area_entered" from="CaveArea" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="CaveArea" to="." method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="EndgameArea" to="." method="_on_EndgameArea_area_entered"]
-[connection signal="area_exited" from="EndgameArea" to="." method="_on_EndgameArea_area_exited"]
