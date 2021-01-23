@@ -14,14 +14,15 @@ extents = Vector2( 15.7222, 11.5594 )
 script = ExtResource( 1 )
 
 [node name="TurtleDefault" parent="." instance=ExtResource( 2 )]
-ball_mode = true
-wall_jump = true
-flutter_jump = true
 
 [node name="AnimationTree" parent="TurtleDefault" index="0"]
 parameters/playback = SubResource( 1 )
 
+[node name="Sprite" parent="TurtleDefault" index="1"]
+frame = 4
+
 [node name="FlutterGroup" parent="TurtleDefault" instance=ExtResource( 4 )]
+visible = false
 
 [node name="Area2D" type="Area2D" parent="TurtleDefault"]
 position = Vector2( 1, 0 )
