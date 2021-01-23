@@ -82,12 +82,14 @@ func _disable_turt_ball():
 	# turt_ball.get_node("Camera2D").current = false
 	
 	turt_ball.get_node("CollisionShape").disabled = true
+	turt_ball.get_node("Area2D/CollisionPolygon2D2").disabled = true
 	turt_ball.mode = RigidBody2D.MODE_STATIC
 	turt_ball.sleeping = true
 
 func _enable_turt_ball():
 	turt_ball.visible = true
 	turt_ball.get_node("CollisionShape").disabled = false
+	turt_ball.get_node("Area2D/CollisionPolygon2D2").disabled = false
 	turt_ball.mode = RigidBody2D.MODE_RIGID
 	turt_ball.sleeping = false
 	var flutter_group = get_and_remove_flutter_group()
