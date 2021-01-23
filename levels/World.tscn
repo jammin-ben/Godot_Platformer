@@ -543,7 +543,7 @@ vframes = 1
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
-position = Vector2( 2110, 349 )
+position = Vector2( 1737, 480 )
 
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 
@@ -611,6 +611,12 @@ position = Vector2( -12, -50 )
 
 [node name="Music_Layerer" parent="." instance=ExtResource( 35 )]
 position = Vector2( 1502, 619 )
+
+[node name="aboveground" parent="Music_Layerer" index="0"]
+autoplay = false
+
+[node name="belowground" parent="Music_Layerer" index="1"]
+autoplay = false
 
 [node name="CollisionShape2D" parent="Music_Layerer/EndgameArea" index="0"]
 position = Vector2( 216, -1396 )
@@ -833,11 +839,11 @@ position = Vector2( 0, -4 )
 [node name="endgamemusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 48 )
 script = ExtResource( 47 )
-[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="credits_done" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_credits_done"]
+[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
+[connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_eaten"]
-[connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
 
 [editable path="CompositTurtle"]
 

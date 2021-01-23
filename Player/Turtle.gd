@@ -50,7 +50,6 @@ onready var hitbox = $Hitbox/CollisionShape2D
 
 onready var state_machine = $AnimationTree["parameters/playback"]
 
-
 # for hidden animation
 var hidden = false;
 
@@ -161,12 +160,12 @@ func _physics_process(delta):
 			hitbox.disabled = false
 		else:
 			hitbox.disabled = true
-		
+
 		if Input.is_action_just_pressed("player_up"):
 			motion.y = -JUMP_FORCE
 			state_machine.travel("Jump")
 			set_state(ST_AIRBORN)
-	
+
 	#not sure if this is poor practice for a FSM
 	elif state == ST_FALLING or state == ST_AIRBORN:
 		# state_machine.travel("Jump")
@@ -224,7 +223,6 @@ func _physics_process(delta):
 		sprite.flip_h = false;
 	
 	motion = move_and_slide(motion, Vector2.UP)
-
 
 func _on_hidden():
 	emit_signal("Hidden")

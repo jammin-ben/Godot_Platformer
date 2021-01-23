@@ -1,8 +1,7 @@
 extends KinematicBody2D
+#DEPRECATED
+#USE Simple_Butterfly instead
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 const MIN_SPEED = 35
 const MAX_SPEED = 50
 const OBSTACLE_WEIGHT = 20

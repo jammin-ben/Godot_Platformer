@@ -29,7 +29,7 @@ particle_color = Color( 0.101961, 0.352941, 0.709804, 1 )
 position = Vector2( 0.222733, 0 )
 particle_color = Color( 0.101961, 0.352941, 0.709804, 1 )
 
-[node name="Particles2D" parent="AnimatedTexture" index="1"]
+[node name="Particles2D" parent="AnimatedTexture" index="2"]
 process_material = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="AnimatedTexture/Area2D" index="0"]

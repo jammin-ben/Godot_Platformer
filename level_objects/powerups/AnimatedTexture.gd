@@ -59,5 +59,5 @@ func queue_free_on_sfx_ended():
 
 func _conn_on_eat_sfx_finished() -> void:
 	if _can_free:
-		queue_free()
+		get_parent().queue_free()
 	randomize_eat_sfx_pitch_scale()
