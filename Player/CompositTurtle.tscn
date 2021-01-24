@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/CompositTurtle.gd" type="Script" id=1]
 [ext_resource path="res://Player/Turtle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/TurtleBallRound.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/FlutterGroup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/light-gradient.png" type="Texture" id=5]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -33,10 +34,21 @@ collision_mask = 6145
 position = Vector2( -0.434212, -11.5065 )
 shape = SubResource( 2 )
 
+[node name="Light2D" type="Light2D" parent="TurtleDefault"]
+position = Vector2( 0.0297966, -17.4005 )
+texture = ExtResource( 5 )
+color = Color( 0, 0.662745, 0.862745, 1 )
+energy = 1.36
+
 [node name="Tween" type="Tween" parent="."]
 
 [node name="TurtleBall" parent="." instance=ExtResource( 3 )]
-visible = false
+
+[node name="Light2D" type="Light2D" parent="TurtleBall"]
+position = Vector2( 0.157486, -0.0381966 )
+enabled = false
+texture = ExtResource( 5 )
+color = Color( 0, 0.662745, 0.862745, 1 )
 [connection signal="signal_consumed_powerup_flutter_jump" from="TurtleDefault" to="TurtleDefault/FlutterGroup" method="_conn_consumed_powerup_flutter_jump"]
 [connection signal="signal_debug_st_changed" from="TurtleDefault" to="TurtleDefault/FlutterGroup" method="_on_TurtleDefault_signal_debug_st_changed"]
 [connection signal="animation_started" from="TurtleDefault/AnimationPlayer" to="." method="_conn_on_animation_started"]

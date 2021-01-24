@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenery/Beaver.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/baby_pig.png" type="Texture" id=2]
+[ext_resource path="res://sprites/light-gradient.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_local_to_scene = true
@@ -52,3 +53,9 @@ frame = 0
 [node name="AnimationPlayer" parent="." index="1"]
 anims/Run = SubResource( 1 )
 anims/Stand = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="." index="5"]
+position = Vector2( 0, -10 )
+texture = ExtResource( 3 )
+color = Color( 0.956863, 0.596078, 0.0862745, 1 )
+energy = 0.89

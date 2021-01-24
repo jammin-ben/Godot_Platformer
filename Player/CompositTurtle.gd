@@ -134,3 +134,8 @@ func _set_ball_mode():
 
 func _on_eat_giant_strawberry(area):
 	$TurtleDefault.in_cutscene=true
+
+
+func _on_big_mushroom_mushroom_eaten():
+	$TurtleBall/Light2D.enabled=true
+	$TurtleDefault/Light2D.enabled=true
