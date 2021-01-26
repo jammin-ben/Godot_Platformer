@@ -20,7 +20,7 @@ script = ExtResource( 1 )
 parameters/playback = SubResource( 1 )
 
 [node name="Sprite" parent="TurtleDefault" index="1"]
-frame = 4
+frame = 10
 
 [node name="FlutterGroup" parent="TurtleDefault" instance=ExtResource( 4 )]
 visible = false
@@ -43,6 +43,7 @@ energy = 1.36
 [node name="Tween" type="Tween" parent="."]
 
 [node name="TurtleBall" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1, -15 )
 
 [node name="Light2D" type="Light2D" parent="TurtleBall"]
 position = Vector2( 0.157486, -0.0381966 )

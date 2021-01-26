@@ -8,6 +8,7 @@ signal turtle_mode_change(mode)
 var ball_mode = false setget set_ball_mode
 var is_emerged = true
 
+export var turt_ball_offset = Vector2(-1, -10)
 
 onready var turt_default = $TurtleDefault
 onready var turt_ball = $TurtleBall
@@ -60,7 +61,7 @@ func set_ball_mode(value: bool):
 		remove_child(turt_default)
 		_enable_turt_ball()
 		turt_ball.position = turt_default.position
-		turt_ball.position.y -= 2
+		turt_ball.position += turt_ball_offset
 		turt_ball.rotation_degrees = 0
 		turt_ball.linear_velocity = turt_default.motion;
 		turt_ball.get_node("Sprite").flip_h = turt_default.get_node("Sprite").flip_h
@@ -118,6 +119,7 @@ func _set_default_mode():
 	_disable_turt_ball()
 	_enable_turt_default()
 	turt_default.position = turt_ball.position
+	turt_default.position -= turt_ball_offset
 	turt_default.rotation = turt_ball.rotation
 	turt_default.motion = turt_ball.linear_velocity
 	_correct_turt_default()

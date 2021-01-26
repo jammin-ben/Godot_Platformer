@@ -548,9 +548,13 @@ vframes = 1
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1680.22, -647.357 )
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
 position = Vector2( 2193, 784 )
+ball_mode = true
+wall_jump = true
+flutter_jump = true
 
 [node name="PowerupUI" parent="." instance=ExtResource( 9 )]
 
@@ -865,8 +869,8 @@ parameters/playback = SubResource( 35 )
 
 [node name="big_mushroom" parent="." instance=ExtResource( 50 )]
 position = Vector2( 2309, 828 )
-[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="credits_done" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_credits_done"]
+[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="eaten" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
