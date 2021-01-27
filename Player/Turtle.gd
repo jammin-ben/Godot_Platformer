@@ -11,6 +11,8 @@ export var ball_mode = false
 export var wall_jump = false
 export var flutter_jump = false
 
+export var hide_emerge_animation_speed = 3
+
 const TARGET_FPS = 60
 const ACCELERATION = 8
 const MAX_SPEED_DEFAULT = 30
@@ -68,6 +70,11 @@ func _ready() -> void:
 	has_powerup.ball_mode = ball_mode
 	has_powerup.flutter_jump = flutter_jump
 	has_powerup.wall_jump = wall_jump
+
+
+	$AnimationTree["parameters/Emerge/TimeScale/scale"] = hide_emerge_animation_speed
+	$AnimationTree["parameters/Hide/TimeScale/scale"] = hide_emerge_animation_speed
+
 	level_powerups = get_tree().get_nodes_in_group(Globals.POWERUP_GROUP)
 	for powerup in level_powerups:
 		powerup.connect("powerup", self, "_conn_on_powerup_consumed")

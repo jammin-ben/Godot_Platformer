@@ -272,8 +272,8 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
 parameters/playback = SubResource( 24 )
-parameters/Emerge/TimeScale/scale = 100.0
-parameters/Hide/TimeScale/scale = 10.0
+parameters/Emerge/TimeScale/scale = 1.0
+parameters/Hide/TimeScale/scale = 1.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
