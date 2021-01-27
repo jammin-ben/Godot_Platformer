@@ -22,6 +22,7 @@ func _process(_delta: float) -> void:
 
 
 func _ready() -> void:
+	_disable_turt_ball();
 	pass
 	# turt_default.connect("Hidden", self, "on_turtle_hidden")
 
@@ -80,8 +81,6 @@ func set_ball_mode(value: bool):
 
 func _disable_turt_ball():
 	turt_ball.visible = false
-	# turt_ball.get_node("Camera2D").current = false
-	
 	turt_ball.get_node("CollisionShape").disabled = true
 	turt_ball.get_node("Area2D/CollisionPolygon2D2").disabled = true
 	turt_ball.mode = RigidBody2D.MODE_STATIC

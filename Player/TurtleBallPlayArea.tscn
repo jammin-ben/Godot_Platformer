@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/CompositTurtle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/ui_background.png" type="Texture" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -19,7 +20,7 @@ physics_material_override = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="CompositTurtle" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0.249237, -23.4275 )
+position = Vector2( 0.747681, -25.1721 )
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
 ball_mode = true
@@ -27,8 +28,10 @@ ball_mode = true
 [node name="AnimationTree" parent="CompositTurtle/TurtleDefault" index="0"]
 parameters/playback = SubResource( 3 )
 
-[node name="Sprite" parent="CompositTurtle/TurtleDefault" index="1"]
-frame = 4
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.373978, 0.521561 )
+scale = Vector2( 1.4, 0.719998 )
+texture = ExtResource( 2 )
 
 [editable path="CompositTurtle"]
 
