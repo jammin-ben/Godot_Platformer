@@ -28,6 +28,8 @@ func _process(delta):
 	if(!in_cutscene):
 		weights = Vector2(2,2)
 		target = turt.position + turt_parent.position
+		if turt is TurtleBall:
+			target -= turt_parent.turt_ball_offset
 	
 		#This code increases camera speed if turtle is falling too fast
 		var t = target.y - self.position.y

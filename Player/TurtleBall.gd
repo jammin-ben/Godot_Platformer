@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name TurtleBall
+
 
 # Declare member variables here. Examples:
 # var a: int = 2

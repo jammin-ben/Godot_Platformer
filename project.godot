@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Turtle",
 "language": "GDScript",
 "path": "res://Player/Turtle.gd"
+}, {
+"base": "RigidBody2D",
+"class": "TurtleBall",
+"language": "GDScript",
+"path": "res://Player/TurtleBall.gd"
 } ]
 _global_script_class_icons={
 "CompositeTurtle": "",
 "Powerup": "",
 "PowerupAnimatedTexture": "",
-"Turtle": ""
+"Turtle": "",
+"TurtleBall": ""
 }
 
 [application]
