@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Player/Turtle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Turt/Turt.png" type="Texture" id=2]
@@ -9,6 +9,19 @@ animation = "Eat"
 
 [sub_resource type="AnimationNodeAnimation" id=2]
 animation = "Emerge"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "Hide"
+
+[sub_resource type="AnimationNodeTimeScale" id=37]
+
+[sub_resource type="AnimationNodeBlendTree" id=38]
+graph_offset = Vector2( -301.455, 8.4145e-07 )
+nodes/Animation/node = SubResource( 36 )
+nodes/Animation/position = Vector2( -80, 140 )
+nodes/TimeScale/node = SubResource( 37 )
+nodes/TimeScale/position = Vector2( 115.827, 137.305 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=3]
 animation = "Hide"
@@ -41,29 +54,31 @@ animation = "Wallslide"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=15]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=18]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=20]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=21]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 switch_mode = 2
 auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
 
 [sub_resource type="AnimationNodeStateMachine" id=23]
 states/Eat/node = SubResource( 1 )
 states/Eat/position = Vector2( 307.884, 217 )
 states/Emerge/node = SubResource( 2 )
 states/Emerge/position = Vector2( 525.754, 217 )
-states/Hide/node = SubResource( 3 )
-states/Hide/position = Vector2( 708.884, 217 )
+states/Hide/node = SubResource( 38 )
+states/Hide/position = Vector2( 796.754, 283.354 )
+states/Hide_Original/node = SubResource( 3 )
+states/Hide_Original/position = Vector2( 809.884, 164 )
 states/Jump/node = SubResource( 4 )
 states/Jump/position = Vector2( 708.884, 703 )
 states/Move/node = SubResource( 5 )
@@ -72,9 +87,9 @@ states/Stand/node = SubResource( 6 )
 states/Stand/position = Vector2( 307.884, 373 )
 states/Wallslide/node = SubResource( 7 )
 states/Wallslide/position = Vector2( 858.098, 373 )
-transitions = [ "Stand", "Eat", SubResource( 8 ), "Eat", "Stand", SubResource( 9 ), "Stand", "Move", SubResource( 10 ), "Move", "Stand", SubResource( 11 ), "Move", "Jump", SubResource( 12 ), "Jump", "Move", SubResource( 13 ), "Stand", "Jump", SubResource( 14 ), "Jump", "Stand", SubResource( 15 ), "Jump", "Hide", SubResource( 16 ), "Stand", "Hide", SubResource( 17 ), "Jump", "Wallslide", SubResource( 18 ), "Wallslide", "Jump", SubResource( 19 ), "Wallslide", "Stand", SubResource( 20 ), "Hide", "Emerge", SubResource( 21 ), "Emerge", "Stand", SubResource( 22 ) ]
+transitions = [ "Stand", "Eat", SubResource( 8 ), "Eat", "Stand", SubResource( 9 ), "Stand", "Move", SubResource( 10 ), "Move", "Stand", SubResource( 11 ), "Move", "Jump", SubResource( 12 ), "Jump", "Move", SubResource( 13 ), "Stand", "Jump", SubResource( 14 ), "Jump", "Stand", SubResource( 15 ), "Jump", "Wallslide", SubResource( 18 ), "Wallslide", "Jump", SubResource( 19 ), "Wallslide", "Stand", SubResource( 20 ), "Emerge", "Stand", SubResource( 22 ), "Jump", "Hide", SubResource( 39 ), "Stand", "Hide", SubResource( 40 ), "Hide", "Emerge", SubResource( 41 ) ]
 start_node = "Stand"
-graph_offset = Vector2( 279.754, 467.771 )
+graph_offset = Vector2( 279.754, 120.486 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=24]
 
@@ -242,6 +257,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
 parameters/playback = SubResource( 24 )
+parameters/Hide/TimeScale/scale = 10.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
