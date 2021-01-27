@@ -19,19 +19,18 @@ physics_material_override = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 2 )
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.373978, 0.521561 )
+scale = Vector2( 1.4, 0.719998 )
+texture = ExtResource( 2 )
+
 [node name="CompositTurtle" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0.747681, -25.1721 )
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
 ball_mode = true
 
 [node name="AnimationTree" parent="CompositTurtle/TurtleDefault" index="0"]
 parameters/playback = SubResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.373978, 0.521561 )
-scale = Vector2( 1.4, 0.719998 )
-texture = ExtResource( 2 )
 
 [editable path="CompositTurtle"]
 
