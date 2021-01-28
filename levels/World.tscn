@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenery/Firefly.tscn" type="PackedScene" id=2]
@@ -338,26 +338,20 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 1052, 394 )
 
-[sub_resource type="RectangleShape2D" id=36]
+[sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 997, 355 )
 
-[sub_resource type="RectangleShape2D" id=29]
+[sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 176, 141 )
 
-[sub_resource type="RectangleShape2D" id=30]
+[sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 260, 90 )
 
-[sub_resource type="RectangleShape2D" id=31]
+[sub_resource type="RectangleShape2D" id=32]
 extents = Vector2( 276, 350 )
 
-[sub_resource type="RectangleShape2D" id=32]
+[sub_resource type="RectangleShape2D" id=33]
 extents = Vector2( 706, 480 )
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=33]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=34]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=35]
 
 [node name="Node2D" type="Node2D"]
 
@@ -548,6 +542,156 @@ position = Vector2( 451, -256 )
 texture = ExtResource( 18 )
 vframes = 1
 
+[node name="Butterflies" type="Node2D" parent="Misc_Scenery"]
+position = Vector2( 1174, 113 )
+
+[node name="KinematicBody2D" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D7" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D8" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D9" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D10" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D11" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D12" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D13" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D14" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D15" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D16" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D3" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D17" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+position = Vector2( 669, -1416 )
+
+[node name="KinematicBody2D18" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+position = Vector2( 669, -1416 )
+
+[node name="KinematicBody2D19" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+position = Vector2( 669, -1416 )
+
+[node name="KinematicBody2D20" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+position = Vector2( 669, -1416 )
+
+[node name="KinematicBody2D21" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+position = Vector2( 669, -1416 )
+
+[node name="KinematicBody2D22" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+position = Vector2( 669, -1416 )
+
+[node name="KinematicBody2D23" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+position = Vector2( 669, -1416 )
+
+[node name="KinematicBody2D4" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D5" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D6" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D2" parent="Misc_Scenery/Butterflies" instance=ExtResource( 37 )]
+
+[node name="Firefly" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 354, 413 )
+
+[node name="Firefly2" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 354, 413 )
+
+[node name="Firefly3" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 354, 413 )
+
+[node name="Firefly4" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 354, 413 )
+
+[node name="Firefly5" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 354, 413 )
+
+[node name="Firefly6" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 354, 413 )
+
+[node name="Firefly7" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 497, 552 )
+
+[node name="Firefly9" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 497, 552 )
+
+[node name="Firefly8" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 565, -1460 )
+
+[node name="Firefly10" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 565, -1460 )
+
+[node name="Firefly16" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 565, -1460 )
+
+[node name="Firefly19" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 565, -1460 )
+
+[node name="Firefly21" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 565, -1460 )
+
+[node name="Firefly23" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 565, -1460 )
+
+[node name="Firefly24" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 708, -1321 )
+
+[node name="Firefly25" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 708, -1321 )
+
+[node name="Firefly11" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 497, 552 )
+
+[node name="Firefly12" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 497, 552 )
+
+[node name="Firefly13" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 497, 552 )
+
+[node name="Firefly14" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 783, 300 )
+
+[node name="Firefly15" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 620, 402 )
+
+[node name="Firefly17" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 620, 402 )
+
+[node name="Firefly18" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 620, 402 )
+
+[node name="Firefly20" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 620, 402 )
+
+[node name="Firefly22" parent="Misc_Scenery/Butterflies" instance=ExtResource( 2 )]
+position = Vector2( 620, 402 )
+
+[node name="Beaver" parent="Misc_Scenery" instance=ExtResource( 32 )]
+position = Vector2( 1999, 145 )
+max_run_chunks = 4
+max_wait_chunks = 8
+
+[node name="Beaver5" parent="Misc_Scenery" instance=ExtResource( 32 )]
+position = Vector2( 1821, -1215 )
+max_run_chunks = 4
+max_wait_chunks = 8
+
+[node name="Beaver2" parent="Misc_Scenery" instance=ExtResource( 39 )]
+position = Vector2( 1688, 129 )
+
+[node name="Beaver4" parent="Misc_Scenery" instance=ExtResource( 39 )]
+position = Vector2( 1732, -1215 )
+
+[node name="Beaver3" parent="Misc_Scenery" instance=ExtResource( 40 )]
+position = Vector2( 2119, 817 )
+
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
@@ -630,7 +774,7 @@ position = Vector2( -12, -50 )
 position = Vector2( 1502, 619 )
 
 [node name="CollisionShape2D" parent="Music_Layerer/CaveArea" index="0"]
-shape = SubResource( 36 )
+shape = SubResource( 29 )
 
 [node name="CollisionShape2D" parent="Music_Layerer/EndgameArea" index="0"]
 light_mask = -2147483647
@@ -641,27 +785,27 @@ position = Vector2( 1185, 132 )
 
 [node name="CollisionShape2D" parent="Butterflypen/xbounds" index="0"]
 position = Vector2( 37, 148 )
-shape = SubResource( 29 )
+shape = SubResource( 30 )
 
 [node name="ybounds" parent="Butterflypen" index="1"]
 position = Vector2( 12, -16 )
 
 [node name="CollisionShape2D" parent="Butterflypen/ybounds" index="0"]
-shape = SubResource( 30 )
+shape = SubResource( 31 )
 
 [node name="Butterflypen3" parent="." instance=ExtResource( 36 )]
 position = Vector2( 1783, -1272 )
 
 [node name="CollisionShape2D" parent="Butterflypen3/xbounds" index="0"]
 position = Vector2( 37, 148 )
-shape = SubResource( 29 )
+shape = SubResource( 30 )
 
 [node name="ybounds" parent="Butterflypen3" index="1"]
 position = Vector2( 12, -16 )
 
 [node name="CollisionShape2D" parent="Butterflypen3/ybounds" index="0"]
 z_index = -4
-shape = SubResource( 30 )
+shape = SubResource( 31 )
 
 [node name="Butterflypen2" parent="." instance=ExtResource( 36 )]
 position = Vector2( 1366, 489 )
@@ -672,7 +816,7 @@ position = Vector2( -3, -58 )
 [node name="CollisionShape2D" parent="Butterflypen2/xbounds" index="0"]
 visible = false
 position = Vector2( 254, 165 )
-shape = SubResource( 31 )
+shape = SubResource( 32 )
 
 [node name="ybounds" parent="Butterflypen2" index="1"]
 position = Vector2( 12, -16 )
@@ -680,197 +824,7 @@ position = Vector2( 12, -16 )
 [node name="CollisionShape2D" parent="Butterflypen2/ybounds" index="0"]
 visible = false
 position = Vector2( 212, 83 )
-shape = SubResource( 32 )
-
-[node name="Butterflies" type="Node2D" parent="."]
-position = Vector2( 1174, 113 )
-
-[node name="KinematicBody2D" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D7" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D8" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D9" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D10" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D11" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D12" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D13" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D14" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D15" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D16" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D3" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D17" parent="Butterflies" instance=ExtResource( 37 )]
-position = Vector2( 669, -1416 )
-
-[node name="KinematicBody2D18" parent="Butterflies" instance=ExtResource( 37 )]
-position = Vector2( 669, -1416 )
-
-[node name="KinematicBody2D19" parent="Butterflies" instance=ExtResource( 37 )]
-position = Vector2( 669, -1416 )
-
-[node name="KinematicBody2D20" parent="Butterflies" instance=ExtResource( 37 )]
-position = Vector2( 669, -1416 )
-
-[node name="KinematicBody2D21" parent="Butterflies" instance=ExtResource( 37 )]
-position = Vector2( 669, -1416 )
-
-[node name="KinematicBody2D22" parent="Butterflies" instance=ExtResource( 37 )]
-position = Vector2( 669, -1416 )
-
-[node name="KinematicBody2D23" parent="Butterflies" instance=ExtResource( 37 )]
-position = Vector2( 669, -1416 )
-
-[node name="KinematicBody2D4" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D5" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D6" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="KinematicBody2D2" parent="Butterflies" instance=ExtResource( 37 )]
-
-[node name="Firefly" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 354, 413 )
-
-[node name="Firefly2" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 354, 413 )
-
-[node name="Firefly3" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 354, 413 )
-
-[node name="Firefly4" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 354, 413 )
-
-[node name="Firefly5" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 354, 413 )
-
-[node name="Firefly6" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 354, 413 )
-
-[node name="Firefly7" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 497, 552 )
-
-[node name="Firefly9" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 497, 552 )
-
-[node name="Firefly8" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 565, -1460 )
-
-[node name="Firefly10" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 565, -1460 )
-
-[node name="Firefly16" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 565, -1460 )
-
-[node name="Firefly19" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 565, -1460 )
-
-[node name="Firefly21" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 565, -1460 )
-
-[node name="Firefly23" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 565, -1460 )
-
-[node name="Firefly24" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 708, -1321 )
-
-[node name="Firefly25" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 708, -1321 )
-
-[node name="Firefly11" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 497, 552 )
-
-[node name="Firefly12" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 497, 552 )
-
-[node name="Firefly13" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 497, 552 )
-
-[node name="Firefly14" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 783, 300 )
-
-[node name="Firefly15" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 620, 402 )
-
-[node name="Firefly17" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 620, 402 )
-
-[node name="Firefly18" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 620, 402 )
-
-[node name="Firefly20" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 620, 402 )
-
-[node name="Firefly22" parent="Butterflies" instance=ExtResource( 2 )]
-position = Vector2( 620, 402 )
-
-[node name="Beaver" parent="." instance=ExtResource( 32 )]
-position = Vector2( 1999, 145 )
-max_run_chunks = 4
-max_wait_chunks = 8
-
-[node name="Beaver5" parent="." instance=ExtResource( 32 )]
-position = Vector2( 1821, -1215 )
-max_run_chunks = 4
-max_wait_chunks = 8
-
-[node name="Trampoline" parent="." instance=ExtResource( 38 )]
-position = Vector2( 254, 257 )
-
-[node name="StaticBody2D" parent="Trampoline" index="1"]
-position = Vector2( -4, 8 )
-rotation = 0.365539
-
-[node name="AnimationTree" parent="Trampoline" index="3"]
-parameters/playback = SubResource( 33 )
-
-[node name="Trampoline3" parent="." instance=ExtResource( 38 )]
-position = Vector2( 316, 257 )
-
-[node name="Trampoline4" parent="." instance=ExtResource( 38 )]
-position = Vector2( 285, 257 )
-
-[node name="AnimationTree" parent="Trampoline4" index="3"]
-parameters/playback = SubResource( 34 )
-
-[node name="Trampoline7" parent="." instance=ExtResource( 38 )]
-position = Vector2( 1884, -607 )
-
-[node name="Trampoline8" parent="." instance=ExtResource( 38 )]
-position = Vector2( 1946, -607 )
-
-[node name="Trampoline10" parent="." instance=ExtResource( 38 )]
-position = Vector2( 1915, -607 )
-
-[node name="Trampoline9" parent="." instance=ExtResource( 38 )]
-position = Vector2( 1093, -207 )
-
-[node name="Trampoline13" parent="." instance=ExtResource( 38 )]
-position = Vector2( 1186, -206 )
-
-[node name="Trampoline11" parent="." instance=ExtResource( 38 )]
-position = Vector2( 1155, -207 )
-
-[node name="Trampoline12" parent="." instance=ExtResource( 38 )]
-position = Vector2( 1124, -207 )
-
-[node name="Beaver2" parent="." instance=ExtResource( 39 )]
-position = Vector2( 1688, 129 )
-
-[node name="Beaver4" parent="." instance=ExtResource( 39 )]
-position = Vector2( 1732, -1215 )
-
-[node name="Beaver3" parent="." instance=ExtResource( 40 )]
-position = Vector2( 2119, 817 )
+shape = SubResource( 33 )
 
 [node name="giantstrawberry" parent="." instance=ExtResource( 46 )]
 position = Vector2( 1794, -1231 )
@@ -882,25 +836,49 @@ position = Vector2( 0, -4 )
 stream = ExtResource( 48 )
 script = ExtResource( 47 )
 
-[node name="Trampoline2" parent="." instance=ExtResource( 38 )]
-position = Vector2( 1467, -1343 )
-
-[node name="StaticBody2D" parent="Trampoline2" index="1"]
-position = Vector2( 8, 13 )
-rotation = -0.554041
-constant_linear_velocity = Vector2( 0, -100 )
-
-[node name="AnimationTree" parent="Trampoline2" index="3"]
-parameters/playback = SubResource( 35 )
-
 [node name="big_mushroom" parent="." instance=ExtResource( 50 )]
 position = Vector2( 2309, 828 )
+
+[node name="Trampolines" type="Node2D" parent="."]
+
+[node name="Trampoline" parent="Trampolines" instance=ExtResource( 38 )]
+position = Vector2( 254, 257 )
+
+[node name="Trampoline3" parent="Trampolines" instance=ExtResource( 38 )]
+position = Vector2( 316, 257 )
+
+[node name="Trampoline4" parent="Trampolines" instance=ExtResource( 38 )]
+position = Vector2( 285, 257 )
+
+[node name="Trampoline7" parent="Trampolines" instance=ExtResource( 38 )]
+position = Vector2( 1884, -607 )
+
+[node name="Trampoline8" parent="Trampolines" instance=ExtResource( 38 )]
+position = Vector2( 1946, -607 )
+
+[node name="Trampoline10" parent="Trampolines" instance=ExtResource( 38 )]
+position = Vector2( 1915, -607 )
+
+[node name="Trampoline9" parent="Trampolines" instance=ExtResource( 38 )]
+position = Vector2( 1093, -207 )
+
+[node name="Trampoline13" parent="Trampolines" instance=ExtResource( 38 )]
+position = Vector2( 1186, -206 )
+
+[node name="Trampoline11" parent="Trampolines" instance=ExtResource( 38 )]
+position = Vector2( 1155, -207 )
+
+[node name="Trampoline12" parent="Trampolines" instance=ExtResource( 38 )]
+position = Vector2( 1124, -207 )
+
+[node name="Trampoline2" parent="Trampolines" instance=ExtResource( 38 )]
+position = Vector2( 1467, -1343 )
 [connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="credits_done" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_credits_done"]
+[connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="Cave Dimmer" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_eaten"]
-[connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
 [connection signal="mushroom_eaten" from="big_mushroom" to="CompositTurtle" method="_on_big_mushroom_mushroom_eaten"]
 
 [editable path="CompositTurtle"]
@@ -917,10 +895,4 @@ position = Vector2( 2309, 828 )
 
 [editable path="Butterflypen2"]
 
-[editable path="Trampoline"]
-
-[editable path="Trampoline4"]
-
 [editable path="giantstrawberry"]
-
-[editable path="Trampoline2"]
