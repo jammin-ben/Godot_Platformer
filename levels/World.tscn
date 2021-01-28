@@ -554,7 +554,7 @@ vframes = 1
 position = Vector2( -1680.22, -647.357 )
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
-position = Vector2( 3938.22, 1453.36 )
+position = Vector2( 3273.22, -860.643 )
 ball_mode = true
 wall_jump = true
 flutter_jump = true
@@ -660,6 +660,7 @@ shape = SubResource( 29 )
 position = Vector2( 12, -16 )
 
 [node name="CollisionShape2D" parent="Butterflypen3/ybounds" index="0"]
+z_index = -4
 shape = SubResource( 30 )
 
 [node name="Butterflypen2" parent="." instance=ExtResource( 36 )]
@@ -850,6 +851,18 @@ position = Vector2( 1946, -607 )
 [node name="Trampoline10" parent="." instance=ExtResource( 38 )]
 position = Vector2( 1915, -607 )
 
+[node name="Trampoline9" parent="." instance=ExtResource( 38 )]
+position = Vector2( 1093, -207 )
+
+[node name="Trampoline13" parent="." instance=ExtResource( 38 )]
+position = Vector2( 1186, -206 )
+
+[node name="Trampoline11" parent="." instance=ExtResource( 38 )]
+position = Vector2( 1155, -207 )
+
+[node name="Trampoline12" parent="." instance=ExtResource( 38 )]
+position = Vector2( 1124, -207 )
+
 [node name="Beaver2" parent="." instance=ExtResource( 39 )]
 position = Vector2( 1688, 129 )
 
@@ -875,14 +888,15 @@ position = Vector2( 1467, -1343 )
 [node name="StaticBody2D" parent="Trampoline2" index="1"]
 position = Vector2( 8, 13 )
 rotation = -0.554041
+constant_linear_velocity = Vector2( 0, -100 )
 
 [node name="AnimationTree" parent="Trampoline2" index="3"]
 parameters/playback = SubResource( 35 )
 
 [node name="big_mushroom" parent="." instance=ExtResource( 50 )]
 position = Vector2( 2309, 828 )
-[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="credits_done" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_credits_done"]
+[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
