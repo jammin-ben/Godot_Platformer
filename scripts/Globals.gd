@@ -21,6 +21,13 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		get_tree().paused = !get_tree().paused
 
+func get_player():
+	var c_turt_arr = get_tree().get_nodes_in_group("CompositTurtle")
+	if !c_turt_arr.empty():
+		return c_turt_arr[0]
+	return null
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
