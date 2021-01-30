@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenery/Firefly.tscn" type="PackedScene" id=2]
@@ -309,6 +309,22 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
+[sub_resource type="Animation" id=35]
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
 [sub_resource type="TileSet" id=27]
 0/name = "bkgrnd_cave.png 0"
 0/texture = ExtResource( 29 )
@@ -484,6 +500,17 @@ frame = 1
 autoplay = "Wind"
 anims/Wind = SubResource( 26 )
 
+[node name="Tree9" type="Sprite" parent="Misc_Scenery"]
+position = Vector2( 1702, -800 )
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc_Scenery/Tree9"]
+autoplay = "Wind"
+anims/Wind = SubResource( 35 )
+
 [node name="Animals" type="Node" parent="Misc_Scenery"]
 
 [node name="Beaver" parent="Misc_Scenery/Animals" instance=ExtResource( 4 )]
@@ -529,6 +556,27 @@ texture = ExtResource( 28 )
 centered = false
 hframes = 3
 frame = 1
+
+[node name="Boulder6" type="Sprite" parent="Misc_Scenery"]
+position = Vector2( 2234, -961 )
+texture = ExtResource( 28 )
+centered = false
+hframes = 3
+frame = 1
+
+[node name="Boulder7" type="Sprite" parent="Misc_Scenery"]
+position = Vector2( 2494, -800 )
+texture = ExtResource( 28 )
+centered = false
+hframes = 3
+frame = 2
+
+[node name="Boulder8" type="Sprite" parent="Misc_Scenery"]
+position = Vector2( 2275, -225 )
+texture = ExtResource( 28 )
+centered = false
+hframes = 3
+frame = 2
 
 [node name="cave tilemap" type="TileMap" parent="Misc_Scenery"]
 z_index = -17
