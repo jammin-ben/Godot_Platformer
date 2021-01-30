@@ -692,7 +692,7 @@ position = Vector2( 2119, 817 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
 [node name="CompositTurtle" parent="." instance=ExtResource( 8 )]
-position = Vector2( -1680.22, -647.357 )
+position = Vector2( -3372.95, 932.048 )
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
 position = Vector2( 3273.22, -860.643 )
@@ -870,12 +870,12 @@ position = Vector2( 1124, -207 )
 
 [node name="Trampoline2" parent="Trampolines" instance=ExtResource( 38 )]
 position = Vector2( 1467, -1343 )
-[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="credits_done" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_credits_done"]
-[connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
-[connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
-[connection signal="eaten" from="giantstrawberry" to="Cave Dimmer" method="_on_giantstrawberry_eaten"]
+[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="eaten" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_eaten"]
+[connection signal="eaten" from="giantstrawberry" to="Cave Dimmer" method="_on_giantstrawberry_eaten"]
+[connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
+[connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
 [connection signal="mushroom_eaten" from="big_mushroom" to="CompositTurtle" method="_on_big_mushroom_mushroom_eaten"]
 
 [editable path="CompositTurtle"]

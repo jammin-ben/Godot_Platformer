@@ -18,11 +18,13 @@ func _process(delta):
 	for bf in $Butterflies.get_children():
 		var child = bf.get_children()[0]
 		child.position = child.position.clamped(curr_max_distance)
-		if get_parent().get_sprite().flip_h:
-			bf.position.x = lerp(bf.position.x,-1*original_xs[bf],CONVERGE_SPEED*delta)
-		else:
-			bf.position.x = lerp(bf.position.x,original_xs[bf],CONVERGE_SPEED*delta)
-		
+		var parent = get_parent()
+		if parent is Turtle:
+			if get_parent().get_sprite().flip_h:
+				bf.position.x = lerp(bf.position.x,-1*original_xs[bf],CONVERGE_SPEED*delta)
+			else:
+				bf.position.x = lerp(bf.position.x,original_xs[bf],CONVERGE_SPEED*delta)
+
 	if carrying:
 		curr_max_distance = lerp(curr_max_distance,0,CONVERGE_SPEED * delta)
 		

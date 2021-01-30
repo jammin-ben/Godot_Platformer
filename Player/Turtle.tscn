@@ -18,7 +18,7 @@ nodes/Animation/position = Vector2( 20, 120 )
 nodes/TimeScale/node = SubResource( 3 )
 nodes/TimeScale/position = Vector2( 180, 100 )
 nodes/output/position = Vector2( 420, 120 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
 
 [sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Emerge"
@@ -34,7 +34,7 @@ nodes/Animation/node = SubResource( 6 )
 nodes/Animation/position = Vector2( -80, 140 )
 nodes/TimeScale/node = SubResource( 7 )
 nodes/TimeScale/position = Vector2( 115.827, 137.305 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
 
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "Hide"
