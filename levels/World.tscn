@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenery/Firefly.tscn" type="PackedScene" id=2]
@@ -449,6 +449,12 @@ extents = Vector2( 276, 350 )
 [sub_resource type="RectangleShape2D" id=35]
 extents = Vector2( 706, 480 )
 
+[sub_resource type="RectangleShape2D" id=36]
+extents = Vector2( 589, 396 )
+
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 707, 197 )
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
@@ -841,7 +847,7 @@ tile_data = PoolIntArray( -11468593, 1, 1, -10944307, 1, 4, -10813233, 1, 1, -10
 position = Vector2( -458, -173 )
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
-position = Vector2( 1673, 630 )
+position = Vector2( 607, 256 )
 ball_mode = true
 wall_jump = true
 flutter_jump = true
@@ -1016,12 +1022,47 @@ position = Vector2( 1124, -207 )
 
 [node name="Trampoline2" parent="Trampolines" instance=ExtResource( 38 )]
 position = Vector2( 1467, -1343 )
+
+[node name="Butterflypen4" parent="." instance=ExtResource( 36 )]
+position = Vector2( 85, 130 )
+
+[node name="CollisionShape2D" parent="Butterflypen4/xbounds" index="0"]
+position = Vector2( -62, 225 )
+shape = SubResource( 36 )
+
+[node name="CollisionShape2D" parent="Butterflypen4/ybounds" index="0"]
+position = Vector2( -44, 254 )
+shape = SubResource( 37 )
+
+[node name="KinematicBody2D" parent="Butterflypen4" instance=ExtResource( 37 )]
+position = Vector2( -11, -17 )
+
+[node name="KinematicBody2D2" parent="Butterflypen4" instance=ExtResource( 37 )]
+position = Vector2( -11, -17 )
+
+[node name="KinematicBody2D3" parent="Butterflypen4" instance=ExtResource( 37 )]
+position = Vector2( -11, -17 )
+
+[node name="KinematicBody2D4" parent="Butterflypen4" instance=ExtResource( 37 )]
+position = Vector2( -11, -17 )
+
+[node name="KinematicBody2D5" parent="Butterflypen4" instance=ExtResource( 37 )]
+position = Vector2( -11, -17 )
+
+[node name="KinematicBody2D6" parent="Butterflypen4" instance=ExtResource( 37 )]
+position = Vector2( -11, -17 )
+
+[node name="KinematicBody2D7" parent="Butterflypen4" instance=ExtResource( 37 )]
+position = Vector2( -11, -17 )
+
+[node name="KinematicBody2D8" parent="Butterflypen4" instance=ExtResource( 37 )]
+position = Vector2( -11, -17 )
 [connection signal="credits_done" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_credits_done"]
 [connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
-[connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
-[connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="Cave Dimmer" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_eaten"]
+[connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
+[connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
 [connection signal="mushroom_eaten" from="big_mushroom" to="CompositTurtle" method="_on_big_mushroom_mushroom_eaten"]
 
 [editable path="CompositTurtle"]
@@ -1039,3 +1080,5 @@ position = Vector2( 1467, -1343 )
 [editable path="Butterflypen2"]
 
 [editable path="giantstrawberry"]
+
+[editable path="Butterflypen4"]
