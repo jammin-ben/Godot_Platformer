@@ -446,14 +446,14 @@ extents = Vector2( 260, 90 )
 [sub_resource type="RectangleShape2D" id=34]
 extents = Vector2( 276, 350 )
 
-[sub_resource type="RectangleShape2D" id=35]
-extents = Vector2( 706, 480 )
-
 [sub_resource type="RectangleShape2D" id=36]
 extents = Vector2( 589, 396 )
 
 [sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 707, 197 )
+
+[sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 1054, 659 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -847,7 +847,7 @@ tile_data = PoolIntArray( -11468593, 1, 1, -10944307, 1, 4, -10813233, 1, 1, -10
 position = Vector2( -458, -173 )
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
-position = Vector2( 607, 256 )
+position = Vector2( 2394.57, 213.574 )
 ball_mode = true
 wall_jump = true
 flutter_jump = true
@@ -963,7 +963,6 @@ position = Vector2( 1366, 489 )
 position = Vector2( -3, -58 )
 
 [node name="CollisionShape2D" parent="Butterflypen2/xbounds" index="0"]
-visible = false
 position = Vector2( 254, 165 )
 shape = SubResource( 34 )
 
@@ -971,9 +970,7 @@ shape = SubResource( 34 )
 position = Vector2( 12, -16 )
 
 [node name="CollisionShape2D" parent="Butterflypen2/ybounds" index="0"]
-visible = false
 position = Vector2( 212, 83 )
-shape = SubResource( 35 )
 
 [node name="giantstrawberry" parent="." instance=ExtResource( 46 )]
 position = Vector2( 1794, -1231 )
@@ -1057,6 +1054,87 @@ position = Vector2( -11, -17 )
 
 [node name="KinematicBody2D8" parent="Butterflypen4" instance=ExtResource( 37 )]
 position = Vector2( -11, -17 )
+
+[node name="Butterflypen5" parent="." instance=ExtResource( 36 )]
+position = Vector2( 1993, -393 )
+
+[node name="CollisionShape2D" parent="Butterflypen5/xbounds" index="0"]
+position = Vector2( 592.454, 40.364 )
+shape = SubResource( 38 )
+
+[node name="ybounds" parent="Butterflypen5" index="1"]
+position = Vector2( 27.5522, -152.894 )
+
+[node name="CollisionShape2D" parent="Butterflypen5/ybounds" index="0"]
+position = Vector2( 574.969, 30.4098 )
+
+[node name="KinematicBody2D" parent="Butterflypen5" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D2" parent="Butterflypen5" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D3" parent="Butterflypen5" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D4" parent="Butterflypen5" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D5" parent="Butterflypen5" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D6" parent="Butterflypen5" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D7" parent="Butterflypen5" instance=ExtResource( 37 )]
+
+[node name="KinematicBody2D8" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 72.0813, -600.678 )
+
+[node name="KinematicBody2D9" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 72.0813, -600.678 )
+
+[node name="KinematicBody2D10" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 72.0813, -600.678 )
+
+[node name="KinematicBody2D11" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 72.0813, -600.678 )
+
+[node name="KinematicBody2D12" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 72.0813, -600.678 )
+
+[node name="KinematicBody2D13" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 72.0813, -600.678 )
+
+[node name="KinematicBody2D14" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 650.618, -476.225 )
+
+[node name="KinematicBody2D15" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 650.618, -476.225 )
+
+[node name="KinematicBody2D16" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 650.618, -476.225 )
+
+[node name="KinematicBody2D17" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 152.807, 388.216 )
+
+[node name="KinematicBody2D18" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 152.807, 388.216 )
+
+[node name="KinematicBody2D19" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 152.807, 388.216 )
+
+[node name="KinematicBody2D20" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 152.807, 388.216 )
+
+[node name="KinematicBody2D21" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 152.807, 388.216 )
+
+[node name="KinematicBody2D22" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 616.982, 152.765 )
+
+[node name="KinematicBody2D23" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 616.982, 152.765 )
+
+[node name="KinematicBody2D24" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 701.072, -223.956 )
+
+[node name="KinematicBody2D25" parent="Butterflypen5" instance=ExtResource( 37 )]
+position = Vector2( 701.072, -223.956 )
 [connection signal="credits_done" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_credits_done"]
 [connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="eaten" from="giantstrawberry" to="Cave Dimmer" method="_on_giantstrawberry_eaten"]
@@ -1082,3 +1160,5 @@ position = Vector2( -11, -17 )
 [editable path="giantstrawberry"]
 
 [editable path="Butterflypen4"]
+
+[editable path="Butterflypen5"]
