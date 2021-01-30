@@ -10,6 +10,23 @@ var original_xs = {}
 func _ready():
 	for bf in $Butterflies.get_children():
 		original_xs[bf] = bf.position.x
+	connect_to_player_state_change()
+
+
+func _enter_tree():
+	connect_to_player_state_change()
+
+
+func connect_to_player_state_change():
+	var player = Globals.get_player()
+	var turt_default = player.turt_default
+	if turt_default:
+		_connect_to_player_state_change(turt_default)
+
+func _connect_to_player_state_change(turtle_default):
+	if !turtle_default.is_connected("signal_st_changed", self, "_conn_TurtDefault_on_signal_st_changed"):
+		turtle_default.connect("signal_st_changed", self, "_conn_TurtDefault_on_signal_st_changed")
+
 
 func modulus(vec:Vector2):
 	return sqrt(vec.x*vec.x + vec.y*vec.y)
@@ -32,7 +49,7 @@ func _process(delta):
 		curr_max_distance = lerp(curr_max_distance,MAX_DISTANCE,CONVERGE_SPEED * delta)
 
 
-func _on_TurtleDefault_signal_debug_st_changed(state):
+func _conn_TurtDefault_on_signal_st_changed(state):
 	if state == 1:
 		carrying = true
 	else:

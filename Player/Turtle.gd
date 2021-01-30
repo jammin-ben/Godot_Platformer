@@ -40,7 +40,7 @@ var motion = Vector2.ZERO
 
 signal Hidden()
 signal Emerged()
-signal signal_debug_st_changed(state)
+signal signal_st_changed(state)
 signal signal_consumed_powerup_flutter_jump()
 
 
@@ -80,7 +80,7 @@ func _ready() -> void:
 		powerup.connect("powerup", self, "_conn_on_powerup_consumed")
 
 func set_state(value):
-	emit_signal("signal_debug_st_changed",value)
+	emit_signal("signal_st_changed",value)
 	# Here for states where the player is not rotated 90 degrees
 	if value == ST_AIRBORN or value == ST_FALLING or value == ST_FLUTTER:
 		$Sprite.rotation_degrees = 0
