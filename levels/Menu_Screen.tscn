@@ -34,6 +34,7 @@ menu_version = true
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 centered = false
+offset = Vector2( 0, 0.666667 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "New Anim"

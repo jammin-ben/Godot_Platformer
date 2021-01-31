@@ -89,10 +89,13 @@ func set_state(value):
 	if value == ST_ONLEFTWALL:
 		$Sprite.rotation_degrees = 90 
 		$Sprite.offset.y=-5
+		state_machine.travel("Wallslide")
 		#animationPlayer.play("Wallslide")
 	if value == ST_ONRIGHTWALL:
 		$Sprite.rotation_degrees = 270 
 		$Sprite.offset.y=-5
+		
+		state_machine.travel("Wallslide")
 		#animationPlayer.play("Wallslide")
 		
 	if value == ST_ONGROUND:
@@ -242,6 +245,9 @@ func is_eq_margin(num1: float, num2: float, margin=0.001) -> bool:
 	var diff = abs(num1 - num2) 
 	return diff <= margin
 
+func play_grass_sfx():
+	var idx=floor(randf()*4)
+	get_node("grass_sfx").get_child(idx).play()
 	
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if (anim_name == 'Hide'):

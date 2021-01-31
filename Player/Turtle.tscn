@@ -1,8 +1,11 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Player/Turtle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Turt/Turt.png" type="Texture" id=2]
 [ext_resource path="res://collisions/Hitbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sounds/step_01.wav" type="AudioStream" id=4]
+[ext_resource path="res://sounds/step_03.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/step_02.wav" type="AudioStream" id=7]
 
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "Eat"
@@ -18,7 +21,7 @@ nodes/Animation/position = Vector2( 20, 120 )
 nodes/TimeScale/node = SubResource( 3 )
 nodes/TimeScale/position = Vector2( 180, 100 )
 nodes/output/position = Vector2( 420, 120 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Emerge"
@@ -34,7 +37,7 @@ nodes/Animation/node = SubResource( 6 )
 nodes/Animation/position = Vector2( -80, 140 )
 nodes/TimeScale/node = SubResource( 7 )
 nodes/TimeScale/position = Vector2( 115.827, 137.305 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "Hide"
@@ -104,7 +107,7 @@ states/Wallslide/node = SubResource( 13 )
 states/Wallslide/position = Vector2( 858.098, 373 )
 transitions = [ "Stand", "Eat", SubResource( 14 ), "Eat", "Stand", SubResource( 15 ), "Stand", "Move", SubResource( 16 ), "Move", "Stand", SubResource( 17 ), "Move", "Jump", SubResource( 18 ), "Jump", "Move", SubResource( 19 ), "Stand", "Jump", SubResource( 20 ), "Jump", "Stand", SubResource( 21 ), "Jump", "Wallslide", SubResource( 22 ), "Wallslide", "Jump", SubResource( 23 ), "Wallslide", "Stand", SubResource( 24 ), "Jump", "Hide", SubResource( 25 ), "Stand", "Hide", SubResource( 26 ), "Emerge", "Stand", SubResource( 27 ), "Hide", "Emerge", SubResource( 28 ) ]
 start_node = "Stand"
-graph_offset = Vector2( 279.754, 120.486 )
+graph_offset = Vector2( -133.951, 82.8194 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=30]
 
@@ -213,6 +216,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 5, 6, 4 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_grass_sfx"
+} ]
+}
 
 [sub_resource type="Animation" id=37]
 tracks/0/type = "value"
@@ -281,7 +298,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 0, -5 )
 vframes = 4
 hframes = 4
-frame = 4
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -8 )
@@ -336,6 +353,20 @@ cast_to = Vector2( -2, 0 )
 position = Vector2( -7, -15 )
 enabled = true
 cast_to = Vector2( -2, 0 )
+
+[node name="grass_sfx" type="Node2D" parent="."]
+
+[node name="grass_1" type="AudioStreamPlayer2D" parent="grass_sfx"]
+stream = ExtResource( 4 )
+
+[node name="grass_2" type="AudioStreamPlayer2D" parent="grass_sfx"]
+stream = ExtResource( 7 )
+
+[node name="grass_3" type="AudioStreamPlayer2D" parent="grass_sfx"]
+stream = ExtResource( 6 )
+
+[node name="grass_4" type="AudioStreamPlayer2D" parent="grass_sfx"]
+stream = ExtResource( 4 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Hitbox"]

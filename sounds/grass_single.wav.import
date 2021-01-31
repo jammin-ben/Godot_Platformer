@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grass_single.wav-ed2c990d54be0b06a5f77b1bdd4d2094.sample"
+
+[deps]
+
+source_file="res://sounds/grass_single.wav"
+dest_files=[ "res://.import/grass_single.wav-ed2c990d54be0b06a5f77b1bdd4d2094.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

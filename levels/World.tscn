@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=89 format=2]
 
 [ext_resource path="res://level_objects/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenery/Firefly.tscn" type="PackedScene" id=2]
@@ -446,13 +446,17 @@ extents = Vector2( 260, 90 )
 [sub_resource type="RectangleShape2D" id=34]
 extents = Vector2( 276, 350 )
 
-[sub_resource type="RectangleShape2D" id=36]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=38]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=39]
+
+[sub_resource type="RectangleShape2D" id=35]
 extents = Vector2( 589, 396 )
 
-[sub_resource type="RectangleShape2D" id=37]
+[sub_resource type="RectangleShape2D" id=36]
 extents = Vector2( 707, 197 )
 
-[sub_resource type="RectangleShape2D" id=38]
+[sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 1054, 659 )
 
 [node name="Node2D" type="Node2D"]
@@ -800,7 +804,7 @@ position = Vector2( 2119, 817 )
 tile_set = SubResource( 29 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( -11468593, 1, 1, -10944307, 1, 4, -10813233, 1, 1, -10813232, 1, 4, -10813231, 1, 0, -10682260, 1, 3, -10682257, 1, 0, -10682256, 1, 3, -10682255, 1, 0, -10682254, 1, 4, -10682253, 1, 0, -10682250, 1, 3, -10682249, 1, 1, -10682248, 1, 0, -10682244, 1, 2, -10682243, 1, 5, -10682242, 1, 3, -10682241, 1, 0, -10682240, 1, 2, -10682239, 1, 4, -10682237, 1, 5, -10682236, 1, 0, -10682235, 1, 2, -10682234, 1, 3, -10682231, 1, 0, -10026789, 1, 1, -10026788, 1, 2, -10026779, 1, 0, -10026778, 1, 3, -9895727, 1, 0, -9895726, 1, 2, -9895704, 1, 4, -9895669, 1, 2, -9895667, 1, 3, -9764624, 1, 0, -9764623, 1, 3, -9764622, 1, 2, -9764613, 1, 2, -9764604, 1, 3, -9764587, 1, 2, -9764586, 1, 4, -9502430, 1, 1, -9371347, 1, 1, -9371346, 1, 1, -9371345, 1, 2, -9371331, 1, 5, -9371330, 1, 3, -8453823, 1, 0, -8453822, 1, 3, -7536389, 1, 5, -7536374, 1, 0, -7536372, 1, 5, -7536334, 1, 5, -7536333, 1, 0, -7143207, 1, 2, -7143206, 1, 0, -7143203, 1, 4, -6880990, 1, 5, -6618816, 1, 5, -6356775, 1, 1, -6356774, 1, 2, -6225694, 1, 4, -5832446, 1, 4, -5832444, 1, 0, -5832441, 1, 1, -5832440, 1, 0, -5832439, 1, 5, -3604178, 1, 4, -2686851, 1, 3, -2686850, 1, 3, -2686848, 1, 2, -2686822, 1, 4, -2686821, 1, 0, -2686820, 1, 1, -2686815, 1, 3, -2293628, 1, 2, -2293627, 1, 0, -2162381, 1, 1, -1900304, 1, 1, -1900302, 1, 4, -1900301, 1, 3, -1769191, 1, 3, -982867, 1, 2, -982865, 1, 4, -65343, 1, 3, 65731, 1, 0, 327877, 1, 0, 721027, 1, 3, 852092, 1, 2, 852093, 1, 4, 983059, 1, 3, 983065, 1, 2, 983136, 1, 0, 983140, 1, 4, 983157, 1, 5, 983158, 1, 1, 983173, 1, 2, 983174, 1, 3, 983175, 1, 2, 1179598, 1, 1, 1179599, 1, 4, 1114334, 1, 2, 1114357, 1, 3, 1114358, 1, 0, 1114367, 1, 0, 1114369, 1, 1, 1114370, 1, 0, 1114381, 1, 5, 1114382, 1, 2, 1245320, 1, 1, 1245410, 1, 1, 1245411, 1, 4, 1245413, 1, 0, 1376302, 1, 3, 1376307, 1, 0, 1376309, 1, 4, 1507396, 1, 1, 1507467, 1, 3, 1703902, 1, 3, 1703904, 1, 5, 1703907, 1, 5, 1703908, 1, 0, 1638465, 1, 2, 1638540, 1, 4, 1638549, 1, 0, 1638552, 1, 5, 1638557, 1, 0, 1638558, 1, 4, 1638561, 1, 3, 1638564, 1, 3, 1638565, 1, 0, 1638566, 1, 1 )
+tile_data = PoolIntArray( -11468593, 1, 1, -10944307, 1, 4, -10813233, 1, 1, -10813232, 1, 4, -10813231, 1, 0, -10682260, 1, 3, -10682257, 1, 0, -10682256, 1, 3, -10682255, 1, 0, -10682254, 1, 4, -10682253, 1, 0, -10682250, 1, 3, -10682249, 1, 1, -10682248, 1, 0, -10682244, 1, 2, -10682243, 1, 5, -10682242, 1, 3, -10682241, 1, 0, -10682240, 1, 2, -10682239, 1, 4, -10682237, 1, 5, -10682236, 1, 0, -10682235, 1, 2, -10682234, 1, 3, -10682231, 1, 0, -10026789, 1, 1, -10026788, 1, 2, -10026779, 1, 0, -10026778, 1, 3, -9895727, 1, 0, -9895726, 1, 2, -9895704, 1, 4, -9895669, 1, 2, -9895667, 1, 3, -9764624, 1, 0, -9764623, 1, 3, -9764622, 1, 2, -9764613, 1, 2, -9764604, 1, 3, -9764587, 1, 2, -9764586, 1, 4, -9502430, 1, 1, -9371347, 1, 1, -9371346, 1, 1, -9371345, 1, 2, -9371331, 1, 5, -9371330, 1, 3, -8453823, 1, 0, -8453822, 1, 3, -7536389, 1, 5, -7536374, 1, 0, -7536372, 1, 5, -7536334, 1, 5, -7536333, 1, 0, -7143207, 1, 2, -7143206, 1, 0, -7143203, 1, 4, -6880990, 1, 5, -6618816, 1, 5, -6356775, 1, 1, -6356774, 1, 2, -6225694, 1, 4, -5832446, 1, 4, -5832444, 1, 0, -5832441, 1, 1, -5832440, 1, 0, -5832439, 1, 5, -3604178, 1, 4, -2686851, 1, 3, -2686850, 1, 3, -2686848, 1, 2, -2686822, 1, 4, -2686821, 1, 0, -2686820, 1, 1, -2686815, 1, 3, -2293628, 1, 2, -2293627, 1, 0, -2162382, 2, 2, -2162381, 2, 0, -2162380, 2, 5, -2031319, 2, 1, -2031318, 2, 0, -1900304, 1, 1, -1900302, 1, 4, -1900301, 1, 3, -1769195, 2, 3, -1769192, 1, 0, -1769191, 1, 3, -982867, 1, 2, -982865, 1, 4, -65343, 1, 3, 65731, 1, 0, 327877, 1, 0, 721027, 1, 3, 852092, 1, 2, 852093, 1, 4, 983059, 1, 3, 983065, 1, 2, 983136, 1, 0, 983140, 1, 4, 983157, 1, 5, 983158, 1, 1, 983173, 1, 2, 983174, 1, 3, 983175, 1, 2, 1179598, 1, 1, 1179599, 1, 4, 1114334, 1, 2, 1114357, 1, 3, 1114358, 1, 0, 1114367, 1, 0, 1114369, 1, 1, 1114370, 1, 0, 1114381, 1, 5, 1114382, 1, 2, 1245320, 1, 1, 1245410, 1, 1, 1245411, 1, 4, 1245413, 1, 0, 1376302, 1, 3, 1376307, 1, 0, 1376309, 1, 4, 1507396, 1, 1, 1507467, 1, 3, 1703902, 1, 3, 1703904, 1, 5, 1703907, 1, 5, 1703908, 1, 0, 1638465, 1, 2, 1638540, 1, 4, 1638549, 1, 0, 1638552, 1, 5, 1638557, 1, 0, 1638558, 1, 4, 1638561, 1, 3, 1638564, 1, 3, 1638565, 1, 0, 1638566, 1, 1 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
@@ -808,12 +812,12 @@ tile_data = PoolIntArray( -11468593, 1, 1, -10944307, 1, 4, -10813233, 1, 1, -10
 position = Vector2( -458, -173 )
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
-position = Vector2( 2394.57, 213.574 )
+position = Vector2( 223, 349 )
 ball_mode = true
 wall_jump = true
 flutter_jump = true
 
-[node name="Light2D" parent="CompositTurtle/TurtleDefault" index="12"]
+[node name="Light2D" parent="CompositTurtle/TurtleDefault" index="13"]
 enabled = false
 
 [node name="Light2D" parent="CompositTurtle/TurtleBall" index="3"]
@@ -951,6 +955,13 @@ position = Vector2( 2309, 828 )
 [node name="Trampoline" parent="Trampolines" instance=ExtResource( 38 )]
 position = Vector2( 254, 257 )
 
+[node name="StaticBody2D" parent="Trampolines/Trampoline" index="1"]
+position = Vector2( -3, 10 )
+rotation = 0.341774
+
+[node name="AnimationTree" parent="Trampolines/Trampoline" index="3"]
+parameters/playback = SubResource( 38 )
+
 [node name="Trampoline3" parent="Trampolines" instance=ExtResource( 38 )]
 position = Vector2( 316, 257 )
 
@@ -981,16 +992,25 @@ position = Vector2( 1124, -207 )
 [node name="Trampoline2" parent="Trampolines" instance=ExtResource( 38 )]
 position = Vector2( 1467, -1343 )
 
+[node name="StaticBody2D" parent="Trampolines/Trampoline2" index="1"]
+position = Vector2( 5, 9 )
+rotation = -0.470504
+
+[node name="AnimationTree" parent="Trampolines/Trampoline2" index="3"]
+parameters/playback = SubResource( 39 )
+
 [node name="Butterflypen4" parent="." instance=ExtResource( 36 )]
 position = Vector2( 85, 130 )
 
 [node name="CollisionShape2D" parent="Butterflypen4/xbounds" index="0"]
+visible = false
 position = Vector2( -62, 225 )
-shape = SubResource( 36 )
+shape = SubResource( 35 )
 
 [node name="CollisionShape2D" parent="Butterflypen4/ybounds" index="0"]
+visible = false
 position = Vector2( -44, 254 )
-shape = SubResource( 37 )
+shape = SubResource( 36 )
 
 [node name="KinematicBody2D" parent="Butterflypen4" instance=ExtResource( 37 )]
 position = Vector2( -11, -17 )
@@ -1021,7 +1041,7 @@ position = Vector2( 1993, -393 )
 
 [node name="CollisionShape2D" parent="Butterflypen5/xbounds" index="0"]
 position = Vector2( 592.454, 40.364 )
-shape = SubResource( 38 )
+shape = SubResource( 37 )
 
 [node name="ybounds" parent="Butterflypen5" index="1"]
 position = Vector2( 27.5522, -152.894 )
@@ -1096,12 +1116,15 @@ position = Vector2( 701.072, -223.956 )
 
 [node name="KinematicBody2D25" parent="Butterflypen5" instance=ExtResource( 37 )]
 position = Vector2( 701.072, -223.956 )
-[connection signal="credits_done" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_credits_done"]
+
+[node name="RespawnPoint" type="Node2D" parent="."]
+position = Vector2( -236, 174 )
 [connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
+[connection signal="credits_done" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_credits_done"]
 [connection signal="eaten" from="giantstrawberry" to="Cave Dimmer" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_eaten"]
-[connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
+[connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
 [connection signal="mushroom_eaten" from="big_mushroom" to="CompositTurtle" method="_on_big_mushroom_mushroom_eaten"]
 
 [editable path="CompositTurtle"]
@@ -1119,6 +1142,10 @@ position = Vector2( 701.072, -223.956 )
 [editable path="Butterflypen2"]
 
 [editable path="giantstrawberry"]
+
+[editable path="Trampolines/Trampoline"]
+
+[editable path="Trampolines/Trampoline2"]
 
 [editable path="Butterflypen4"]
 
