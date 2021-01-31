@@ -2,11 +2,11 @@
 
 [ext_resource path="res://level_objects/powerups/Powerup.gd" type="Script" id=1]
 [ext_resource path="res://level_objects/powerups/AnimatedTexture.gd" type="Script" id=2]
-[ext_resource path="res://sounds/munch.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/munch_fuller.wav" type="AudioStream" id=3]
 [ext_resource path="res://misc/fruitparticle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/Blueberry.png" type="Texture" id=5]
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=1]
 resource_name = "Hop"
 length = 0.8
 loop = true
@@ -36,13 +36,13 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0.5 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Curve" id=1]
+[sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=2]
-curve = SubResource( 1 )
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=42]
+[sub_resource type="ParticlesMaterial" id=4]
 flag_disable_z = true
 gravity = Vector3( -200, 0, 0 )
 initial_velocity = 61.22
@@ -50,10 +50,10 @@ angular_velocity = 8.38861e+06
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 3.0
-scale_curve = SubResource( 2 )
+scale_curve = SubResource( 3 )
 color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="RectangleShape2D" id=41]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 4.61814, 4.368 )
 
 [node name="PowerupTemplate" type="Node2D" groups=[
@@ -64,30 +64,28 @@ script = ExtResource( 1 )
 animated_texture = ExtResource( 5 )
 
 [node name="AnimatedTexture" type="Sprite" parent="."]
-scale = Vector2( 0.963636, 1.04364 )
 texture = ExtResource( 5 )
-offset = Vector2( 0, 0.1 )
+offset = Vector2( 0, 0.4 )
 hframes = 4
 script = ExtResource( 2 )
 particle_color = Color( 0, 0, 0, 1 )
 
 [node name="SfxEat" type="AudioStreamPlayer2D" parent="AnimatedTexture"]
 stream = ExtResource( 3 )
-volume_db = 5.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedTexture"]
 autoplay = "Hop"
-anims/Hop = SubResource( 39 )
+anims/Hop = SubResource( 1 )
 
 [node name="Particles2D" parent="AnimatedTexture" instance=ExtResource( 4 )]
-process_material = SubResource( 42 )
+process_material = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="AnimatedTexture"]
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedTexture/Area2D"]
-shape = SubResource( 41 )
+shape = SubResource( 5 )
 
 [node name="UIImage" type="Sprite" parent="."]
 visible = false

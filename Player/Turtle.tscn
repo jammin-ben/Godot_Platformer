@@ -1,11 +1,13 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Player/Turtle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Turt/Turt.png" type="Texture" id=2]
 [ext_resource path="res://collisions/Hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sounds/step_01.wav" type="AudioStream" id=4]
+[ext_resource path="res://sounds/jump_test.wav" type="AudioStream" id=5]
 [ext_resource path="res://sounds/step_03.wav" type="AudioStream" id=6]
 [ext_resource path="res://sounds/step_02.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/fanfare.wav" type="AudioStream" id=8]
 
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "Eat"
@@ -200,6 +202,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 5 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("jump_sfx:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=36]
 length = 0.9
@@ -298,7 +312,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 0, -5 )
 vframes = 4
 hframes = 4
-frame = 6
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -8 )
@@ -367,6 +381,13 @@ stream = ExtResource( 6 )
 
 [node name="grass_4" type="AudioStreamPlayer2D" parent="grass_sfx"]
 stream = ExtResource( 4 )
+
+[node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -80.0
+
+[node name="powerup_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Hitbox"]
