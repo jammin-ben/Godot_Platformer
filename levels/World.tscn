@@ -887,6 +887,12 @@ position = Vector2( -12, -50 )
 [node name="Music_Layerer" parent="." instance=ExtResource( 35 )]
 position = Vector2( 1502, 619 )
 
+[node name="aboveground" parent="Music_Layerer" index="0"]
+autoplay = false
+
+[node name="belowground" parent="Music_Layerer" index="1"]
+autoplay = false
+
 [node name="CollisionShape2D" parent="Music_Layerer/CaveArea" index="0"]
 shape = SubResource( 31 )
 
@@ -1119,8 +1125,8 @@ position = Vector2( 701.072, -223.956 )
 
 [node name="RespawnPoint" type="Node2D" parent="."]
 position = Vector2( -236, 174 )
-[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="credits_done" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_credits_done"]
+[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="eaten" from="giantstrawberry" to="Cave Dimmer" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
