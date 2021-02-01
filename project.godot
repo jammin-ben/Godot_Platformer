@@ -44,7 +44,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Flock_2"
+config/name="Turtle Quest"
 run/main_scene="res://levels/Menu_Screen.tscn"
 config/icon="res://icon.png"
 
