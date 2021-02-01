@@ -29,7 +29,7 @@ func _process(delta):
 	if(Health<=0):
 		#print(TurtleSpr.texture)
 		#TurtleSpr.texture = load(replacement_spr_string)
-		eater.set_texture(replacement_spr_string)
+		#eater.set_texture(replacement_spr_string)
 		queue_free()
 
 func _on_Area2D_area_entered(area):
