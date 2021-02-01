@@ -13,7 +13,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=2]
 curve = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=3]
 flag_disable_z = true
 gravity = Vector3( -200, 0, 0 )
 initial_velocity = 61.22
@@ -52,7 +52,7 @@ texture = ExtResource( 2 )
 particle_color = Color( 0.811765, 0.156863, 0.156863, 1 )
 
 [node name="Particles2D" parent="AnimatedTexture" index="2"]
-process_material = SubResource( 5 )
+process_material = SubResource( 3 )
 
 [node name="UIImage" parent="." index="1"]
 texture = ExtResource( 4 )

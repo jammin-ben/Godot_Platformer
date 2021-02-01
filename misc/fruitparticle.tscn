@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[sub_resource type="Curve" id=1]
+[sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=2]
-curve = SubResource( 1 )
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
 
 [sub_resource type="ParticlesMaterial" id=3]
 flag_disable_z = true
@@ -14,7 +14,7 @@ angular_velocity = 8.38861e+06
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 3.0
-scale_curve = SubResource( 2 )
+scale_curve = SubResource( 6 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="Particles2D" type="Particles2D"]

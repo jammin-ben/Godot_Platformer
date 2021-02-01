@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sprites/giant_strawberry.png" type="Texture" id=1]
 [ext_resource path="res://level_objects/giant_strawberry.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://sprites/gena.png" type="Texture" id=5]
 [ext_resource path="res://sprites/thanks.png" type="Texture" id=6]
 [ext_resource path="res://sounds/SfxEat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://misc/fruitparticle.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -113,6 +114,23 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.12549, 0.411765, 0.619608, 1 ) ]
 }
 
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+gravity = Vector3( -200, 0, 0 )
+initial_velocity = 61.22
+angular_velocity = 8.38861e+06
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 3.0
+scale_curve = SubResource( 6 )
+color = Color( 0.992157, 0.00784314, 0.262745, 1 )
+
 [node name="giantstrawberry" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -161,6 +179,9 @@ position = Vector2( 200, 112.5 )
 texture = ExtResource( 6 )
 
 [node name="SfxEat" parent="." instance=ExtResource( 7 )]
+
+[node name="Particles2D" parent="." instance=ExtResource( 8 )]
+process_material = SubResource( 7 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="animation_finished" from="creditsplayer" to="." method="_on_creditsplayer_animation_finished"]

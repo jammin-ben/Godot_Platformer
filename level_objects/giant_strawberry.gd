@@ -8,6 +8,7 @@ func _ready():
 func _on_Area2D_area_entered(_area):
 	emit_signal("eaten", self.position)
 	$SfxEat.play_eat_sfx()
+	$Particles2D.emitting = true
 	$creditsplayer.play("credits")
 
 
@@ -17,4 +18,4 @@ func _on_creditsplayer_animation_finished(_anim_name):
 
 func _on_Area2D_area_exited(_area: Area2D) -> void:
 	$SfxEat.stop_eat_sfx()
-	pass # Replace with function body.
+	$Particles2D.emitting = false
