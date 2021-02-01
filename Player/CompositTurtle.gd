@@ -48,6 +48,10 @@ func on_turtle_emerged():
 # warning-ignore:unused_argument
 func set_flutter_group_to_active_turtle(flutter_group):
 	active_turtle.add_child(flutter_group)
+	if active_turtle is TurtleBall:
+		flutter_group.position -= turt_ball_offset
+	else:
+		flutter_group.position += turt_ball_offset
 
 
 # warning-ignore:unused_argument

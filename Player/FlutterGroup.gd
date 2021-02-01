@@ -5,6 +5,7 @@ const MAX_DISTANCE = 32
 var curr_max_distance = MAX_DISTANCE
 var carrying = false
 var original_xs = {}
+var _offset_applied = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +38,7 @@ func _process(delta):
 		child.position = child.position.clamped(curr_max_distance)
 		var parent = get_parent()
 		if parent is Turtle:
+			_offset_applied = false
 			if get_parent().get_sprite().flip_h:
 				bf.position.x = lerp(bf.position.x,-1*original_xs[bf],CONVERGE_SPEED*delta)
 			else:
