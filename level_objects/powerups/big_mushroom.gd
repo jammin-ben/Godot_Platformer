@@ -17,7 +17,13 @@ func _process(delta):
 func _on_Area2D_area_entered(_area):
 	being_eaten=true
 	$Particles2D.emitting=true
+	$SfxEat.play_eat_sfx()
 
 func _on_Area2D_area_exited(_area):
 	being_eaten=false
 	$Particles2D.emitting=false
+	$SfxEat.stop_eat_sfx()
+
+
+func _on_SfxEat_finished() -> void:
+	pass # Replace with function body.
