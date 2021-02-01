@@ -20,7 +20,7 @@ func _ready() -> void:
 	if powerup_trigger:
 		var powerup = get_node(powerup_trigger)
 		if (powerup is Powerup):
-			powerup.connect("powerup", self, "_conn_on_powerup_consumed")
+			powerup.connect("play_powerup_sfx", self, "_conn_on_powerup_consumed")
 		else:
 			printerr("powerup_trigger should point to a node of type Powerup")
 	$Timer.wait_time = timeout_seconds
