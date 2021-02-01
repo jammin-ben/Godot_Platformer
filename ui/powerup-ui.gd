@@ -10,7 +10,7 @@ var level_powerups = []
 func _ready():
 	level_powerups = get_tree().get_nodes_in_group(Globals.POWERUP_GROUP)
 	for powerup in level_powerups:
-		powerup.connect("powerup", self, "_conn_on_powerup_consumed")
+		powerup.connect("play_powerup_sfx", self, "_conn_on_powerup_consumed")
 	pass # Replace with function body.
 
 func _conn_on_powerup_consumed(powerup_name: String, powerup: Powerup):

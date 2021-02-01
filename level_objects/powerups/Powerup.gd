@@ -9,7 +9,7 @@ export(Texture) var ui_image
 export(Color, RGBA) var particle_color setget set_particle_color
 
 signal powerup(powerup_name, powerup)
-signal play_powerup_sfx()
+signal play_powerup_sfx(powerup_name,powerup)
 
 func _ready():
 	if ui_image:
@@ -30,4 +30,4 @@ func _conn_on_powerup_eaten():
 	emit_signal("powerup", powerup_name, self)
 
 func _on_AnimatedTexture_play_powerup_sfx():
-	emit_signal("play_powerup_sfx")
+	emit_signal("play_powerup_sfx", powerup_name, self)
