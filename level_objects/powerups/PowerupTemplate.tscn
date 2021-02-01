@@ -2,7 +2,7 @@
 
 [ext_resource path="res://level_objects/powerups/Powerup.gd" type="Script" id=1]
 [ext_resource path="res://level_objects/powerups/AnimatedTexture.gd" type="Script" id=2]
-[ext_resource path="res://sounds/munch_fuller.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/SfxEat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://misc/fruitparticle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/Blueberry.png" type="Texture" id=5]
 
@@ -42,7 +42,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=3]
 curve = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=6]
 flag_disable_z = true
 gravity = Vector3( -200, 0, 0 )
 initial_velocity = 61.22
@@ -70,15 +70,14 @@ hframes = 4
 script = ExtResource( 2 )
 particle_color = Color( 0, 0, 0, 1 )
 
-[node name="SfxEat" type="AudioStreamPlayer2D" parent="AnimatedTexture"]
-stream = ExtResource( 3 )
+[node name="SfxEat" parent="AnimatedTexture" instance=ExtResource( 3 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedTexture"]
 autoplay = "Hop"
 anims/Hop = SubResource( 1 )
 
 [node name="Particles2D" parent="AnimatedTexture" instance=ExtResource( 4 )]
-process_material = SubResource( 4 )
+process_material = SubResource( 6 )
 
 [node name="Area2D" type="Area2D" parent="AnimatedTexture"]
 collision_layer = 4
