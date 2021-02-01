@@ -16,7 +16,7 @@ func _ready() -> void:
 #	pass
 
 
-func _on_Area2D_area_entered(area: Area2D) -> void:
+func _on_Area2D_area_entered(_area: Area2D) -> void:
 	pass
 	#if area.get_parent().get_parent() is CompositeTurtle:
 	#	$FadeToBlack.fade()
