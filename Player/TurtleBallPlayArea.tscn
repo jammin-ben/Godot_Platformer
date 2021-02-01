@@ -33,6 +33,9 @@ ball_mode = true
 [node name="AnimationTree" parent="CompositTurtle/TurtleDefault" index="0"]
 parameters/playback = SubResource( 3 )
 
+[node name="Sprite" parent="CompositTurtle/TurtleDefault" index="1"]
+frame = 4
+
 [node name="PowerupFlutterJump" parent="." instance=ExtResource( 3 )]
 position = Vector2( 23.9737, -13.8237 )
 
