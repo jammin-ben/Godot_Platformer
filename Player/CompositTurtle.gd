@@ -171,3 +171,29 @@ func _on_CaveArea_area_exited(_area):
 			1
 		)
 		$GlowTween.start()
+
+
+func _on_giantstrawberry_eaten(_position):
+	light_can_fade=false
+	#lerp down
+	$GlowTween.interpolate_property(
+		$TurtleBall/Light2D,
+		"energy",
+		$TurtleBall/Light2D.energy,
+		1,
+		3,
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN_OUT,
+		1
+	)
+	$GlowTween.interpolate_property(
+		$TurtleDefault/Light2D,
+		"energy",
+		$TurtleDefault/Light2D.energy,
+		1,
+		3,
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN_OUT,
+		1
+	)
+	$GlowTween.start()
