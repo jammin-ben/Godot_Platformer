@@ -42,7 +42,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4824 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=3]
 curve = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=4]
 flag_disable_z = true
 gravity = Vector3( -200, 0, 0 )
 initial_velocity = 61.22
@@ -77,7 +77,7 @@ autoplay = "Hop"
 anims/Hop = SubResource( 1 )
 
 [node name="Particles2D" parent="AnimatedTexture" instance=ExtResource( 4 )]
-process_material = SubResource( 6 )
+process_material = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="AnimatedTexture"]
 collision_layer = 4
@@ -89,6 +89,7 @@ shape = SubResource( 5 )
 [node name="UIImage" type="Sprite" parent="."]
 visible = false
 [connection signal="eaten" from="AnimatedTexture" to="." method="_conn_on_powerup_eaten"]
+[connection signal="play_powerup_sfx" from="AnimatedTexture" to="." method="_on_AnimatedTexture_play_powerup_sfx"]
 [connection signal="finished" from="AnimatedTexture/SfxEat" to="AnimatedTexture" method="_conn_on_eat_sfx_finished"]
 [connection signal="area_entered" from="AnimatedTexture/Area2D" to="AnimatedTexture" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="AnimatedTexture/Area2D" to="AnimatedTexture" method="_on_Area2D_area_exited"]

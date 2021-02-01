@@ -10,6 +10,7 @@ var eater = null
 var _can_free = false
 
 signal eaten()
+signal play_powerup_sfx()
 
 export var particle_color = Color(1,0,0,1)
 export var eat_sfx_pitch_scale_range = Vector2(0.9, 1.1)
@@ -59,5 +60,7 @@ func queue_free_on_sfx_ended():
 
 func _conn_on_eat_sfx_finished() -> void:
 	if _can_free:
+		emit_signal("play_powerup_sfx")
 		get_parent().queue_free()
+		
 	randomize_eat_sfx_pitch_scale()

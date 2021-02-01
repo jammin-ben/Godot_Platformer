@@ -9,6 +9,7 @@ export(Texture) var ui_image
 export(Color, RGBA) var particle_color setget set_particle_color
 
 signal powerup(powerup_name, powerup)
+signal play_powerup_sfx()
 
 func _ready():
 	if ui_image:
@@ -20,12 +21,13 @@ func set_animated_texture(value: Texture):
 	if Engine.editor_hint and has_node("AnimatedTexture"):
 		$AnimatedTexture.texture = value
 
-	
 func set_particle_color(value: Color):
 	if Engine.editor_hint and has_node("AnimatedTexture/Particles2D"):
 		$AnimatedTexture.particle_color = value
 	particle_color = value
 
-
 func _conn_on_powerup_eaten():
 	emit_signal("powerup", powerup_name, self)
+
+func _on_AnimatedTexture_play_powerup_sfx():
+	emit_signal("play_powerup_sfx")
