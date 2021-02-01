@@ -888,7 +888,7 @@ tile_data = PoolIntArray( -11468593, 1, 1, -10944307, 1, 4, -10813233, 1, 1, -10
 position = Vector2( -458, -173 )
 
 [node name="TurtleDefault" parent="CompositTurtle" index="0"]
-position = Vector2( -60, -19 )
+position = Vector2( 2711, 936 )
 ball_mode = true
 wall_jump = true
 flutter_jump = true
@@ -1202,10 +1202,12 @@ script = ExtResource( 49 )
 [connection signal="powerup" from="PowerupBallMode" to="powerup_sfx" method="_on_PowerupBallMode_powerup"]
 [connection signal="powerup" from="PowerupFlutterJump" to="powerup_sfx" method="_on_PowerupFlutterJump_powerup"]
 [connection signal="powerup" from="PowerupWallJump" to="powerup_sfx" method="_on_PowerupWallJump_powerup"]
-[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
+[connection signal="area_entered" from="Music_Layerer/CaveArea" to="CompositTurtle" method="_on_CaveArea_area_entered"]
+[connection signal="area_exited" from="Music_Layerer/CaveArea" to="CompositTurtle" method="_on_CaveArea_area_exited"]
 [connection signal="credits_done" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_credits_done"]
-[connection signal="eaten" from="giantstrawberry" to="Cave Dimmer" method="_on_giantstrawberry_eaten"]
+[connection signal="credits_done" from="giantstrawberry" to="Music_Layerer" method="_on_giantstrawberry_credits_done"]
 [connection signal="eaten" from="giantstrawberry" to="Camera2D" method="_on_giantstrawberry_eaten"]
+[connection signal="eaten" from="giantstrawberry" to="Cave Dimmer" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="ParallaxBackground" method="_on_giantstrawberry_eaten"]
 [connection signal="eaten" from="giantstrawberry" to="endgamemusic" method="_on_giantstrawberry_eaten"]
 [connection signal="mushroom_eaten" from="big_mushroom" to="CompositTurtle" method="_on_big_mushroom_mushroom_eaten"]

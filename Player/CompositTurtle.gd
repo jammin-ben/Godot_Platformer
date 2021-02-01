@@ -14,6 +14,8 @@ onready var turt_default = $TurtleDefault
 onready var turt_ball = $TurtleBall
 onready var active_turtle = turt_default
 
+var light_can_fade = true #turned false at end of game
+
 var level_powerups = []
 
 
@@ -144,3 +146,28 @@ func _on_eat_giant_strawberry(area):
 func _on_big_mushroom_mushroom_eaten():
 	$TurtleBall/Light2D.enabled=true
 	$TurtleDefault/Light2D.enabled=true
+
+func _on_CaveArea_area_exited(_area):
+	if(light_can_fade and $TurtleDefault/Light2D.enabled):
+		#lerp down
+		$GlowTween.interpolate_property(
+			$TurtleBall/Light2D,
+			"energy",
+			$TurtleBall/Light2D.energy,
+			0,
+			3,
+			Tween.TRANS_LINEAR,
+			Tween.EASE_IN_OUT,
+			1
+		)
+		$GlowTween.interpolate_property(
+			$TurtleDefault/Light2D,
+			"energy",
+			$TurtleDefault/Light2D.energy,
+			0,
+			3,
+			Tween.TRANS_LINEAR,
+			Tween.EASE_IN_OUT,
+			1
+		)
+		$GlowTween.start()
